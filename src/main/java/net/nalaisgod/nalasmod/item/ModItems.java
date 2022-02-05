@@ -11,6 +11,11 @@ public class ModItems {
     public static final Item ORIGINITE_INGOT = registerItem("originite_ingot",
             new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
+    public static final Item ORIGINITE_NUGGET = registerItem("originite_nugget",
+            new Item(new FabricItemSettings().group(ItemGroup.MISC)));
+
+    public static final Item RAW_ORIGINITE = registerItem("raw_originite",
+            new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
 
     private static Item registerItem(String name, Item item) {
