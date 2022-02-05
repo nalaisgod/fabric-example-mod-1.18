@@ -2,12 +2,17 @@
   "item.nalasmod.originite_ingot": "Originite Ingot",
   "item.nalasmod.originite_nugget": "Originite Nugget",
   "item.nalasmod.raw_originite": "Raw Originite",
+  "item.nalasmod.dowsing_rod": "Dowsing Rod",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",
   "block.nalasmod.end_originite_ore": "End Originite Ore",
   "block.nalasmod.deepslate_originite_ore": "Deepslate Originite Ore",
   "block.nalasmod.nether_originite_ore": "Nether Originite Ore",
+  "block.nalasmod.raw_originite_block": "Raw Originite Block",
+  "block.nalasmod.speedy_block": "Speedy Block",
 
-  "itemGroup.nalasmod.originite": "Originite Nalas Tab"
+  "itemGroup.nalasmod.originite": "Originite Nalas Tab",
+
+  "item.nalasmod.dowsing_rod.no_valuables": "no valuables found"
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " * ",
+    "# #"
+  ],
+  "key": {
+    "*": {
+      "item": "nalasmod:raw_originite"
+    },
+    "#": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "nalasmod:dowsing_rod"
+  }
+}

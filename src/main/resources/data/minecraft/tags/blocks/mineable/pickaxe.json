@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "nalasmod:originite_ore",
+    "nalasmod:deepslate_originite_ore",
+    "nalasmod:nether_originite_ore",
+    "nalasmod:end_originite_ore",
+    "nalasmod:originite_block",
+    "nalasmod:raw_originite_block"
+  ]
+}

@@ -6,6 +6,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.NalasMod;
+import net.nalaisgod.nalasmod.item.custom.DowsingRodItem;
 
 public class ModItems {
     public static final Item ORIGINITE_INGOT = registerItem("originite_ingot",
@@ -16,6 +17,9 @@ public class ModItems {
 
     public static final Item RAW_ORIGINITE = registerItem("raw_originite",
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item DOWSING_ROD = registerItem("dowsing_rod",
+            new DowsingRodItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxDamage(16)));
 
 
     private static Item registerItem(String name, Item item) {

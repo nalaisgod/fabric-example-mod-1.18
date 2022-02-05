@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "nalasmod:raw_originite_block"
+    }
+  ],
+  "result": {
+    "item": "nalasmod:originite_raw",
+    "count": 9
+  }
+}

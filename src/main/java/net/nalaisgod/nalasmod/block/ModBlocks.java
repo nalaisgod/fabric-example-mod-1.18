@@ -10,6 +10,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.minecraft.util.registry.Registry;
+import net.nalaisgod.nalasmod.block.custom.SpeedyBlock;
 import net.nalaisgod.nalasmod.item.ModItemGroup;
 
 public class ModBlocks {
@@ -21,13 +22,19 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.STONE).strength(4.5f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block DEEPSLATE_ORIGINITE_ORE = registerBlock("deepslate_originite_ore",
-            new Block(FabricBlockSettings.of(Material.STONE).strength(4.5f).requiresTool()), ModItemGroup.ORIGINITE);
+            new Block(FabricBlockSettings.of(Material.STONE).strength(5.5f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block END_ORIGINITE_ORE = registerBlock("end_originite_ore",
             new Block(FabricBlockSettings.of(Material.STONE).strength(4.5f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block NETHER_ORIGINITE_ORE = registerBlock("nether_originite_ore",
             new Block(FabricBlockSettings.of(Material.STONE).strength(4.5f).requiresTool()), ModItemGroup.ORIGINITE);
+
+    public static final Block RAW_ORIGINITE_BLOCK = registerBlock("raw_originite_block",
+            new Block(FabricBlockSettings.of(Material.METAL).strength(6f).requiresTool()), ModItemGroup.ORIGINITE);
+
+    public static final Block SPEEDY_BLOCK = registerBlock("speedy_block",
+            new SpeedyBlock(FabricBlockSettings.of(Material.METAL).strength(6f).requiresTool()), ModItemGroup.ORIGINITE);
 
 
     private static Block registerBlock(String name, Block block, ItemGroup group) {
