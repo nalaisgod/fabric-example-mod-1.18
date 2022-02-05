@@ -1,6 +1,7 @@
 package net.nalaisgod.nalasmod;
 
 import net.fabricmc.api.ModInitializer;
+import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ public class NalasMod implements ModInitializer {
 	public void onInitialize() {
 
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 
 	}
 }

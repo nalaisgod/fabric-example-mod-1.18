@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "nalasmod:originite_block"
+    }
+  ],
+  "result": {
+    "item": "nalasmod:originite_ingot",
+    "count": 9
+  }
+}

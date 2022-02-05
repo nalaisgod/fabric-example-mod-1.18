@@ -9,13 +9,13 @@ import net.nalaisgod.nalasmod.NalasMod;
 
 public class ModItems {
     public static final Item ORIGINITE_INGOT = registerItem("originite_ingot",
-            new Item(new FabricItemSettings().group(ItemGroup.MISC)));
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_NUGGET = registerItem("originite_nugget",
-            new Item(new FabricItemSettings().group(ItemGroup.MISC)));
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item RAW_ORIGINITE = registerItem("raw_originite",
-            new Item(new FabricItemSettings().group(ItemGroup.MISC)));
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
 
     private static Item registerItem(String name, Item item) {
