@@ -21,6 +21,12 @@ public class ModItems {
     public static final Item DOWSING_ROD = registerItem("dowsing_rod",
             new DowsingRodItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxDamage(16)));
 
+    public static final Item FLOWER_FOR_ALL = registerItem("flower_for_all",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item SUBSTANCE = registerItem("substance",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).food(ModFoodComponents.SUBSTANCE)));
+
 
     private static Item registerItem(String name, Item item) {
        return Registry.register(Registry.ITEM, new Identifier(NalasMod.MOD_ID, name), item);
