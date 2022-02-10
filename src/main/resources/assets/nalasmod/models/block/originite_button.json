@@ -1,0 +1,6 @@
+{
+  "parent": "block/button",
+  "textures": {
+    "texture": "nalasmod:block/originite_block"
+  }
+}

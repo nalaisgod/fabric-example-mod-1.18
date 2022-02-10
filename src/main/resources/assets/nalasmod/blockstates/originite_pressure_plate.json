@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model": "nalasmod:block/originite_pressure_plate" },
+    "powered=true": { "model": "nalasmod:block/originite_pressure_plate_down" }
+  }
+}

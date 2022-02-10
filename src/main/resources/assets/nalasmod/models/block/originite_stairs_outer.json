@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "nalasmod:block/originite_block",
+    "top": "nalasmod:block/originite_block",
+    "side": "nalasmod:block/originite_block"
+  }
+}

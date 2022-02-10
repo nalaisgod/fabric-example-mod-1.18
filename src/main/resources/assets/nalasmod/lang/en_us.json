@@ -13,8 +13,18 @@
   "block.nalasmod.nether_originite_ore": "Nether Originite Ore",
   "block.nalasmod.raw_originite_block": "Raw Originite Block",
   "block.nalasmod.speedy_block": "Speedy Block",
+  "block.nalasmod.originite_stairs": "Originite Stairs",
+  "block.nalasmod.originite_slab": "Originite Slab",
+  "block.nalasmod.originite_button": "Originite Button",
+  "block.nalasmod.originite_pressure_plate": "Originite Pressure Plate",
 
   "itemGroup.nalasmod.originite": "Originite Nalas Tab",
 
-  "item.nalasmod.dowsing_rod.no_valuables": "no valuables found"
+  "item.nalasmod.dowsing_rod.no_valuables": "No Valuables Found",
+  "item.nalasmod.dowsing_rod.tooltip.shift": "by using this item you give nalaisgod permission to steal all you diamonds in game also money and also Right Click For Valuables at your y axis 16 uses",
+  "item.nalasmod.dowsing_rod.tooltip": "press SHIFT For More Info",
+
+
+  "tooltip.nalasmod.originite_block": "A magical block",
+  "tooltip.nalasmod.speedy_block": "A SPEEEEEEEEEEEEEEEEEEEEEEEEEEEEDY block"
 }

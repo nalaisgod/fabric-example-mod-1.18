@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "nalasmod:block/originite_slab"
+    },
+    "type=double": {
+      "model": "nalasmod:block/originite_block"
+    },
+    "type=top": {
+      "model": "nalasmod:block/originite_slab_top"
+    }
+  }
+}
