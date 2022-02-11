@@ -6,6 +6,13 @@
     "nalasmod:nether_originite_ore",
     "nalasmod:end_originite_ore",
     "nalasmod:originite_block",
-    "nalasmod:raw_originite_block"
+    "nalasmod:raw_originite_block",
+    "nalasmod:originite_button",
+    "nalasmod:originite_slab",
+    "nalasmod:originite_stairs",
+    "nalasmod:originite_pressure_plate",
+    "nalasmod:originite_fence",
+    "nalasmod:originite_fence_gate",
+    "nalasmod:originite_wall"
   ]
 }

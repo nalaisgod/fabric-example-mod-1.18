@@ -1,8 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "###",
     "###"
   ],
   "key": {
@@ -11,6 +9,7 @@
     }
   },
   "result": {
-    "item": "nalasmod:originite_block"
+    "item": "nalasmod:originite_slab",
+    "count": 12
   }
 }

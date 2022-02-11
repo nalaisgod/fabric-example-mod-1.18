@@ -1,16 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "#"
   ],
   "key": {
     "#": {
-      "tag": "c:originite_ingot"
+      "item": "nalasmod:raw_originite"
     }
   },
   "result": {
-    "item": "nalasmod:originite_block"
+    "item": "nalasmod:originite_button",
+    "count": 10
   }
 }

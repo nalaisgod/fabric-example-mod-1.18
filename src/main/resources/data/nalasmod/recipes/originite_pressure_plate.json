@@ -1,9 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "##"
   ],
   "key": {
     "#": {
@@ -11,6 +9,7 @@
     }
   },
   "result": {
-    "item": "nalasmod:originite_block"
+    "item": "nalasmod:originite_pressure_plate",
+    "count": 5
   }
 }

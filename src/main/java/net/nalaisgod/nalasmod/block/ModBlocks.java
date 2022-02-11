@@ -24,7 +24,7 @@ import java.util.List;
 public class ModBlocks {
 
     public static final Block ORIGINITE_BLOCK = registerBlock("originite_block",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(6f).requiresTool()),
+            new Block(FabricBlockSettings.of(Material.METAL).strength(150f).requiresTool()),
             ModItemGroup.ORIGINITE, "tooltip.nalasmod.originite_block");
 
     public static final Block ORIGINITE_ORE = registerBlock("originite_ore",
@@ -63,10 +63,10 @@ public class ModBlocks {
             new FenceBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ORIGINITE_FENCE_GATE = registerBlock("originite_fence_gate",
-            new FenceGateBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
+            new FenceGateBlock(FabricBlockSettings.of(Material.METAL).strength(2.0f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ORIGINITE_WALL = registerBlock("originite_wall",
-            new WallBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
+            new WallBlock(FabricBlockSettings.of(Material.METAL).strength(2.0f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block SOUL_BLOSSOM_DOOR = registerBlock("soul_blossom_door",
             new ModDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(4.0f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
