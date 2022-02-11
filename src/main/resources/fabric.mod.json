@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "net.nalaisgod.nalasmod.NalasMod"
+    ],
+    "client": [
+      "net.nalaisgod.nalasmod.NalasModClient"
     ]
   },
   "mixins": [

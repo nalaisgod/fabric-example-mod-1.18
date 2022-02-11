@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top",
+  "textures": {
+    "top": "nalasmod:block/soul_blossom_door_top",
+    "bottom": "nalasmod:block/soul_blossom_door_bottom"
+  }
+}

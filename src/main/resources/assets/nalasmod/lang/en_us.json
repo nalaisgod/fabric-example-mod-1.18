@@ -17,6 +17,11 @@
   "block.nalasmod.originite_slab": "Originite Slab",
   "block.nalasmod.originite_button": "Originite Button",
   "block.nalasmod.originite_pressure_plate": "Originite Pressure Plate",
+  "block.nalasmod.originite_fence": "Originite Fence",
+  "block.nalasmod.originite_fence_gate": "Originite Fence Gate",
+  "block.nalasmod.originite_wall": "Originite Wall",
+  "block.nalasmod.soul_blossom_door": "Soul Blossom Door",
+  "block.nalasmod.soul_blossom_trapdoor": "Soul Blossom Trapdoor",
 
   "itemGroup.nalasmod.originite": "Originite Nalas Tab",
 

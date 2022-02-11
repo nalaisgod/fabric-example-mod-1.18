@@ -14,10 +14,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.minecraft.util.registry.Registry;
-import net.nalaisgod.nalasmod.block.custom.ModPressurePlateBlock;
-import net.nalaisgod.nalasmod.block.custom.ModStairsBlock;
-import net.nalaisgod.nalasmod.block.custom.ModStoneButtonBlock;
-import net.nalaisgod.nalasmod.block.custom.SpeedyBlock;
+import net.nalaisgod.nalasmod.block.custom.*;
 import net.nalaisgod.nalasmod.item.ModItemGroup;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.system.CallbackI;
@@ -70,6 +67,12 @@ public class ModBlocks {
 
     public static final Block ORIGINITE_WALL = registerBlock("originite_wall",
             new WallBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
+
+    public static final Block SOUL_BLOSSOM_DOOR = registerBlock("soul_blossom_door",
+            new ModDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(4.0f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
+
+    public static final Block SOUL_BLOSSOM_TRAPDOOR = registerBlock("soul_blossom_trapdoor",
+            new ModTrapdoorBlock(FabricBlockSettings.of(Material.WOOD).strength(4.0f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
     registerBlockItem(name, block, group, tooltipKey);

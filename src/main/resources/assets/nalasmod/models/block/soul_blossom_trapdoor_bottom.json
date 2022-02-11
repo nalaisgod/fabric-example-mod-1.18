@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_trapdoor_bottom",
+  "textures": {
+    "texture": "nalasmod:block/soul_blossom_trapdoor"
+  }
+}
