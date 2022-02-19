@@ -7,6 +7,15 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "nalasmod:soul_blossom_door",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
           "name": "nalasmod:soul_blossom_door"
         }
       ],

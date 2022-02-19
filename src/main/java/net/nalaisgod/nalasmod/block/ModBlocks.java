@@ -74,6 +74,10 @@ public class ModBlocks {
     public static final Block SOUL_BLOSSOM_TRAPDOOR = registerBlock("soul_blossom_trapdoor",
             new ModTrapdoorBlock(FabricBlockSettings.of(Material.WOOD).strength(4.0f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
 
+    public static final Block ORIGINITE_LAMP = registerBlock("originite_lamp",
+            new OriginiteLampBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()
+                    .luminance((state) -> state.get(OriginiteLampBlock.CLICKED) ? 15 : 0)), ModItemGroup.ORIGINITE);
+
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
     registerBlockItem(name, block, group, tooltipKey);
     return Registry.register(Registry.BLOCK, new Identifier(NalasMod.MOD_ID, name), block);

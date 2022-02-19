@@ -5,6 +5,20 @@
   "item.nalasmod.dowsing_rod": "Dowsing Rod",
   "item.nalasmod.flower_for_all": "Flower For All",
   "item.nalasmod.substance": "SUBSTANCE",
+  "item.nalasmod.originite_axe": "Originite Axe",
+  "item.nalasmod.originite_hoe": "Originite Hoe",
+  "item.nalasmod.originite_shovel": "Originite Shovel",
+  "item.nalasmod.originite_sword": "Originite Sword",
+  "item.nalasmod.originite_pickaxe": "Originite Pickaxe",
+  "item.nalasmod.originite_paxel": "PAXEL123 BETA VERSION",
+  "item.nalasmod.soul_sword": "Soul Bane Sword",
+
+  "item.nalasmod.originite_helmet": "Originite Helmet",
+  "item.nalasmod.originite_chestplate": "Originite Chestplate",
+  "item.nalasmod.originite_leggings": "Originite Leggings",
+  "item.nalasmod.originite_boots": "Originite Boots",
+
+  "item.nalasmod.originite_horse_armor": "Originite Horse Armor",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",
@@ -22,6 +36,7 @@
   "block.nalasmod.originite_wall": "Originite Wall",
   "block.nalasmod.soul_blossom_door": "Soul Blossom Door",
   "block.nalasmod.soul_blossom_trapdoor": "Soul Blossom Trapdoor",
+  "block.nalasmod.originite_lamp": "Originite Lamp",
 
   "itemGroup.nalasmod.originite": "Originite Nalas Tab",
 
@@ -31,5 +46,8 @@
 
 
   "tooltip.nalasmod.originite_block": "A magical block",
-  "tooltip.nalasmod.speedy_block": "A SPEEEEEEEEEEEEEEEEEEEEEEEEEEEEDY block"
+  "tooltip.nalasmod.speedy_block": "A SPEEEEEEEEEEEEEEEEEEEEEEEEEEEEDY block",
+
+  "enchantment.nalasmod.lightning_striker": "Lightning Striker",
+  "enchantment.nalasmod.cannon_shot": "Bat"
 }

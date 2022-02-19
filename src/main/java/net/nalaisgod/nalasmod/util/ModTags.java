@@ -11,6 +11,8 @@ public class ModTags {
     public static class Blocks {
         public static final Tag.Identified<Block> DOWSING_ROD_DETECTABLE_BLOCKS =
                 createTag("dowsing_rod_detectable_blocks");
+        public static final Tag.Identified<Block> PAXEL_MINEABLE =
+                createTag("mineable/paxel");
 
         private static Tag.Identified<Block> createTag(String name) {
             return TagFactory.BLOCK.create(new Identifier(NalasMod.MOD_ID, name));
