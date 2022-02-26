@@ -8,12 +8,17 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.nalaisgod.nalasmod.item.ModItems;
+import net.nalaisgod.nalasmod.sound.ModSounds;
+import net.nalaisgod.nalasmod.util.InventoryUtil;
 import net.nalaisgod.nalasmod.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,8 +40,17 @@ public class DowsingRodItem extends Item {
                 Block blockBelow = context.getWorld().getBlockState(positionClicked.down(i)).getBlock();
 
                 if(isValuableBlock(blockBelow)) {
-                    outputValuableCoordinates(positionClicked.down(i), player, blockBelow);
+                    outputValuableCoordinates(positionClicked.add(0, -i, 0), player, blockBelow);
                     foundBlock = true;
+
+
+                    if(InventoryUtil.hasPlayerStackInInventory(player, ModItems.DATA_TABLET)){
+                        addNbtToDataTablet(player, positionClicked.add(0, -i,0), blockBelow);
+                    }
+
+                    context.getWorld().playSound(player, positionClicked, ModSounds.DOWSING_ROD_FOUND_ORE,
+                            SoundCategory.BLOCKS,1f,1f);
+
                     break;
                 }
             }
@@ -50,6 +64,18 @@ public class DowsingRodItem extends Item {
                 (player) -> player.sendToolBreakStatus(player.getActiveHand()));
 
         return super.useOnBlock(context);
+    }
+
+
+    private void addNbtToDataTablet(PlayerEntity player, BlockPos pos, Block blockBelow) {
+        ItemStack dataTablet =
+                player.getInventory().getStack(InventoryUtil.getFirstInventoryIndex(player, ModItems.DATA_TABLET));
+
+        NbtCompound nbtData = new NbtCompound();
+        nbtData.putString("nalasmod.last_ore", "Found " + blockBelow.asItem().getName().getString() + " at (" +
+                pos.getX() + ", "+ pos.getY() + ", "+ pos.getZ() + ")");
+
+        dataTablet.setNbt(nbtData);
     }
 
     @Override

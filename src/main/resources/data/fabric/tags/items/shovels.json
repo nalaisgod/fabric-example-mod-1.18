@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "nalasmod:originite_shovel"
+    "nalasmod:originite_shovel",
+    "nalasmod:soul_shovel"
   ]
 }

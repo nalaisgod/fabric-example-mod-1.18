@@ -6,6 +6,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.NalasMod;
+import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.item.custom.*;
 
 public class ModItems {
@@ -20,9 +21,6 @@ public class ModItems {
 
     public static final Item DOWSING_ROD = registerItem("dowsing_rod",
             new DowsingRodItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxDamage(16)));
-
-    public static final Item FLOWER_FOR_ALL = registerItem("flower_for_all",
-            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item SUBSTANCE = registerItem("substance",
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).food(ModFoodComponents.SUBSTANCE)));
@@ -52,7 +50,7 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item SOUL_SWORD = registerItem("soul_sword",
-            new ModHealingSwordItem(ModToolMaterial.ORIGINITE, 5, -2f,
+            new ModHealingSwordItem(ModToolMaterial.SOUL, 7, -3f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_HELMET = registerItem("originite_helmet",
@@ -73,6 +71,28 @@ public class ModItems {
 
     public static final Item ORIGINITE_HORSE_ARMOR = registerItem("originite_horse_armor",
             new HorseArmorItem( 15, "originite",
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item DATA_TABLET = registerItem("data_tablet",
+            new DataTabletItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
+
+    public static final Item APPLE_CORE = registerItem("apple_core",
+            new AliasedBlockItem(ModBlocks.APPLE_TREE, new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item SOUL_PICKAXE = registerItem("soul_pickaxe",
+            new ModPickaxeItem(ModToolMaterial.SOUL, 8, -3.3f,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item SOUL_AXE = registerItem("soul_axe",
+            new ModAxeItem(ModToolMaterial.SOUL, 11, -3.5f,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item SOUL_SCYTHE = registerItem("soul_scythe",
+            new ModNauseaHoeItem(ModToolMaterial.SOUL, 15, -3.9f,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item SOUL_SHOVEL = registerItem("soul_shovel",
+            new ShovelItem(ModToolMaterial.SOUL, 7, -3.6f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
 

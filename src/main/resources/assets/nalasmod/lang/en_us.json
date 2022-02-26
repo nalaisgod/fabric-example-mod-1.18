@@ -3,7 +3,6 @@
   "item.nalasmod.originite_nugget": "Originite Nugget",
   "item.nalasmod.raw_originite": "Raw Originite",
   "item.nalasmod.dowsing_rod": "Dowsing Rod",
-  "item.nalasmod.flower_for_all": "Flower For All",
   "item.nalasmod.substance": "SUBSTANCE",
   "item.nalasmod.originite_axe": "Originite Axe",
   "item.nalasmod.originite_hoe": "Originite Hoe",
@@ -12,6 +11,10 @@
   "item.nalasmod.originite_pickaxe": "Originite Pickaxe",
   "item.nalasmod.originite_paxel": "PAXEL123 BETA VERSION",
   "item.nalasmod.soul_sword": "Soul Bane Sword",
+  "item.nalasmod.soul_axe": "Soul HeadCrusher",
+  "item.nalasmod.soul_scythe": "Death Scythe",
+  "item.nalasmod.soul_shovel": "Grave Diggers Shovel",
+  "item.nalasmod.soul_pickaxe": "Soul Carver",
 
   "item.nalasmod.originite_helmet": "Originite Helmet",
   "item.nalasmod.originite_chestplate": "Originite Chestplate",
@@ -19,6 +22,9 @@
   "item.nalasmod.originite_boots": "Originite Boots",
 
   "item.nalasmod.originite_horse_armor": "Originite Horse Armor",
+  "item.nalasmod.data_tablet": "Data Tablet",
+
+  "item.nalasmod.apple_core": "Apple Core",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",
@@ -37,6 +43,9 @@
   "block.nalasmod.soul_blossom_door": "Soul Blossom Door",
   "block.nalasmod.soul_blossom_trapdoor": "Soul Blossom Trapdoor",
   "block.nalasmod.originite_lamp": "Originite Lamp",
+  "block.nalasmod.apple_tree": "Apple Tree",
+  "block.nalasmod.flower_for_all": "Flower For All",
+  "block.nalasmod.potted_flower_for_all": "Potted Flower For All",
 
   "itemGroup.nalasmod.originite": "Originite Nalas Tab",
 

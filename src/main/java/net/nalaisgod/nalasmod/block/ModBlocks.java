@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -77,6 +78,24 @@ public class ModBlocks {
     public static final Block ORIGINITE_LAMP = registerBlock("originite_lamp",
             new OriginiteLampBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()
                     .luminance((state) -> state.get(OriginiteLampBlock.CLICKED) ? 15 : 0)), ModItemGroup.ORIGINITE);
+
+    public static final Block APPLE_TREE = registerBlockWithoutBlockItem("apple_tree",
+            new ModAppleBlock(FabricBlockSettings.copy(Blocks.BEETROOTS)));
+
+    public static final Block FLOWER_FOR_ALL = registerBlock("flower_for_all",
+            new FlowerBlock(StatusEffects.LEVITATION, 5,
+                    FabricBlockSettings.copy(Blocks.PINK_TULIP)), ModItemGroup.ORIGINITE);
+
+    public static final Block POTTED_FLOWER_FOR_ALL = registerBlockWithoutBlockItem("potted_flower_for_all",
+            new FlowerPotBlock(ModBlocks.FLOWER_FOR_ALL, FabricBlockSettings.copy(Blocks.POTTED_ALLIUM)));
+
+
+
+
+
+    private static Block registerBlockWithoutBlockItem(String name, Block block) {
+        return Registry.register(Registry.BLOCK, new Identifier(NalasMod.MOD_ID, name), block);
+    }
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
     registerBlockItem(name, block, group, tooltipKey);

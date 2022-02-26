@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "nalasmod:originite_pickaxe"
+    "nalasmod:originite_pickaxe",
+    "nalasmod:soul_pickaxe"
   ]
 }

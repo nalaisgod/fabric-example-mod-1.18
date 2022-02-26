@@ -10,7 +10,9 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum ModToolMaterial implements ToolMaterial {
-    ORIGINITE(MiningLevels.NETHERITE, 750, 10.0f, 0.5f, 25, () -> Ingredient.ofItems(ModItems.ORIGINITE_INGOT));
+    ORIGINITE(MiningLevels.IRON, 750, 10.0f, 0.5f, 25, () -> Ingredient.ofItems(ModItems.ORIGINITE_INGOT)),
+    SOUL(MiningLevels.NETHERITE, 100000, 4.9f, 0.5f, 2, () -> Ingredient.ofItems(ModItems.ORIGINITE_INGOT));
+
 
     private final int miningLevel;
     private final int itemDurability;

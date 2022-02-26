@@ -1,0 +1,8 @@
+{
+  "dowsing_rod_found_ore": {
+    "subtitle": "nalasmod.dowsing_rod_found_ore",
+    "sounds": [
+      "nalasmod:dowsing_rod_found_ore"
+    ]
+  }
+}

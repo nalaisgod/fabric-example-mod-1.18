@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "nalasmod:block/flower_for_all"
+    "layer0": "nalasmod:item/apple_core"
   }
 }
