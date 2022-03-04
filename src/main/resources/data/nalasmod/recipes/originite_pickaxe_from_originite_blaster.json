@@ -1,0 +1,14 @@
+{
+  "type": "nalasmod:originite_blaster",
+  "ingredients": [
+    {
+      "item": "minecraft:golden_pickaxe"
+    },
+    {
+      "item": "nalasmod:originite_ingot"
+    }
+  ],
+  "output": {
+    "item": "nalasmod:originite_pickaxe"
+  }
+}

@@ -15,16 +15,18 @@
   "item.nalasmod.soul_scythe": "Death Scythe",
   "item.nalasmod.soul_shovel": "Grave Diggers Shovel",
   "item.nalasmod.soul_pickaxe": "Soul Carver",
-
+  "item.nalasmod.bar_brawl_music_disc": "Bar Brawl Music Disc",
+  "item.nalasmod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
+  "item.nalasmod.staff_of_the_orb": "Overseer O'thyne Orb",
   "item.nalasmod.originite_helmet": "Originite Helmet",
   "item.nalasmod.originite_chestplate": "Originite Chestplate",
   "item.nalasmod.originite_leggings": "Originite Leggings",
   "item.nalasmod.originite_boots": "Originite Boots",
-
   "item.nalasmod.originite_horse_armor": "Originite Horse Armor",
   "item.nalasmod.data_tablet": "Data Tablet",
-
   "item.nalasmod.apple_core": "Apple Core",
+  "item.nalasmod.orb_bow": "OrBow",
+  "item.nalasmod.honey_bucket": "Honey Bucket",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",
@@ -46,6 +48,7 @@
   "block.nalasmod.apple_tree": "Apple Tree",
   "block.nalasmod.flower_for_all": "Flower For All",
   "block.nalasmod.potted_flower_for_all": "Potted Flower For All",
+  "block.nalasmod.originite_blaster": "Originite Blaster",
 
   "itemGroup.nalasmod.originite": "Originite Nalas Tab",
 

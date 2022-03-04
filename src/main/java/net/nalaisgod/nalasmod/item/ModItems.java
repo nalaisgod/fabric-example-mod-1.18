@@ -3,11 +3,14 @@ package net.nalaisgod.nalasmod.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.nalaisgod.nalasmod.block.ModBlocks;
+import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.custom.*;
+import net.nalaisgod.nalasmod.sound.ModSounds;
 
 public class ModItems {
     public static final Item ORIGINITE_INGOT = registerItem("originite_ingot",
@@ -95,6 +98,17 @@ public class ModItems {
             new ShovelItem(ModToolMaterial.SOUL, 7, -3.6f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
+    public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
+            new ModMusicDiscItem(9, ModSounds.BAR_BRAWL,new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
+
+    public static final Item STAFF_OF_THE_ORB = registerItem("staff_of_the_orb",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
+
+    public static final Item ORB_BOW = registerItem("orb_bow",
+            new ModGunBowItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
+
+    public static final Item HONEY_BUCKET = registerItem("honey_bucket",
+            new BucketItem(ModFluids.HONEY_STILL, new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
 
 
 

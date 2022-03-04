@@ -13,7 +13,8 @@ public class ModNauseaHoeItem extends HoeItem {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        target.setVelocity(0,1.25,0);
+        target.setVelocity(0,0.75,0);
         return super.postHit(stack, target, attacker);
     }
+
 }

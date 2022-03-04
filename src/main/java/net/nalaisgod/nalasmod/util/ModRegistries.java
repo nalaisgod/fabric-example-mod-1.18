@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.ComposterBlock;
 import net.nalaisgod.nalasmod.NalasMod;
+import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.command.ReturnHomeCommand;
 import net.nalaisgod.nalasmod.command.SetHomeCommand;
 import net.nalaisgod.nalasmod.event.ModPlayerEventCopyFrom;
@@ -24,7 +25,7 @@ public class ModRegistries {
         NalasMod.LOGGER.info("Registering Fuels For" + NalasMod.MOD_ID);
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
-        registry.add(ModItems.APPLE_CORE, 200);
+        registry.add(ModItems.HONEY_BUCKET, 200);
 
     }
 

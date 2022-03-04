@@ -16,7 +16,9 @@ import net.minecraft.world.World;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.block.custom.*;
+import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.ModItemGroup;
+import net.nalaisgod.nalasmod.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.system.CallbackI;
 
@@ -77,7 +79,7 @@ public class ModBlocks {
 
     public static final Block ORIGINITE_LAMP = registerBlock("originite_lamp",
             new OriginiteLampBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()
-                    .luminance((state) -> state.get(OriginiteLampBlock.CLICKED) ? 15 : 0)), ModItemGroup.ORIGINITE);
+                    .luminance((state) -> state.get(OriginiteLampBlock.CLICKED) ? 15 : 0).sounds(ModSounds.ORIGINITE_SOUNDS)), ModItemGroup.ORIGINITE);
 
     public static final Block APPLE_TREE = registerBlockWithoutBlockItem("apple_tree",
             new ModAppleBlock(FabricBlockSettings.copy(Blocks.BEETROOTS)));
@@ -89,6 +91,11 @@ public class ModBlocks {
     public static final Block POTTED_FLOWER_FOR_ALL = registerBlockWithoutBlockItem("potted_flower_for_all",
             new FlowerPotBlock(ModBlocks.FLOWER_FOR_ALL, FabricBlockSettings.copy(Blocks.POTTED_ALLIUM)));
 
+    public static final Block ORIGINITE_BLASTER = registerBlock("originite_blaster",
+            new OriginiteBlasterBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()), ModItemGroup.ORIGINITE);
+
+    public static final Block HONEY_FLUID_BLOCK = registerBlockWithoutBlockItem("honey_fluid_block",
+            new ModFluidBlock(ModFluids.HONEY_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()));
 
 
 

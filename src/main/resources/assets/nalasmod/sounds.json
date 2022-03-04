@@ -4,5 +4,43 @@
     "sounds": [
       "nalasmod:dowsing_rod_found_ore"
     ]
+  },
+  "originite_lamp_break": {
+    "subtitle": "nalasmod.originite_lamp_break",
+    "sounds": [
+      "nalasmod:originite_lamp_break"
+    ]
+  },
+  "originite_lamp_step": {
+    "subtitle": "nalasmod.originite_lamp_step",
+    "sounds": [
+      "nalasmod:originite_lamp_step"
+    ]
+  },
+  "originite_lamp_place": {
+    "subtitle": "nalasmod.originite_lamp_place",
+    "sounds": [
+      "nalasmod:originite_lamp_place"
+    ]
+  },
+  "originite_lamp_hit": {
+    "subtitle": "nalasmod.originite_lamp_hit",
+    "sounds": [
+      "nalasmod:originite_lamp_hit"
+    ]
+  },
+  "originite_lamp_fall": {
+    "subtitle": "nalasmod.originite_lamp_fall",
+    "sounds": [
+      "nalasmod:originite_lamp_fall"
+    ]
+  },
+  "bar_brawl": {
+    "sounds": [
+      {
+        "name": "nalasmod:bar_brawl",
+        "stream": true
+      }
+    ]
   }
 }

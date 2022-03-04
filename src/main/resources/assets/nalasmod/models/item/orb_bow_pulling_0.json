@@ -1,0 +1,6 @@
+{
+  "parent": "nalasmod:item/orb_bow",
+  "textures": {
+    "layer0": "nalasmod:item/orb_bow_pulling_0"
+  }
+}
