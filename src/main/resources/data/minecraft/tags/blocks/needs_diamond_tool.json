@@ -3,6 +3,7 @@
   "values": [
     "nalasmod:soul_blossom_door",
     "nalasmod:soul_blossom_trapdoor",
-    "nalasmod:originite_block"
+    "nalasmod:originite_block",
+    "#nalasmod:soul_blossom_logs"
   ]
 }

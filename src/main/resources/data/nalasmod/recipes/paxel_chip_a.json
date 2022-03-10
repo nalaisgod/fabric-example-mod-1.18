@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "! @",
+    " % ",
+    "$ #"
+  ],
+  "key": {
+    "!": {
+      "item": "nalasmod:originite_pickaxe"
+    },
+    "@": {
+      "item": "nalasmod:originite_axe"
+    },
+    "#": {
+      "item": "nalasmod:originite_shovel"
+    },
+    "$": {
+      "item": "nalasmod:originite_hoe"
+    },
+    "%": {
+      "item": "nalasmod:data_tablet"
+    }
+  },
+  "result": {
+    "item": "nalasmod:paxel_chip_a"
+  }
+}

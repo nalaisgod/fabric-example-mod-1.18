@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "nalasmod:block/soul_blossom_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "nalasmod:block/soul_blossom_log"
+    },
+    "axis=z": {
+      "model": "nalasmod:block/soul_blossom_log_horizontal",
+      "x": 90
+    }
+  }
+}

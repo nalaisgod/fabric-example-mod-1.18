@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "nalasmod:soul_blossom_door",
-    "nalasmod:soul_blossom_trapdoor"
+    "nalasmod:soul_blossom_trapdoor",
+    "#nalasmod:soul_blossom_logs"
   ]
 }

@@ -49,7 +49,7 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_PAXEL = registerItem("originite_paxel",
-            new ModPaxelItem(ModToolMaterial.ORIGINITE, 1, 1f,
+            new ModPaxelItem(ModToolMaterial.PAXEL, 1, 1f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item SOUL_SWORD = registerItem("soul_sword",
@@ -109,6 +109,22 @@ public class ModItems {
 
     public static final Item HONEY_BUCKET = registerItem("honey_bucket",
             new BucketItem(ModFluids.HONEY_STILL, new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
+
+    public static final Item SOUL_STCIK = registerItem("soul_stcik",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item SOUL_BLOSSOM_SIGN = registerItem("soul_blossom_sign",
+            new SignItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(16),
+                    ModBlocks.SOUL_BLOSSOM_SIGN_BLOCK, ModBlocks.SOUL_BLOSSOM_WALL_SIGN_BLOCK));
+
+    public static final Item PAXEL_CHIP_A = registerItem("paxel_chip_a",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item PAXEL_CHIP_B = registerItem("paxel_chip_b",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item PAXEL_CHIP_C = registerItem("paxel_chip_c",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
 
 

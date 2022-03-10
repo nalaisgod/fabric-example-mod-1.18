@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "nalasmod:block/soul_blossom_sapling"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "nalasmod:originite_blaster",
+  "ingredients": [
+    {
+      "item": "nalasmod:paxel_chip_a"
+    },
+    {
+      "item": "nalasmod:paxel_chip_b"
+    }
+  ],
+  "output": {
+    "item": "nalasmod:paxel_chip_c"
+  }
+}

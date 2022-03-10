@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "nalasmod:soul_blossom_log"
+    }
+  ],
+  "result": {
+    "item": "nalasmod:soul_blossom_planks",
+    "count": 4
+  }
+}

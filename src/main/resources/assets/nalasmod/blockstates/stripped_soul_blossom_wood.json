@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "nalasmod:block/stripped_soul_blossom_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "nalasmod:block/stripped_soul_blossom_wood"
+    },
+    "axis=z": {
+      "model": "nalasmod:block/stripped_soul_blossom_wood",
+      "x": 90
+    }
+  }
+}

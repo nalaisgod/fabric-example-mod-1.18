@@ -9,16 +9,20 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.block.custom.*;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.ModItemGroup;
 import net.nalaisgod.nalasmod.sound.ModSounds;
+import net.nalaisgod.nalasmod.world.feature.ModConfiguredFeatures;
+import net.nalaisgod.nalasmod.world.feature.tree.SoulBlossomSaplingGenerator;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.system.CallbackI;
 
@@ -92,11 +96,39 @@ public class ModBlocks {
             new FlowerPotBlock(ModBlocks.FLOWER_FOR_ALL, FabricBlockSettings.copy(Blocks.POTTED_ALLIUM)));
 
     public static final Block ORIGINITE_BLASTER = registerBlock("originite_blaster",
-            new OriginiteBlasterBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()), ModItemGroup.ORIGINITE);
+            new OriginiteBlasterBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
 
     public static final Block HONEY_FLUID_BLOCK = registerBlockWithoutBlockItem("honey_fluid_block",
             new ModFluidBlock(ModFluids.HONEY_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()));
 
+
+    public static final Block SOUL_BLOSSOM_LOG = registerBlock("soul_blossom_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ModItemGroup.ORIGINITE);
+    public static final Block SOUL_BLOSSOM_WOOD = registerBlock("soul_blossom_wood",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)), ModItemGroup.ORIGINITE);
+
+    public static final Block STRIPED_SOUL_BLOSSOM_LOG = registerBlock("stripped_soul_blossom_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.ORIGINITE);
+    public static final Block STRIPPED_SOUL_BLOSSOM_WOOD = registerBlock("stripped_soul_blossom_wood",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.ORIGINITE);
+
+    public static final Block SOUL_BLOSSOM_PLANKS = registerBlock("soul_blossom_planks",
+            new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), ModItemGroup.ORIGINITE);
+
+
+    public static final Block SOUL_BLOSSOM_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("soul_blossom_wall_sign_block",
+            new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS), ModSignTypes.SOUL_BLOSSOM));
+
+    public static final Block SOUL_BLOSSOM_SIGN_BLOCK = registerBlockWithoutBlockItem("soul_blossom_sign_block",
+            new SignBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS), ModSignTypes.SOUL_BLOSSOM));
+
+
+    public static final Block SOUL_BLOSSOM_LEAVES = registerBlock("soul_blossom_leaves",
+            new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.BRIGHT_TEAL).strength(1.0f).sounds(BlockSoundGroup.WART_BLOCK)), ModItemGroup.ORIGINITE);
+
+    public static final Block SOUL_BLOSSOM_SAPLING = registerBlock("soul_blossom_sapling",
+            new ModSaplingBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().noCollision().sounds(BlockSoundGroup.FUNGUS),
+                    () -> ModConfiguredFeatures.SOUL_BLOSSOM_TREE_RANDOM_PLANTED), ModItemGroup.ORIGINITE);
 
 
 

@@ -1,0 +1,14 @@
+{
+  "type": "nalasmod:originite_blaster",
+  "ingredients": [
+    {
+      "item": "nalasmod:staff_of_the_orb"
+    },
+    {
+      "item": "nalasmod:paxel_chip_c"
+    }
+  ],
+  "output": {
+    "item": "nalasmod:originite_paxel"
+  }
+}

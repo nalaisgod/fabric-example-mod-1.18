@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "nalasmod:block/soul_blossom_leaves"
+  }
+}

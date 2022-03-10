@@ -9,6 +9,8 @@ import net.nalaisgod.nalasmod.painting.ModPaintings;
 import net.nalaisgod.nalasmod.recipe.ModRecipes;
 import net.nalaisgod.nalasmod.util.ModLootTableModifiers;
 import net.nalaisgod.nalasmod.util.ModRegistries;
+import net.nalaisgod.nalasmod.world.feature.ModConfiguredFeatures;
+import net.nalaisgod.nalasmod.world.gen.ModWorldGen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,6 +20,8 @@ public class NalasMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModConfiguredFeatures.registerConfiguredFeatures();
+
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
@@ -32,6 +36,8 @@ public class NalasMod implements ModInitializer {
 
 		ModRegistries.registerModStuffs();
 		ModPaintings.registerPaintings();
+
+		ModWorldGen.generateModWorldGen();
 
 	}
 }

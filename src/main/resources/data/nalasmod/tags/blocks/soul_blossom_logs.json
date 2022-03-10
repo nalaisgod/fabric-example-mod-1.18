@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "nalasmod:soul_blossom_log",
+    "nalasmod:stripped_soul_blossom_log",
+    "nalasmod:soul_blossom_wood",
+    "nalasmod:stripped_soul_blossom_wood",
+    "nalasmod:soul_blossom_planks"
+  ]
+}

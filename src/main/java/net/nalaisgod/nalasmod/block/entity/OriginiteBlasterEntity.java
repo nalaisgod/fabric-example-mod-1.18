@@ -34,7 +34,7 @@ public class OriginiteBlasterEntity extends BlockEntity implements NamedScreenHa
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 72000;
+    private int maxProgress = 1200;
     private int fuelTime = 0;
     private int maxFuelTime = 0;
 

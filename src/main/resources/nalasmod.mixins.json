@@ -4,7 +4,9 @@
   "package": "net.nalaisgod.nalasmod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ModEntityDataSaver"
+    "ModEntityDataSaver",
+    "SignTypeAccessor",
+    "BlockEntityTypeMixin"
   ],
   "client": [
     "ExampleMixin"

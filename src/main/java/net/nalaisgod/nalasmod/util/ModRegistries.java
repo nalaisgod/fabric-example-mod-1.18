@@ -3,6 +3,7 @@ package net.nalaisgod.nalasmod.util;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.ComposterBlock;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.nalaisgod.nalasmod.block.ModBlocks;
@@ -17,6 +18,7 @@ public class ModRegistries {
         registerModComposterChances();
         registerCommands();
         registerEvents();
+        registerStrippables();
     }
 
 
@@ -25,7 +27,7 @@ public class ModRegistries {
         NalasMod.LOGGER.info("Registering Fuels For" + NalasMod.MOD_ID);
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
-        registry.add(ModItems.HONEY_BUCKET, 200);
+        registry.add(ModItems.HONEY_BUCKET, 2000);
 
     }
 
@@ -43,4 +45,9 @@ public class ModRegistries {
         ServerPlayerEvents.COPY_FROM.register(new ModPlayerEventCopyFrom());
     }
 
+
+    private static void registerStrippables() {
+        StrippableBlockRegistry.register(ModBlocks.SOUL_BLOSSOM_LOG, ModBlocks.STRIPED_SOUL_BLOSSOM_LOG);
+        StrippableBlockRegistry.register(ModBlocks.SOUL_BLOSSOM_WOOD, ModBlocks.STRIPPED_SOUL_BLOSSOM_WOOD);
+    }
 }

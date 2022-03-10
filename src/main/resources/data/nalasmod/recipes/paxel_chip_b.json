@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "! @",
+    " % ",
+    "$ #"
+  ],
+  "key": {
+    "!": {
+      "item": "nalasmod:soul_pickaxe"
+    },
+    "@": {
+      "item": "nalasmod:soul_axe"
+    },
+    "#": {
+      "item": "nalasmod:soul_scythe"
+    },
+    "$": {
+      "item": "nalasmod:soul_shovel"
+    },
+    "%": {
+      "item": "nalasmod:data_tablet"
+    }
+  },
+  "result": {
+    "item": "nalasmod:paxel_chip_b"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "nalasmod:block/soul_blossom_log",
+    "side": "nalasmod:block/soul_blossom_log"
+  }
+}
