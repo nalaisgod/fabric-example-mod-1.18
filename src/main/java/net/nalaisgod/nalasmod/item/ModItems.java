@@ -102,7 +102,7 @@ public class ModItems {
             new ModMusicDiscItem(9, ModSounds.BAR_BRAWL,new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
 
     public static final Item STAFF_OF_THE_ORB = registerItem("staff_of_the_orb",
-            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
+            new ModStaffItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
 
     public static final Item ORB_BOW = registerItem("orb_bow",
             new ModGunBowItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
@@ -125,6 +125,9 @@ public class ModItems {
 
     public static final Item PAXEL_CHIP_C = registerItem("paxel_chip_c",
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item ELDER_TRIDENT = registerItem("elder_trident",
+            new TridentItem(new FabricItemSettings().maxDamage(250).group(ModItemGroup.ORIGINITE)));
 
 
 

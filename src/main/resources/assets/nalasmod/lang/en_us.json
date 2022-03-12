@@ -17,7 +17,7 @@
   "item.nalasmod.soul_pickaxe": "Soul Carver",
   "item.nalasmod.bar_brawl_music_disc": "Bar Brawl Music Disc",
   "item.nalasmod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
-  "item.nalasmod.staff_of_the_orb": "Overseer O'thyne Orb",
+  "item.nalasmod.staff_of_the_orb": "Overseer O'thyne Orb (YEET STICK)",
   "item.nalasmod.originite_helmet": "Originite Helmet",
   "item.nalasmod.originite_chestplate": "Originite Chestplate",
   "item.nalasmod.originite_leggings": "Originite Leggings",
@@ -31,6 +31,7 @@
   "item.nalasmod.paxel_chip_a": "PAXEL Chip A",
   "item.nalasmod.paxel_chip_b": "PAXEL Chip B",
   "item.nalasmod.paxel_chip_c": "PAXEL Chip C",
+  "item.nalasmod.elder_trident": "Elder Trident",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",
@@ -73,5 +74,6 @@
   "tooltip.nalasmod.speedy_block": "A SPEEEEEEEEEEEEEEEEEEEEEEEEEEEEDY block",
 
   "enchantment.nalasmod.lightning_striker": "Lightning Striker",
-  "enchantment.nalasmod.cannon_shot": "Bat"
+  "enchantment.nalasmod.cannon_shot": "Bat",
+  "enchantment.nalasmod.illagers_bane": "Illagers bane"
 }

@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:originite_ingot"
+      "item": "nalasmod:data_tablet"
     },
-    "title": "Original Bar",
-    "description": "The Power lies in the Origins!",
+    "title": "Data Tablet",
+    "description": "Can Be Used WIth Dowsing Rod To Retain Data",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:nalasmoded",
+  "parent": "nalasmod:dowsing_rod",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,11 +17,17 @@
         "items": [
           {
             "items": [
-              "nalasmod:originite_ingot"
+              "nalasmod:data_tablet"
             ]
           }
         ]
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "minecraft:redstone"
+    ],
+    "experience": 100
   }
 }

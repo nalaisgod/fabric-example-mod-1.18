@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "nalasmod:originite_paxel"
+    },
+    "title": "PAXEL IS UNLOCKED",
+    "description": "Paxel Can Be Used To Mine All Things ",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "nalasmod:paxel_chip_c",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nalasmod:originite_paxel"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "loot": [
+      "minecraft:conduit"
+    ],
+    "experience": 2500
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "nalasmod:originite_blaster",
+  "ingredients": [
+    {
+      "item": "minecraft:oak_stairs"
+    },
+    {
+      "item": "nalasmod:raw_originite"
+    }
+  ],
+  "output": {
+    "item": "nalasmod:originite_stairs"
+  }
+}

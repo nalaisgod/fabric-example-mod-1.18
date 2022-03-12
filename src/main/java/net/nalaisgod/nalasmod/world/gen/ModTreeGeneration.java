@@ -8,7 +8,7 @@ import net.nalaisgod.nalasmod.world.feature.ModPlacedFeatures;
 
 public class ModTreeGeneration {
     public static void generateTrees() {
-        BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.THEEND, Biome.Category.NETHER),
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SOUL_BLOSSOM_PLACED_KEY);
     }
 }

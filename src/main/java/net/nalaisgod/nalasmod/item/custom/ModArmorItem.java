@@ -2,12 +2,12 @@ package net.nalaisgod.nalasmod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
 import net.nalaisgod.nalasmod.item.ModArmorMaterials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
@@ -20,7 +20,8 @@ public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
                      .put(ModArmorMaterials.ORIGINITE,
-                            new StatusEffectInstance(StatusEffects.HASTE, 400, 1)).build();
+                             new StatusEffectInstance(StatusEffects.RESISTANCE, 400, 2)).build();
+
 
     public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
         super(material, slot, settings);

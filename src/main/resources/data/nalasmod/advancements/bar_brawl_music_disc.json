@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:originite_ingot"
+      "item": "nalasmod:bar_brawl_music_disc"
     },
-    "title": "Original Bar",
-    "description": "The Power lies in the Origins!",
-    "frame": "task",
+    "title": "Epic Tunes",
+    "description": "EPIC TUNES",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:nalasmoded",
+  "parent": "nalasmod:nalasmod",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,11 +17,17 @@
         "items": [
           {
             "items": [
-              "nalasmod:originite_ingot"
+              "nalasmod:bar_brawl_music_disc"
             ]
           }
         ]
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "minecraft:jukebox"
+    ],
+    "experience": 1000
   }
 }

@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:originite_ingot"
+      "item": "nalasmod:orb_bow"
     },
-    "title": "Original Bar",
-    "description": "The Power lies in the Origins!",
-    "frame": "task",
+    "title": "No Where To Hide",
+    "description": "Try Left AND Right Click",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:nalasmoded",
+  "parent": "nalasmod:overseer_of_the_orb",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,11 +17,17 @@
         "items": [
           {
             "items": [
-              "nalasmod:originite_ingot"
+              "nalasmod:orb_bow"
             ]
           }
         ]
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "minecraft:arrow"
+    ],
+    "experience": 1000
   }
 }

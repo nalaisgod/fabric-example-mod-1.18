@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:originite_ingot"
+      "item": "nalasmod:paxel_chip_b"
     },
-    "title": "Original Bar",
-    "description": "The Power lies in the Origins!",
+    "title": "Soul Chip RECIVED",
+    "description": "Using the the paxel chip a and b you can make the paxel*",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:nalasmoded",
+  "parent": "nalasmod:soul_pickaxe",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,11 +17,17 @@
         "items": [
           {
             "items": [
-              "nalasmod:originite_ingot"
+              "nalasmod:paxel_chip_b"
             ]
           }
         ]
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "nalasmod:data_tablet"
+    ],
+    "experience": 100
   }
 }

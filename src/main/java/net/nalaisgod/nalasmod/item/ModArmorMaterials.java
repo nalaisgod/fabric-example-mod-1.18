@@ -11,7 +11,7 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    ORIGINITE("originite", 30, new int[]{2, 4, 5, 1}, 29,
+    ORIGINITE("originite", 30, new int[]{1, 1, 1, 1}, 29,
             SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0f, 0.0f,
             () -> Ingredient.ofItems(ModItems.ORIGINITE_INGOT));
 

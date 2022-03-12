@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:originite_ingot"
+      "item": "nalasmod:flower_for_all"
     },
-    "title": "Original Bar",
-    "description": "The Power lies in the Origins!",
+    "title": "Weird Flower",
+    "description": "Looks Like It Would Make A Nice Combo With Wither Roses",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:nalasmoded",
+  "parent": "nalasmod:nalasmod",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,11 +17,17 @@
         "items": [
           {
             "items": [
-              "nalasmod:originite_ingot"
+              "nalasmod:flower_for_all"
             ]
           }
         ]
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "nalasmod:flower_for_all"
+    ],
+    "experience": 100
   }
 }

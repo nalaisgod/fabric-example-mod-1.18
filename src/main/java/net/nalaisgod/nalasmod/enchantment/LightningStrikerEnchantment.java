@@ -4,6 +4,8 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 
@@ -34,6 +36,14 @@ public class LightningStrikerEnchantment extends Enchantment {
         }
 
         super.onTargetDamaged(user, target, level);
+    }
+
+    @Override
+    public boolean isAcceptableItem(ItemStack stack) {
+        if (stack.getItem() instanceof AxeItem) {
+            return true;
+        }
+        return super.isAcceptableItem(stack);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package net.nalaisgod.nalasmod.enchantment;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.enchantment.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -15,6 +14,10 @@ public class ModEnchantments {
 
     public static Enchantment CANNONSHOT = register("cannon_shot",
             new CannonShotEnchantment(Enchantment.Rarity.VERY_RARE,
+                    EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
+
+    public static Enchantment ILLAGERS_BANE = register("illagers_bane",
+            new IllagersBaneEnchantment(Enchantment.Rarity.VERY_RARE,
                     EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
 
 

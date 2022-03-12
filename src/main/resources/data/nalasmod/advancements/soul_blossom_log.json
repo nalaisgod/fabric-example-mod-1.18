@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:originite_ingot"
+      "item": "nalasmod:soul_blossom_log"
     },
-    "title": "Original Bar",
-    "description": "The Power lies in the Origins!",
+    "title": "SOULSTEALER",
+    "description": "Use Planks With Netherite Scrap To Get The Epic Sticks",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:nalasmoded",
+  "parent": "nalasmod:nalasmod",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,11 +17,17 @@
         "items": [
           {
             "items": [
-              "nalasmod:originite_ingot"
+              "nalasmod:soul_blossom_log"
             ]
           }
         ]
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "nalasmod:soul_blossom_sapling"
+    ],
+    "experience": 100
   }
 }

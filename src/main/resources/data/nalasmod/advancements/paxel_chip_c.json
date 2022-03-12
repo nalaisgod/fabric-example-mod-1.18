@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "nalasmod:paxel_chip_c"
+    },
+    "title": "TRUE Chip RECIVED",
+    "description": "TO UNLOCK COMBINE WITH DOWSING ROD",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "nalasmod:data_tablet",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nalasmod:paxel_chip_c"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "loot": [
+      "nalasmod:data_tablet"
+    ],
+    "experience": 100
+  }
+}

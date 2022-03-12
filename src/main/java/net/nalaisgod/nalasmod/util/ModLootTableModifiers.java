@@ -29,7 +29,7 @@ public class ModLootTableModifiers {
                 // Adds turnip Seeds to the grass loot table.
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.35f)) // Drops 35% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.125f)) // Drops 35% of the time
                         .with(ItemEntry.builder(ModItems.APPLE_CORE))
                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
                 supplier.withPool(poolBuilder.build());

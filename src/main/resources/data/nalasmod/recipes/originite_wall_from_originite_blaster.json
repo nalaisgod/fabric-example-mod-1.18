@@ -1,0 +1,14 @@
+{
+  "type": "nalasmod:originite_blaster",
+  "ingredients": [
+    {
+      "item": "minecraft:cobblestone_wall"
+    },
+    {
+      "item": "nalasmod:raw_originite"
+    }
+  ],
+  "output": {
+    "item": "nalasmod:originite_wall"
+  }
+}

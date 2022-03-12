@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:originite_ingot"
+      "item": "nalasmod:speedy_block"
     },
-    "title": "Original Bar",
-    "description": "The Power lies in the Origins!",
+    "title": "Got To Go Fast",
+    "description": "Running On This Makes You Go Fast Crafted With Stone And Quartz",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:nalasmoded",
+  "parent": "nalasmod:nalasmod",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,11 +17,17 @@
         "items": [
           {
             "items": [
-              "nalasmod:originite_ingot"
+              "nalasmod:speedy_block"
             ]
           }
         ]
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "minecraft:feather"
+    ],
+    "experience": 100
   }
 }

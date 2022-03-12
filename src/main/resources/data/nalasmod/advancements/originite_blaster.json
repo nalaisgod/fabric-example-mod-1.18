@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "nalasmod:originite_blaster"
+    },
+    "title": "The Forge",
+    "description": "Crafted With 1 Originite Block 4 Originite Ingots And 4 Raw Originite This Advanced Creation Allows A New Level Of Crafting",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "nalasmod:nalasmod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nalasmod:originite_blaster"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "loot": [
+      "minecraft:coal_block"
+    ],
+    "experience": 1000
+  }
+}

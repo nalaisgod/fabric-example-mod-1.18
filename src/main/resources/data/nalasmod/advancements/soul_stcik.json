@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:originite_ingot"
+      "item": "nalasmod:soul_stcik"
     },
-    "title": "Original Bar",
-    "description": "The Power lies in the Origins!",
+    "title": "A Handle Fit For A King",
+    "description": "Use with RAW Originite To Forge Tools",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:nalasmoded",
+  "parent": "nalasmod:soul_blossom_log",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,11 +17,17 @@
         "items": [
           {
             "items": [
-              "nalasmod:originite_ingot"
+              "nalasmod:soul_stcik"
             ]
           }
         ]
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "nalasmod:soul_blossom_log"
+    ],
+    "experience": 100
   }
 }
