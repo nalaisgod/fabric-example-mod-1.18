@@ -3,9 +3,11 @@ package net.nalaisgod.nalasmod;
 import net.fabricmc.api.ModInitializer;
 import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.block.entity.ModBlockEntities;
+import net.nalaisgod.nalasmod.effect.ModEffects;
 import net.nalaisgod.nalasmod.enchantment.ModEnchantments;
 import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.painting.ModPaintings;
+import net.nalaisgod.nalasmod.potion.ModPotions;
 import net.nalaisgod.nalasmod.recipe.ModRecipes;
 import net.nalaisgod.nalasmod.util.ModLootTableModifiers;
 import net.nalaisgod.nalasmod.util.ModRegistries;
@@ -39,5 +41,7 @@ public class NalasMod implements ModInitializer {
 
 		ModWorldGen.generateModWorldGen();
 
+		ModEffects.registerEffects();
+		ModPotions.registerPotions();
 	}
 }

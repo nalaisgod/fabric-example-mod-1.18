@@ -17,13 +17,18 @@ public class ModEnchantments {
                     EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
 
     public static Enchantment ILLAGERS_BANE = register("illagers_bane",
-            new IllagersBaneEnchantment(Enchantment.Rarity.VERY_RARE,
+            new IllagersBaneEnchantment(Enchantment.Rarity.COMMON,
                     EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
+
+    public static Enchantment ELEMENTAL_BANE = register("elemental_bane",
+            new ElementalBaneEnchantment(Enchantment.Rarity.COMMON,
+                    EnchantmentTarget.DIGGER, EquipmentSlot.MAINHAND));
 
 
     private static Enchantment register(String name, Enchantment enchantment) {
         return Registry.register(Registry.ENCHANTMENT, new Identifier(NalasMod.MOD_ID, name), enchantment);
     }
+
 
 
     public static void registerModEnchantments() {

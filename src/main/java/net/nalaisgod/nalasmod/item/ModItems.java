@@ -5,9 +5,11 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.nalaisgod.nalasmod.block.ModBlocks;
+import net.nalaisgod.nalasmod.entity.ModEntities;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.custom.*;
 import net.nalaisgod.nalasmod.sound.ModSounds;
@@ -29,11 +31,11 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).food(ModFoodComponents.SUBSTANCE)));
 
     public static final Item ORIGINITE_PICKAXE = registerItem("originite_pickaxe",
-            new ModPickaxeItem(ModToolMaterial.ORIGINITE, 2, -1f,
+            new ModPickaxeItem(ModToolMaterial.ORIGINITE, -1, -1f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_AXE = registerItem("originite_axe",
-            new ModAxeItem(ModToolMaterial.ORIGINITE, 7, -2.8f,
+            new ModAxeItem(ModToolMaterial.ORIGINITE, 6, -2.8f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_HOE = registerItem("originite_hoe",
@@ -45,15 +47,15 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_SWORD = registerItem("originite_sword",
-            new ModSlowingSwordItem(ModToolMaterial.ORIGINITE, 1, 2f,
+            new ModSlowingSwordItem(ModToolMaterial.ORIGINITE, 0, 2f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_PAXEL = registerItem("originite_paxel",
-            new ModPaxelItem(ModToolMaterial.PAXEL, 1, 1f,
-                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+            new ModPaxelItem(ModToolMaterial.PAXEL, 1, -2f,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC)));
 
     public static final Item SOUL_SWORD = registerItem("soul_sword",
-            new ModHealingSwordItem(ModToolMaterial.SOUL, 7, -3f,
+            new ModHealingSwordItem(ModToolMaterial.SOUL, 5, -3f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_HELMET = registerItem("originite_helmet",
@@ -99,13 +101,13 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
-            new ModMusicDiscItem(9, ModSounds.BAR_BRAWL,new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
+            new ModMusicDiscItem(9, ModSounds.BAR_BRAWL,new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.UNCOMMON)));
 
     public static final Item STAFF_OF_THE_ORB = registerItem("staff_of_the_orb",
-            new ModStaffItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
+            new ModStaffItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.EPIC)));
 
     public static final Item ORB_BOW = registerItem("orb_bow",
-            new ModGunBowItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
+            new ModGunBowItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.EPIC)));
 
     public static final Item HONEY_BUCKET = registerItem("honey_bucket",
             new BucketItem(ModFluids.HONEY_STILL, new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1)));
@@ -118,16 +120,33 @@ public class ModItems {
                     ModBlocks.SOUL_BLOSSOM_SIGN_BLOCK, ModBlocks.SOUL_BLOSSOM_WALL_SIGN_BLOCK));
 
     public static final Item PAXEL_CHIP_A = registerItem("paxel_chip_a",
-            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON)));
 
     public static final Item PAXEL_CHIP_B = registerItem("paxel_chip_b",
-            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON)));
 
     public static final Item PAXEL_CHIP_C = registerItem("paxel_chip_c",
-            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE)));
+
+
 
     public static final Item ELDER_TRIDENT = registerItem("elder_trident",
             new TridentItem(new FabricItemSettings().maxDamage(250).group(ModItemGroup.ORIGINITE)));
+
+    public static final Item RACCOON_SPAWN_EGG = registerItem("raccoon_spawn_egg",
+            new SpawnEggItem(ModEntities.RACCOON,0x948e8d, 0x3b3635,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item TIGER_SPAWN_EGG = registerItem("tiger_spawn_egg",
+            new SpawnEggItem(ModEntities.TIGER,0xfcb603, 0x242321,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item ELEMENTAL_BLADE = registerItem("elemental_blade",
+            new ModElemtalSwordItem(ModToolMaterial.ELEMENT, 5, -3f,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item GRAV_ROD = registerItem("grav_rod",
+            new ModGravRodItem(new FabricItemSettings().maxDamage(2500).group(ModItemGroup.ORIGINITE)));
 
 
 

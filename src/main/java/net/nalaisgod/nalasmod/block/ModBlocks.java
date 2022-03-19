@@ -9,10 +9,12 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import net.nalaisgod.nalasmod.NalasMod;
@@ -31,26 +33,30 @@ import java.util.List;
 public class ModBlocks {
 
     public static final Block ORIGINITE_BLOCK = registerBlock("originite_block",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(150f).requiresTool()),
+            new Block(FabricBlockSettings.of(Material.METAL).strength(150f, 10000000f).requiresTool()),
             ModItemGroup.ORIGINITE, "tooltip.nalasmod.originite_block");
 
     public static final Block ORIGINITE_ORE = registerBlock("originite_ore",
-            new Block(FabricBlockSettings.of(Material.STONE).strength(4.5f).requiresTool()), ModItemGroup.ORIGINITE);
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4.5f, 8f).requiresTool(),
+                    UniformIntProvider.create(3, 7)), ModItemGroup.ORIGINITE);
 
     public static final Block DEEPSLATE_ORIGINITE_ORE = registerBlock("deepslate_originite_ore",
-            new Block(FabricBlockSettings.of(Material.STONE).strength(5.5f).requiresTool()), ModItemGroup.ORIGINITE);
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(5.5f, 8f).requiresTool(),
+                    UniformIntProvider.create(3, 7)), ModItemGroup.ORIGINITE);
 
     public static final Block END_ORIGINITE_ORE = registerBlock("end_originite_ore",
-            new Block(FabricBlockSettings.of(Material.STONE).strength(4.5f).requiresTool()), ModItemGroup.ORIGINITE);
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4.5f, 8f).requiresTool(),
+                    UniformIntProvider.create(3, 7)), ModItemGroup.ORIGINITE);
 
     public static final Block NETHER_ORIGINITE_ORE = registerBlock("nether_originite_ore",
-            new Block(FabricBlockSettings.of(Material.STONE).strength(4.5f).requiresTool()), ModItemGroup.ORIGINITE);
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4.5f, 8f).requiresTool(),
+                    UniformIntProvider.create(7, 7)), ModItemGroup.ORIGINITE);
 
     public static final Block RAW_ORIGINITE_BLOCK = registerBlock("raw_originite_block",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f).requiresTool()), ModItemGroup.ORIGINITE);
+            new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block SPEEDY_BLOCK = registerBlock("speedy_block",
-            new SpeedyBlock(FabricBlockSettings.of(Material.STONE).strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE, "tooltip.nalasmod.speedy_block");
+            new SpeedyBlock(FabricBlockSettings.of(Material.STONE).strength(4.0f, 8f).requiresTool()), ModItemGroup.ORIGINITE, "tooltip.nalasmod.speedy_block");
 
     public static final Block ORIGINITE_STAIRS = registerBlock("originite_stairs",
             new ModStairsBlock(ModBlocks.ORIGINITE_BLOCK.getDefaultState(),
@@ -124,11 +130,16 @@ public class ModBlocks {
 
 
     public static final Block SOUL_BLOSSOM_LEAVES = registerBlock("soul_blossom_leaves",
-            new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.BRIGHT_TEAL).strength(1.0f).sounds(BlockSoundGroup.WART_BLOCK)), ModItemGroup.ORIGINITE);
+            new GlassBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.BRIGHT_TEAL).nonOpaque().strength(1.0f).sounds(BlockSoundGroup.WART_BLOCK)),
+            ModItemGroup.ORIGINITE);
 
     public static final Block SOUL_BLOSSOM_SAPLING = registerBlock("soul_blossom_sapling",
             new ModSaplingBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().noCollision().sounds(BlockSoundGroup.FUNGUS),
                     () -> ModConfiguredFeatures.SOUL_BLOSSOM_TREE_RANDOM_PLANTED), ModItemGroup.ORIGINITE);
+
+    public static final Block WINTER_WINDOW = registerBlock("winter_window",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(1.0f)), ModItemGroup.ORIGINITE);
+
 
 
 

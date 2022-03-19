@@ -12,3 +12,12 @@ https://www.curseforge.com/members/platinumg17/projects
 
 Custom Sign Code by Nyuppo (Distributed under GNU General Public License v3.0):
 https://github.com/nyuppo/fabric-sign-example
+
+Custom Menu Screen by Yoruniii (https://creativecommons.org/licenses/by-sa/4.0/):
+https://www.fiverr.com/yoruniii/make-and-animate-3d-model-in-blockbench
+
+Raccoon by Yoruniii (https://creativecommons.org/licenses/by-sa/4.0/):
+https://www.fiverr.com/yoruniii/make-and-animate-3d-model-in-blockbench
+
+Elemental Blade texture by (https://creativecommons.org/licenses/by-sa/4.0/):
+https://github.com/chronosacaria/MCDungeonsWeapons

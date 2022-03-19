@@ -24,7 +24,7 @@ public class ModModelPredicateProvider {
                     if (entity.getActiveItem() != stack) {
                         return 0.0f;
                     }
-                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 10.0f;
+                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 15.0f;
                 });
 
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0f : 0.0f);

@@ -6,10 +6,12 @@
   "mixins": [
     "ModEntityDataSaver",
     "SignTypeAccessor",
-    "BlockEntityTypeMixin"
+    "BlockEntityTypeMixin",
+    "BrewingRecipeRegistryMixin"
   ],
   "client": [
-    "ExampleMixin"
+    "ExampleMixin",
+    "ScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -4,9 +4,16 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.nalaisgod.nalasmod.block.ModBlocks;
+import net.nalaisgod.nalasmod.config.ModConfigs;
+import net.nalaisgod.nalasmod.entity.ModEntities;
+import net.nalaisgod.nalasmod.entity.client.RaccoonRenderer;
+import net.nalaisgod.nalasmod.entity.client.TigerRenderer;
+import net.nalaisgod.nalasmod.event.ReplaceTitleScreenEvent;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.screen.ModScreenHandlers;
 import net.nalaisgod.nalasmod.screen.OriginiteBlasterScreen;
@@ -15,6 +22,8 @@ import net.nalaisgod.nalasmod.util.ModModelPredicateProvider;
 public class NalasModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        ModConfigs.registerConfigs();
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOUL_BLOSSOM_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOUL_BLOSSOM_TRAPDOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_TREE, RenderLayer.getCutout());
@@ -22,7 +31,8 @@ public class NalasModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_FLOWER_FOR_ALL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORIGINITE_BLASTER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOUL_BLOSSOM_LEAVES, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOUL_BLOSSOM_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOUL_BLOSSOM_SAPLING, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WINTER_WINDOW, RenderLayer.getTranslucent());
 
 
         ModModelPredicateProvider.registerModModels();
@@ -39,6 +49,10 @@ public class NalasModClient implements ClientModInitializer {
                         SimpleFluidRenderHandler.WATER_OVERLAY, 0xe9860c));
 
         ScreenRegistry.register(ModScreenHandlers.ORIGINITE_BLASTER_SCREEN_HANDLER, OriginiteBlasterScreen::new);
+
+        ScreenEvents.BEFORE_INIT.register(new ReplaceTitleScreenEvent());
+        EntityRendererRegistry.register(ModEntities.RACCOON, RaccoonRenderer::new);
+        EntityRendererRegistry.register(ModEntities.TIGER, TigerRenderer::new);
 
 
     }

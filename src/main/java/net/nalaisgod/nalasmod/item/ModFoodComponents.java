@@ -6,5 +6,5 @@ import net.minecraft.item.FoodComponent;
 import net.minecraft.item.FoodComponents;
 
 public class ModFoodComponents {
-    public static final FoodComponent SUBSTANCE = new FoodComponent.Builder().hunger(2).saturationModifier(0.1f).statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 20, 0), 0.5f).statusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 20, 126), 0.1f).build();
+    public static final FoodComponent SUBSTANCE = new FoodComponent.Builder().hunger(2).alwaysEdible().saturationModifier(0.1f).statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 20, 0), 0.5f).statusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 20, 126), 0.1f).build();
 }

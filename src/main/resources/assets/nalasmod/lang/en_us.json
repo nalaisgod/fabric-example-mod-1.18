@@ -32,6 +32,14 @@
   "item.nalasmod.paxel_chip_b": "PAXEL Chip B",
   "item.nalasmod.paxel_chip_c": "PAXEL Chip C",
   "item.nalasmod.elder_trident": "Elder Trident",
+  "item.minecraft.potion.effect.freeze_potion": "Freeze Potion",
+  "item.minecraft.splash_potion.effect.freeze_potion": "Splash Potion of Freeze",
+  "item.minecraft.lingering_potion.effect.freeze_potion": "Lingering Potion of Freeze",
+  "item.minecraft.tipped_arrow.effect.freeze_potion": "Arrow of Freeze",
+  "item.nalasmod.raccoon_spawn_egg": "Raccoon Spawn Egg",
+  "item.nalasmod.tiger_spawn_egg": "Tiger Spawn Egg",
+  "item.nalasmod.elemental_blade": "Elemental Blade",
+  "item.nalasmod.grav_rod": "Grav Rod",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",
@@ -62,6 +70,7 @@
   "block.nalasmod.soul_blossom_sign_block": "Soul Blossom Sign",
   "block.nalasmod.soul_blossom_leaves": "Soul Blossom Leaves",
   "block.nalasmod.soul_blossom_sapling": "Soul Blossom Sapling",
+  "block.nalasmod.winter_window": "Winter Window",
 
   "itemGroup.nalasmod.originite": "Originite Nalas Tab",
 
@@ -75,5 +84,8 @@
 
   "enchantment.nalasmod.lightning_striker": "Lightning Striker",
   "enchantment.nalasmod.cannon_shot": "Bat",
-  "enchantment.nalasmod.illagers_bane": "Illagers bane"
+  "enchantment.nalasmod.illagers_bane": "Illagers bane",
+  "enchantment.nalasmod.elemental_bane": "Elemental bane",
+
+  "effect.nalasmod.freeze": "Freeze"
 }

@@ -2,6 +2,7 @@ package net.nalaisgod.nalasmod.util;
 
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.ComposterBlock;
@@ -9,6 +10,9 @@ import net.nalaisgod.nalasmod.NalasMod;
 import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.command.ReturnHomeCommand;
 import net.nalaisgod.nalasmod.command.SetHomeCommand;
+import net.nalaisgod.nalasmod.entity.ModEntities;
+import net.nalaisgod.nalasmod.entity.custom.RaccoonEntity;
+import net.nalaisgod.nalasmod.entity.custom.TigerEntity;
 import net.nalaisgod.nalasmod.event.ModPlayerEventCopyFrom;
 import net.nalaisgod.nalasmod.item.ModItems;
 
@@ -19,15 +23,16 @@ public class ModRegistries {
         registerCommands();
         registerEvents();
         registerStrippables();
+        registerAttributes();
     }
 
 
 
     private static void registerFuels() {
-        NalasMod.LOGGER.info("Registering Fuels For" + NalasMod.MOD_ID);
+        System.out.println("Registering Fuels For + " + NalasMod.MOD_ID);
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
-        registry.add(ModItems.HONEY_BUCKET, 2000);
+        registry.add(ModItems.HONEY_BUCKET, 400);
 
     }
 
@@ -49,5 +54,10 @@ public class ModRegistries {
     private static void registerStrippables() {
         StrippableBlockRegistry.register(ModBlocks.SOUL_BLOSSOM_LOG, ModBlocks.STRIPED_SOUL_BLOSSOM_LOG);
         StrippableBlockRegistry.register(ModBlocks.SOUL_BLOSSOM_WOOD, ModBlocks.STRIPPED_SOUL_BLOSSOM_WOOD);
+    }
+
+    private static void registerAttributes() {
+        FabricDefaultAttributeRegistry.register(ModEntities.RACCOON, RaccoonEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.TIGER, TigerEntity.setAttributes());
     }
 }
