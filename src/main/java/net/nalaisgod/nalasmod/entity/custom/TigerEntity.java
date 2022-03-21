@@ -10,11 +10,13 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.scoreboard.AbstractTeam;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.tag.FluidTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Arm;
 import net.minecraft.util.Hand;
@@ -23,7 +25,6 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.nalaisgod.nalasmod.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -75,6 +76,12 @@ public class TigerEntity extends TameableEntity implements Mount, IAnimatable {
     }
 
     @Override
+    public boolean canWalkOnFluid(Fluid fluid) {
+        return fluid.isIn(FluidTags.WATER);
+    }
+
+
+    @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController<TigerEntity>(this, "controller",
                 0, this::predicate));
@@ -90,6 +97,8 @@ public class TigerEntity extends TameableEntity implements Mount, IAnimatable {
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return null;
     }
+
+
 
     /* TAMEABLE */
     private static final TrackedData<Boolean> SITTING =
@@ -160,7 +169,7 @@ public class TigerEntity extends TameableEntity implements Mount, IAnimatable {
         } else {
             getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(30.0D);
             getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).setBaseValue(2D);
-            getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.25D);
+            getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.52D);
         }
     }
 

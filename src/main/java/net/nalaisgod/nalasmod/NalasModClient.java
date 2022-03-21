@@ -11,6 +11,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.config.ModConfigs;
 import net.nalaisgod.nalasmod.entity.ModEntities;
+import net.nalaisgod.nalasmod.entity.client.ExiterRenderer;
 import net.nalaisgod.nalasmod.entity.client.RaccoonRenderer;
 import net.nalaisgod.nalasmod.entity.client.TigerRenderer;
 import net.nalaisgod.nalasmod.event.ReplaceTitleScreenEvent;
@@ -53,6 +54,7 @@ public class NalasModClient implements ClientModInitializer {
         ScreenEvents.BEFORE_INIT.register(new ReplaceTitleScreenEvent());
         EntityRendererRegistry.register(ModEntities.RACCOON, RaccoonRenderer::new);
         EntityRendererRegistry.register(ModEntities.TIGER, TigerRenderer::new);
+        EntityRendererRegistry.register(ModEntities.EXITER, ExiterRenderer::new);
 
 
     }

@@ -87,9 +87,5 @@ public class ModGunBowItem extends BowItem {
         attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 2), attacker);
         return super.postHit(stack, target, attacker);
     }
-    @Override
-    public boolean hasGlint(ItemStack stack) {
-        return true;
-    }
 
 }

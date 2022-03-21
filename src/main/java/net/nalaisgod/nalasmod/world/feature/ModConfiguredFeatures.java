@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
@@ -23,19 +24,27 @@ import net.nalaisgod.nalasmod.block.ModBlocks;
 import java.util.List;
 
 public class ModConfiguredFeatures {
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> SOUL_BLOSSOM_TREE =
-            register("soul_blossom", Feature.TREE.configure(new TreeFeatureConfig.Builder(
+    public static final RegistryEntry <ConfiguredFeature<TreeFeatureConfig, ?>> SOUL_BLOSSOM_TREE =
+            ConfiguredFeatures.register("soul_blossom", Feature.TREE, new TreeFeatureConfig.Builder(
                     BlockStateProvider.of(ModBlocks.SOUL_BLOSSOM_LOG),
                     new ForkingTrunkPlacer(7, 7, 7),
                     BlockStateProvider.of(ModBlocks.SOUL_BLOSSOM_LEAVES),
                     new AcaciaFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0)),
-                    new TwoLayersFeatureSize(1, 0, 2)).build()));
+                    new TwoLayersFeatureSize(1, 0, 2)).build());
+
+    public static final RegistryEntry<PlacedFeature> SOUL_BLOSSOM_CHECKED = PlacedFeatures.register("soul_blossom_checked",
+            SOUL_BLOSSOM_TREE, PlacedFeatures.wouldSurvive(ModBlocks.SOUL_BLOSSOM_SAPLING));
+
+    public static final RegistryEntry<ConfiguredFeature<RandomFeatureConfig, ?>> SOUL_BLOSSOM_SPAWN =
+            ConfiguredFeatures.register("soul_blossom_spawn", Feature.RANDOM_SELECTOR,
+                    new RandomFeatureConfig(List.of(new RandomFeatureEntry(SOUL_BLOSSOM_CHECKED,
+                            0.5F)), SOUL_BLOSSOM_CHECKED));
 
 
-    public static final ConfiguredFeature<HugeFungusFeatureConfig, ?> SOUL_BLOSSOM_TREE_RANDOM = ConfiguredFeatures.register("soul_blossom_feature",
-            Feature.HUGE_FUNGUS.configure(new HugeFungusFeatureConfig(Blocks.END_STONE.getDefaultState(),
+    public static final RegistryEntry <ConfiguredFeature<HugeFungusFeatureConfig, ?>> SOUL_BLOSSOM_TREE_RANDOM = ConfiguredFeatures.register("soul_blossom_feature",
+            Feature.HUGE_FUNGUS, new HugeFungusFeatureConfig(Blocks.END_STONE.getDefaultState(),
                     ModBlocks.SOUL_BLOSSOM_LOG.getDefaultState(), ModBlocks.SOUL_BLOSSOM_LEAVES.getDefaultState(), Blocks.SHROOMLIGHT.getDefaultState(),
-                    false)));
+                    false));
     public static final ConfiguredFeature<HugeFungusFeatureConfig, ?> SOUL_BLOSSOM_TREE_RANDOM_PLANTED = ConfiguredFeatures.register("soul_blossom_feature_planted",
             Feature.HUGE_FUNGUS.configure(new HugeFungusFeatureConfig(Blocks.END_STONE.getDefaultState(),
                     ModBlocks.SOUL_BLOSSOM_LOG.getDefaultState(), ModBlocks.SOUL_BLOSSOM_LEAVES.getDefaultState(), Blocks.SHROOMLIGHT.getDefaultState(),

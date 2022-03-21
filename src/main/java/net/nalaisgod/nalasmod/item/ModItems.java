@@ -137,6 +137,10 @@ public class ModItems {
             new SpawnEggItem(ModEntities.RACCOON,0x948e8d, 0x3b3635,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
+    public static final Item EXITER_SPAWN_EGG = registerItem("exiter_spawn_egg",
+            new SpawnEggItem(ModEntities.EXITER,0x948e8d, 0x3b3635,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
     public static final Item TIGER_SPAWN_EGG = registerItem("tiger_spawn_egg",
             new SpawnEggItem(ModEntities.TIGER,0xfcb603, 0x242321,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
@@ -147,6 +151,8 @@ public class ModItems {
 
     public static final Item GRAV_ROD = registerItem("grav_rod",
             new ModGravRodItem(new FabricItemSettings().maxDamage(2500).group(ModItemGroup.ORIGINITE)));
+
+
 
 
 

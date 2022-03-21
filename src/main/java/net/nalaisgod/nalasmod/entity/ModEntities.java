@@ -9,6 +9,7 @@ import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.nalaisgod.nalasmod.entity.custom.RaccoonEntity;
 import net.nalaisgod.nalasmod.entity.custom.TigerEntity;
+import net.nalaisgod.nalasmod.entity.mob.ExiterEntity;
 
 public class ModEntities {
     public static final EntityType<RaccoonEntity> RACCOON = Registry.register(
@@ -18,5 +19,9 @@ public class ModEntities {
     public static final EntityType<TigerEntity> TIGER = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(NalasMod.MOD_ID, "tiger"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TigerEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 0.75f)).build());
+    public static final EntityType<ExiterEntity> EXITER = Registry.register(
+            Registry.ENTITY_TYPE, new Identifier(NalasMod.MOD_ID, "exiter"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ExiterEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 0.75f)).build());
 }
