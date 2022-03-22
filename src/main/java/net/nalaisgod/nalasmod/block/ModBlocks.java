@@ -135,7 +135,7 @@ public class ModBlocks {
 
     public static final Block SOUL_BLOSSOM_SAPLING = registerBlock("soul_blossom_sapling",
             new ModSaplingBlock(FabricBlockSettings.of(Material.PLANT).breakInstantly().noCollision().sounds(BlockSoundGroup.FUNGUS),
-                    () -> ModConfiguredFeatures.SOUL_BLOSSOM_TREE_RANDOM_PLANTED), ModItemGroup.ORIGINITE);
+                    () -> ModConfiguredFeatures.SOUL_BLOSSOM_SPAWN_PLANTED), ModItemGroup.ORIGINITE);
 
     public static final Block WINTER_WINDOW = registerBlock("winter_window",
             new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(1.0f)), ModItemGroup.ORIGINITE);

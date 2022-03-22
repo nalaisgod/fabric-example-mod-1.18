@@ -75,7 +75,7 @@ public class TigerEntity extends TameableEntity implements Mount, IAnimatable {
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
     }
 
-    @Override
+
     public boolean canWalkOnFluid(Fluid fluid) {
         return fluid.isIn(FluidTags.WATER);
     }

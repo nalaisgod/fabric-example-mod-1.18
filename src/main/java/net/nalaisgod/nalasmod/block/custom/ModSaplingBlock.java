@@ -15,6 +15,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -25,12 +26,12 @@ import net.nalaisgod.nalasmod.world.feature.tree.SoulBlossomSaplingGenerator;
 public class ModSaplingBlock extends PlantBlock implements Fertilizable {
     protected static final VoxelShape SHAPE = Block.createCuboidShape(4.0, 0.0, 4.0, 12.0, 9.0, 12.0);
     private static final double GROW_CHANCE = 0.4;
-    private final Supplier<ConfiguredFeature<HugeFungusFeatureConfig, ?>> feature;
+    private final Supplier<RegistryEntry<ConfiguredFeature<HugeFungusFeatureConfig, ?>>> feature;
 
 
 
 
-    public ModSaplingBlock(AbstractBlock.Settings settings, Supplier<ConfiguredFeature<HugeFungusFeatureConfig, ?>> feature) {
+    public ModSaplingBlock(AbstractBlock.Settings settings, Supplier<RegistryEntry<ConfiguredFeature<HugeFungusFeatureConfig, ?>>> feature) {
         super(settings);
         this.feature = feature;
     }
@@ -45,10 +46,11 @@ public class ModSaplingBlock extends PlantBlock implements Fertilizable {
         return floor.isOf(Blocks.END_STONE) || floor.isOf(Blocks.SOUL_SOIL) || floor.isOf(Blocks.SOUL_SAND) || super.canPlantOnTop(floor, world, pos);
     }
 
-
-        @Override
+    @Override
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-        return true;
+        Block block = this.feature.get().value().config().validBaseBlock.getBlock();
+        BlockState blockState = world.getBlockState(pos.down());
+        return blockState.isOf(block);
     }
 
 
@@ -59,6 +61,6 @@ public class ModSaplingBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        this.feature.get().generate(world, world.getChunkManager().getChunkGenerator(), random, pos);
+        this.feature.get().value().generate(world, world.getChunkManager().getChunkGenerator(), random, pos);
     }
 }

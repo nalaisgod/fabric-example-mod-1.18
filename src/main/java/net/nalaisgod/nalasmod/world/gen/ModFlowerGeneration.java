@@ -9,6 +9,6 @@ import net.nalaisgod.nalasmod.world.feature.ModPlacedFeatures;
 public class ModFlowerGeneration {
     public static void generateFlowers() {
         BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.SWAMP),
-                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_FOR_ALL_PLACED_KEY);
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_FOR_ALL_PLACED.getKey().get());
     }
 }

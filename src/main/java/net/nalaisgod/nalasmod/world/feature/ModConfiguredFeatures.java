@@ -32,33 +32,24 @@ public class ModConfiguredFeatures {
                     new AcaciaFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0)),
                     new TwoLayersFeatureSize(1, 0, 2)).build());
 
-    public static final RegistryEntry<PlacedFeature> SOUL_BLOSSOM_CHECKED = PlacedFeatures.register("soul_blossom_checked",
-            SOUL_BLOSSOM_TREE, PlacedFeatures.wouldSurvive(ModBlocks.SOUL_BLOSSOM_SAPLING));
 
-    public static final RegistryEntry<ConfiguredFeature<RandomFeatureConfig, ?>> SOUL_BLOSSOM_SPAWN =
-            ConfiguredFeatures.register("soul_blossom_spawn", Feature.RANDOM_SELECTOR,
-                    new RandomFeatureConfig(List.of(new RandomFeatureEntry(SOUL_BLOSSOM_CHECKED,
-                            0.5F)), SOUL_BLOSSOM_CHECKED));
-
-
-    public static final RegistryEntry <ConfiguredFeature<HugeFungusFeatureConfig, ?>> SOUL_BLOSSOM_TREE_RANDOM = ConfiguredFeatures.register("soul_blossom_feature",
-            Feature.HUGE_FUNGUS, new HugeFungusFeatureConfig(Blocks.END_STONE.getDefaultState(),
-                    ModBlocks.SOUL_BLOSSOM_LOG.getDefaultState(), ModBlocks.SOUL_BLOSSOM_LEAVES.getDefaultState(), Blocks.SHROOMLIGHT.getDefaultState(),
-                    false));
-    public static final ConfiguredFeature<HugeFungusFeatureConfig, ?> SOUL_BLOSSOM_TREE_RANDOM_PLANTED = ConfiguredFeatures.register("soul_blossom_feature_planted",
-            Feature.HUGE_FUNGUS.configure(new HugeFungusFeatureConfig(Blocks.END_STONE.getDefaultState(),
-                    ModBlocks.SOUL_BLOSSOM_LOG.getDefaultState(), ModBlocks.SOUL_BLOSSOM_LEAVES.getDefaultState(), Blocks.SHROOMLIGHT.getDefaultState(),
-                    true)));
-
-    public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> FLOWER_FOR_ALL =
-            ModConfiguredFeatures.register("flower_for_all", Feature.FLOWER.configure(
-                    createRandomPatchFeatureConfig(BlockStateProvider.of(ModBlocks.FLOWER_FOR_ALL), 64)));
+    public static final RegistryEntry<ConfiguredFeature<HugeFungusFeatureConfig, ?>> SOUL_BLOSSOM_SPAWN =
+            ConfiguredFeatures.register("soul_blossom_spawn",
+                    Feature.HUGE_FUNGUS, new HugeFungusFeatureConfig(Blocks.END_STONE.getDefaultState(),
+                            ModBlocks.SOUL_BLOSSOM_LOG.getDefaultState(), ModBlocks.SOUL_BLOSSOM_LEAVES.getDefaultState(), Blocks.SHROOMLIGHT.getDefaultState(),
+                            false));
+    public static final RegistryEntry<ConfiguredFeature<HugeFungusFeatureConfig, ?>> SOUL_BLOSSOM_SPAWN_PLANTED =
+            ConfiguredFeatures.register("soul_blossom_spawn_planted",
+                    Feature.HUGE_FUNGUS, new HugeFungusFeatureConfig(Blocks.END_STONE.getDefaultState(),
+                            ModBlocks.SOUL_BLOSSOM_LOG.getDefaultState(), ModBlocks.SOUL_BLOSSOM_LEAVES.getDefaultState(), Blocks.SHROOMLIGHT.getDefaultState(),
+                            true));
 
 
-    private static RandomPatchFeatureConfig createRandomPatchFeatureConfig(BlockStateProvider block, int tries) {
-        return ConfiguredFeatures.createRandomPatchFeatureConfig(tries,
-                Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(block)).withInAirFilter());
-    }
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> FLOWER_FOR_ALL =
+            ConfiguredFeatures.register("flower_flower_for_all", Feature.FLOWER,
+                    new RandomPatchFeatureConfig(32, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                            new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.FLOWER_FOR_ALL)))));
 
     public static final List<OreFeatureConfig.Target> OVERWORLD_ORIGINITE_ORES = List.of(
             OreFeatureConfig.createTarget(OreConfiguredFeatures.STONE_ORE_REPLACEABLES, ModBlocks.ORIGINITE_ORE.getDefaultState()),
@@ -68,18 +59,15 @@ public class ModConfiguredFeatures {
 
 
 
-    public static final ConfiguredFeature<?, ?> ORIGINITE_ORE = register("originite_ore",
-            Feature.ORE.configure(new OreFeatureConfig(OVERWORLD_ORIGINITE_ORES, 9)));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORIGINITE_ORE = ConfiguredFeatures.register("originite_ore",
+            Feature.ORE, new OreFeatureConfig(OVERWORLD_ORIGINITE_ORES, 9));
 
-    public static final ConfiguredFeature<?, ?> END_ORIGINITE_ORE = ConfiguredFeatures.register("end_originite_ore",
-            Feature.SCATTERED_ORE.configure(new OreFeatureConfig(END_STONE, ModBlocks.END_ORIGINITE_ORE.getDefaultState(), 20)));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> END_ORIGINITE_ORE = ConfiguredFeatures.register("end_originite_ore",
+            Feature.SCATTERED_ORE, new OreFeatureConfig(END_STONE, ModBlocks.END_ORIGINITE_ORE.getDefaultState(), 20));
 
 
 
-    public static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
-        return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(NalasMod.MOD_ID, name),
-                configuredFeature);
-    }
+
 
     public static void registerConfiguredFeatures() {
         System.out.println("Registering ModConfiguredFeatures for " + NalasMod.MOD_ID);
