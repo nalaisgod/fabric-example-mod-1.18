@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #*",
+    "@ *",
+    " #*"
+  ],
+  "key": {
+    "*": {
+      "item": "minecraft:string"
+    },
+    "#": {
+      "item": "nalasmod:wither_rod"
+    },
+    "@": {
+      "item": "minecraft:wither_skull"
+    }
+  },
+  "result": {
+    "item": "nalasmod:ice_bow"
+  }
+}

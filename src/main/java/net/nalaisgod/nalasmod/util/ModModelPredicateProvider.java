@@ -13,6 +13,9 @@ public class ModModelPredicateProvider {
 
         registerBow(ModItems.ORB_BOW);
         registerIceBow(ModItems.ICE_BOW);
+        registerIceBow(ModItems.WITHER_BOW);
+        registerShortBow(ModItems.SHORT_BOW);
+
 
     }
 
@@ -46,5 +49,21 @@ public class ModModelPredicateProvider {
 
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0f : 0.0f);
     }
+
+    private static void registerShortBow(Item bow) {
+        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),
+                (stack, world, entity, seed) -> {
+                    if (entity == null) {
+                        return 0.0f;
+                    }
+                    if (entity.getActiveItem() != stack) {
+                        return 0.0f;
+                    }
+                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 5.0f;
+                });
+
+        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0f : 0.0f);
+    }
+
 
 }

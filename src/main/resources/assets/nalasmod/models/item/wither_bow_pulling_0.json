@@ -1,0 +1,6 @@
+{
+  "parent": "nalasmod:item/wither_bow",
+  "textures": {
+    "layer0": "nalasmod:item/wither_bow_pulling_0"
+  }
+}

@@ -1,6 +1,7 @@
 package net.nalaisgod.nalasmod.potion;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
@@ -30,4 +31,5 @@ public class ModPotions {
         BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, Items.POWDER_SNOW_BUCKET,
                 ModPotions.FREEZE_POTION);
     }
+
 }

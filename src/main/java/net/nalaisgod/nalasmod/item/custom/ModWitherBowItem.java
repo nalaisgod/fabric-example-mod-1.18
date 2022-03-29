@@ -1,0 +1,121 @@
+package net.nalaisgod.nalasmod.item.custom;
+
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
+import net.minecraft.world.World;
+import net.nalaisgod.nalasmod.effect.ModEffects;
+import net.nalaisgod.nalasmod.item.ModItems;
+
+import java.util.function.Predicate;
+
+
+public class ModWitherBowItem extends BowItem {
+    public static final Predicate<ItemStack> WITHER_ARROW = itemStack -> itemStack.isOf(ModItems.WITHER_ROD);
+    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
+    public ModWitherBowItem(Settings settings) {
+        super(settings);
+        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", 4.0, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)-2.9f, EntityAttributeModifier.Operation.ADDITION));
+        this.attributeModifiers = builder.build();
+    }
+
+    @Override
+    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
+        if (slot == EquipmentSlot.MAINHAND) {
+            return this.attributeModifiers;
+        }
+        return super.getAttributeModifiers(slot);
+    }
+
+    @Override
+    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
+        boolean bl2;
+        int i;
+        float f;
+        if (!(user instanceof PlayerEntity)) {
+            return;
+        }
+        PlayerEntity playerEntity = (PlayerEntity)user;
+        boolean bl = playerEntity.getAbilities().creativeMode || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
+        ItemStack itemStack = playerEntity.getArrowType(stack);
+        if (itemStack.isEmpty() && !bl) {
+            return;
+        }
+        if (itemStack.isEmpty()) {
+            itemStack = new ItemStack(ModItems.WITHER_ROD);
+        }
+        if ((double)(f = BowItem.getPullProgress(i = this.getMaxUseTime(stack) - remainingUseTicks)) < 0.1) {
+            return;
+        }
+        boolean bl3 = bl2 = bl && itemStack.isOf(ModItems.WITHER_ROD);
+        if (!world.isClient) {
+            int k;
+            int j;
+            ModWitherItem modWitherItem = (ModWitherItem) (itemStack.getItem() instanceof ModWitherItem ? itemStack.getItem() : ModItems.WITHER_ROD);
+            PersistentProjectileEntity persistentProjectileEntity = modWitherItem.createArrow(world, itemStack, playerEntity);
+            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 3.0f, 0.0f);
+            if (f == 1.0f) {
+                persistentProjectileEntity.setCritical(true);
+            }
+            if ((j = EnchantmentHelper.getLevel(Enchantments.POWER, stack)) > 0) {
+                persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + (double)j * 0.5 + 0.5);
+            }
+            if ((k = EnchantmentHelper.getLevel(Enchantments.PUNCH, stack)) > 0) {
+                persistentProjectileEntity.setPunch(k);
+            }
+            if (EnchantmentHelper.getLevel(Enchantments.FLAME, stack) > 0) {
+                persistentProjectileEntity.setFrozenTicks(200);
+            }
+            stack.damage(1, playerEntity, p -> p.sendToolBreakStatus(playerEntity.getActiveHand()));
+            if (bl2 || playerEntity.getAbilities().creativeMode && (itemStack.isOf(ModItems.WITHER_ROD))) {
+                persistentProjectileEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
+            }
+            world.spawnEntity(persistentProjectileEntity);
+        }
+        world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0f, 1.0f / (world.getRandom().nextFloat() * 0.4f + 1.2f) + f * 0.5f);
+        if (!bl2 && !playerEntity.getAbilities().creativeMode) {
+            itemStack.decrement(1);
+            if (itemStack.isEmpty()) {
+                playerEntity.getInventory().removeOne(itemStack);
+            }
+        }
+        playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+    }
+
+    @Override
+    public int getRange() {
+        return 40;
+    }
+
+
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 80, 0), attacker);
+
+        return super.postHit(stack, target, attacker);
+    }
+
+    @Override
+    public Predicate<ItemStack> getProjectiles() {
+        return WITHER_ARROW;
+    }
+
+}
