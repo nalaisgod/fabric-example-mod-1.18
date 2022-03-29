@@ -1,8 +1,14 @@
 package net.nalaisgod.nalasmod.item.custom;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,8 +20,21 @@ import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 
 public class ModGunBowItem extends BowItem {
+    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
     public ModGunBowItem(Settings settings) {
         super(settings);
+        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", 4.0, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)-2.9f, EntityAttributeModifier.Operation.ADDITION));
+        this.attributeModifiers = builder.build();
+    }
+
+    @Override
+    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
+        if (slot == EquipmentSlot.MAINHAND) {
+            return this.attributeModifiers;
+        }
+        return super.getAttributeModifiers(slot);
     }
 
     @Override
@@ -77,6 +96,9 @@ public class ModGunBowItem extends BowItem {
     public int getRange() {
         return 40;
     }
+
+
+
 
 
 

@@ -12,6 +12,8 @@ import net.nalaisgod.nalasmod.entity.custom.TigerEntity;
 import net.nalaisgod.nalasmod.entity.mob.ExiterEntity;
 
 public class ModEntities {
+
+
     public static final EntityType<RaccoonEntity> RACCOON = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(NalasMod.MOD_ID, "raccoon"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RaccoonEntity::new)

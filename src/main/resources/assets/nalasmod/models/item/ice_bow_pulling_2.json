@@ -1,0 +1,6 @@
+{
+  "parent": "nalasmod:item/ice_bow",
+  "textures": {
+    "layer0": "nalasmod:item/ice_bow_pulling_2"
+  }
+}

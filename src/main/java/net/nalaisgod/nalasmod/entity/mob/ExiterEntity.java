@@ -97,6 +97,11 @@ public class ExiterEntity extends HostileEntity implements Mount, IAnimatable {
         this.targetSelector.add(2, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true));
     }
 
+    @Override
+    public boolean canBreatheInWater() {
+        return true;
+    }
+
 
     public boolean isShooting() {
         return this.dataTracker.get(SHOOTING);
@@ -110,25 +115,18 @@ public class ExiterEntity extends HostileEntity implements Mount, IAnimatable {
         return this.fireballStrength;
     }
 
+
     @Override
-    public boolean damage(DamageSource source, float amount) {
-        if (this.isInvulnerableTo(source)) {
-            return false;
+    protected float applyEnchantmentsToDamage(DamageSource source, float amount) {
+        amount = super.applyEnchantmentsToDamage(source, amount);
+        if (source.getAttacker() == this) {
+            amount = 0.0f;
         }
-        if (source.getSource() instanceof DragonFireballEntity && source.getAttacker() instanceof ExiterEntity) {
-            super.damage(source, 0.0f);
-            return true;
+        if (DamageSource.DRAGON_BREATH.bypassesArmor()) {
+            amount *= 0.15f;
         }
-        if (source.getAttacker() instanceof ExiterEntity) {
-            super.damage(source, 0.0f);
-            return true;
-        }
-        return super.damage(source, amount);
+        return amount;
     }
-
-
-
-
 
     static class ShootFireballGoal
             extends Goal {

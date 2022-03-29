@@ -49,7 +49,7 @@ public class IllagersBaneEnchantment
 
     @Override
     public boolean canAccept(Enchantment other) {
-        return !(other instanceof net.minecraft.enchantment.DamageEnchantment);
+        return !(other instanceof net.minecraft.enchantment.DamageEnchantment || other instanceof net.nalaisgod.nalasmod.enchantment.IllagersBaneEnchantment);
     }
 
     @Override

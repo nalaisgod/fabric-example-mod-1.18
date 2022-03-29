@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #*",
+    "# *",
+    " #*"
+  ],
+  "key": {
+    "*": {
+      "item": "minecraft:string"
+    },
+    "#": {
+      "item": "nalasmod:freeze_rod"
+    }
+  },
+  "result": {
+    "item": "nalasmod:ice_bow"
+  }
+}

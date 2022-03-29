@@ -55,7 +55,5 @@ public class NalasModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.RACCOON, RaccoonRenderer::new);
         EntityRendererRegistry.register(ModEntities.TIGER, TigerRenderer::new);
         EntityRendererRegistry.register(ModEntities.EXITER, ExiterRenderer::new);
-
-
     }
 }

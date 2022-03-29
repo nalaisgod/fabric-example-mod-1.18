@@ -66,11 +66,11 @@ public class ModBlocks {
             new SlabBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ORIGINITE_BUTTON = registerBlock("originite_button",
-            new ModStoneButtonBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
+            new ModStoneButtonBlock(FabricBlockSettings.of(Material.METAL).noCollision().strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ORIGINITE_PRESURE_PLATE = registerBlock("originite_pressure_plate",
             new ModPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING,
-                    FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
+                    FabricBlockSettings.of(Material.METAL).noCollision().strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ORIGINITE_FENCE = registerBlock("originite_fence",
             new FenceBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.ORIGINITE);
@@ -123,10 +123,10 @@ public class ModBlocks {
 
 
     public static final Block SOUL_BLOSSOM_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("soul_blossom_wall_sign_block",
-            new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS), ModSignTypes.SOUL_BLOSSOM));
+            new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS).noCollision(), ModSignTypes.SOUL_BLOSSOM));
 
     public static final Block SOUL_BLOSSOM_SIGN_BLOCK = registerBlockWithoutBlockItem("soul_blossom_sign_block",
-            new SignBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS), ModSignTypes.SOUL_BLOSSOM));
+            new SignBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS).noCollision(), ModSignTypes.SOUL_BLOSSOM));
 
 
     public static final Block SOUL_BLOSSOM_LEAVES = registerBlock("soul_blossom_leaves",
@@ -138,7 +138,7 @@ public class ModBlocks {
                     () -> ModConfiguredFeatures.SOUL_BLOSSOM_SPAWN_PLANTED), ModItemGroup.ORIGINITE);
 
     public static final Block WINTER_WINDOW = registerBlock("winter_window",
-            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(1.0f)), ModItemGroup.ORIGINITE);
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(60.0f, 10000f)), ModItemGroup.ORIGINITE);
 
 
 

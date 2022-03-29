@@ -19,5 +19,15 @@ https://www.fiverr.com/yoruniii/make-and-animate-3d-model-in-blockbench
 Raccoon by Yoruniii (https://creativecommons.org/licenses/by-sa/4.0/):
 https://www.fiverr.com/yoruniii/make-and-animate-3d-model-in-blockbench
 
-Elemental Blade texture by (https://creativecommons.org/licenses/by-sa/4.0/):
+Structure Code & JSON Files all from TelepathicGrunt
+(Under MIT-License: https://github.com/TelepathicGrunt/StructureTutorialMod/blob/1.18.2-Forge-Jigsaw/LICENSE.txt):
+https://github.com/TelepathicGrunt/StructureTutorialMod
+
+ModHealingStaff Code & ModHealingOrb all from Globox1997
+(Under MIT-License: https://github.com/Globox1997/MedievalWeapons/blob/1.18/LICENSE.txt):
+https://github.com/Globox1997/MedievalWeapons
+
+Elemental Blade texture by chronosacaria
+(Under MIT-License: https://github.com/chronosacaria/MCDungeonsWeapons/blob/1.18/LICENSE.txt):
 https://github.com/chronosacaria/MCDungeonsWeapons
+

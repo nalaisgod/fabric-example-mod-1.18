@@ -41,6 +41,9 @@
   "item.nalasmod.exiter_spawn_egg": "Exiter Spawn Egg",
   "item.nalasmod.elemental_blade": "Elemental Blade",
   "item.nalasmod.grav_rod": "Grav Rod",
+  "item.nalasmod.tiger_eye": "Tiger Eye",
+  "item.nalasmod.ice_bow": "Ice Bow",
+  "item.nalasmod.freeze_rod": "Ice Rod",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",
@@ -71,7 +74,7 @@
   "block.nalasmod.soul_blossom_sign_block": "Soul Blossom Sign",
   "block.nalasmod.soul_blossom_leaves": "Soul Blossom Leaves",
   "block.nalasmod.soul_blossom_sapling": "Soul Blossom Sapling",
-  "block.nalasmod.winter_window": "Winter Window",
+  "block.nalasmod.winter_window": "Reenforced Glass",
 
   "itemGroup.nalasmod.originite": "Originite Nalas Tab",
 
@@ -88,5 +91,9 @@
   "enchantment.nalasmod.illagers_bane": "Illagers bane",
   "enchantment.nalasmod.elemental_bane": "Elemental bane",
 
-  "effect.nalasmod.freeze": "Freeze"
+  "effect.nalasmod.freeze": "Freeze",
+
+  "entity.nalasmod.tiger": "Robo Tiger",
+  "entity.nalasmod.raccoon": "Raccoon",
+  "entity.nalasmod.exiter": "Exiter"
 }

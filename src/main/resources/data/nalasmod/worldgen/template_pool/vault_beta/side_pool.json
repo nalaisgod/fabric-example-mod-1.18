@@ -1,0 +1,42 @@
+{
+  "name": "nalasmod:vault_beta/side_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "nalasmod:vault_beta_cash",
+        "processors": "nalasmod:randomize_nether",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "nalasmod:vault_beta_gold",
+        "processors": "nalasmod:randomize_nether",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "nalasmod:vault_beta_origin",
+        "processors": "nalasmod:randomize_nether",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "nalasmod:vault_beta_treasure",
+        "processors": "nalasmod:randomize_nether",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

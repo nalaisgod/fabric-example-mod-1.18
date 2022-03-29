@@ -13,6 +13,7 @@ import net.nalaisgod.nalasmod.util.ModLootTableModifiers;
 import net.nalaisgod.nalasmod.util.ModRegistries;
 import net.nalaisgod.nalasmod.world.feature.ModConfiguredFeatures;
 import net.nalaisgod.nalasmod.world.gen.ModWorldGen;
+import net.nalaisgod.nalasmod.world.structures.ModStructures;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,5 +44,7 @@ public class NalasMod implements ModInitializer {
 
 		ModEffects.registerEffects();
 		ModPotions.registerPotions();
+
+		ModStructures.registerStructureFeatures();
 	}
 }

@@ -36,9 +36,6 @@ import net.nalaisgod.nalasmod.util.InventoryUtil;
 import java.util.function.Predicate;
 
 public class ModGravRodItem extends RangedWeaponItem {
-    public static final int field_30926 = 10;
-    public static final float field_30927 = 8.0f;
-    public static final float field_30928 = 2.5f;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     public ModGravRodItem(Item.Settings settings) {
@@ -47,6 +44,14 @@ public class ModGravRodItem extends RangedWeaponItem {
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", 8.0, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)-2.9f, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
+    }
+
+    @Override
+    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
+        if (slot == EquipmentSlot.MAINHAND) {
+            return this.attributeModifiers;
+        }
+        return super.getAttributeModifiers(slot);
     }
 
 
@@ -74,7 +79,7 @@ public class ModGravRodItem extends RangedWeaponItem {
                 FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(world, itemStack, user);
                 world.spawnEntity(fireworkRocketEntity);
                 if (!user.getAbilities().creativeMode) {
-                    itemStack.damage(50, user, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+                    itemStack.damage(5, user, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
                 }
                 user.incrementStat(Stats.USED.getOrCreateStat(this));
             }

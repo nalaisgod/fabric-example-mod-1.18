@@ -55,7 +55,7 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC)));
 
     public static final Item SOUL_SWORD = registerItem("soul_sword",
-            new ModHealingSwordItem(ModToolMaterial.SOUL, 5, -3f,
+            new ModHealingSwordItem(ModToolMaterial.SOUL, 5, -2.4f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_HELMET = registerItem("originite_helmet",
@@ -147,10 +147,25 @@ public class ModItems {
 
     public static final Item ELEMENTAL_BLADE = registerItem("elemental_blade",
             new ModElemtalSwordItem(ModToolMaterial.ELEMENT, 5, -3f,
-                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON)));
 
     public static final Item GRAV_ROD = registerItem("grav_rod",
-            new ModGravRodItem(new FabricItemSettings().maxDamage(2500).group(ModItemGroup.ORIGINITE)));
+            new ModGravRodItem(new FabricItemSettings().maxDamage(2500).group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE)));
+
+    public static final Item TIGER_EYE = registerItem("tiger_eye",
+            new ModVisionItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.COMMON).maxDamage(16)));
+
+    public static final Item FREEZE_ROD = registerItem("freeze_rod",
+            new ModFreezeItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.COMMON)));
+
+    public static final Item ICE_BOW = registerItem("ice_bow",
+            new ModIceBowItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.RARE)));
+
+    public static final Item WITHER_ROD = registerItem("wither_rod",
+            new ModWitherItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.COMMON)));
+
+    public static final Item WITHER_BOW = registerItem("wither_bow",
+            new ModWitherBowItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.RARE)));
 
 
 
