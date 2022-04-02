@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "nalasmod:item/bow_effect_chip_infusion"
+  }
+}

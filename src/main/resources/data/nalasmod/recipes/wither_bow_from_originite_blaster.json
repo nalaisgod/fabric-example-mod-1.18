@@ -1,0 +1,14 @@
+{
+  "type": "nalasmod:originite_blaster",
+  "ingredients": [
+    {
+      "item": "nalasmod:unpowered_wither_bow"
+    },
+    {
+      "item": "nalasmod:bow_effect_chip_infusion"
+    }
+  ],
+  "output": {
+    "item": "nalasmod:wither_bow"
+  }
+}

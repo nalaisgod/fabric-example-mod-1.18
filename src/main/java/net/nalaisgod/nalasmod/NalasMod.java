@@ -11,6 +11,7 @@ import net.nalaisgod.nalasmod.potion.ModPotions;
 import net.nalaisgod.nalasmod.recipe.ModRecipes;
 import net.nalaisgod.nalasmod.util.ModLootTableModifiers;
 import net.nalaisgod.nalasmod.util.ModRegistries;
+import net.nalaisgod.nalasmod.villager.ModVillagers;
 import net.nalaisgod.nalasmod.world.feature.ModConfiguredFeatures;
 import net.nalaisgod.nalasmod.world.gen.ModWorldGen;
 import net.nalaisgod.nalasmod.world.structures.ModStructures;
@@ -48,6 +49,10 @@ public class NalasMod implements ModInitializer {
 
 		ModStructures.registerStructureFeatures();
 
+		ModVillagers.setupPOIs();
+
 		GeckoLib.initialize();
+
+
 	}
 }

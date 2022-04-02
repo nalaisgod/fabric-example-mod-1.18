@@ -153,7 +153,7 @@ public class ModItems {
             new ModGravRodItem(new FabricItemSettings().maxDamage(2500).group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE)));
 
     public static final Item TIGER_EYE = registerItem("tiger_eye",
-            new ModVisionItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON).maxDamage(16)));
+            new ModVisionItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON).maxCount(1).maxDamage(16)));
 
     public static final Item FREEZE_ROD = registerItem("freeze_rod",
             new ModFreezeItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON)));
@@ -169,6 +169,16 @@ public class ModItems {
 
     public static final Item SHORT_BOW = registerItem("short_bow",
             new ModShortBowItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.RARE)));
+
+    public static final Item BOW_EFFECT_CHIP_INFUSION = registerItem("bow_effect_chip_infusion",
+            new ModChipItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE).maxCount(1)));
+
+    public static final Item UNPOWERED_ICE_BOW = registerItem("unpowered_ice_bow",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.UNCOMMON)));
+
+    public static final Item UNPOWERED_WITHER_BOW = registerItem("unpowered_wither_bow",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.RARE)));
+
 
 
 

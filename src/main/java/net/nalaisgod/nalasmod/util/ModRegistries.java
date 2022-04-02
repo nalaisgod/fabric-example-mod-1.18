@@ -21,6 +21,7 @@ import net.nalaisgod.nalasmod.entity.custom.TigerEntity;
 import net.nalaisgod.nalasmod.entity.mob.ExiterEntity;
 import net.nalaisgod.nalasmod.event.ModPlayerEventCopyFrom;
 import net.nalaisgod.nalasmod.item.ModItems;
+import net.nalaisgod.nalasmod.villager.ModVillagers;
 
 public class ModRegistries {
     public static void registerModStuffs() {
@@ -77,13 +78,74 @@ public class ModRegistries {
                             new ItemStack(ModItems.APPLE_CORE, 16),
                             6,2,0.02f));
                 });
-
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH, 4,
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 1,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 52),
-                            new ItemStack(ModItems.ELEMENTAL_BLADE, 1),
-                            2,3,0.08f));
+                            new ItemStack(Items.EMERALD, 9),
+                            new ItemStack(ModItems.DATA_TABLET, 1),
+                            12,3,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 1,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(ModItems.RAW_ORIGINITE, 8),
+                            new ItemStack(Items.EMERALD, 6),
+                            12,3,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 1,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 5),
+                            new ItemStack(Items.BUCKET),
+                            new ItemStack(ModItems.HONEY_BUCKET, 1),
+                            12,3,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 2,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 30),
+                            new ItemStack(ModItems.ORIGINITE_INGOT),
+                            new ItemStack(ModItems.ORIGINITE_SHOVEL, 1),
+                            12,10,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 2,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 30),
+                            new ItemStack(ModItems.ORIGINITE_INGOT),
+                            new ItemStack(ModItems.ORIGINITE_PICKAXE, 1),
+                            12,10,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 2,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 30),
+                            new ItemStack(ModItems.ORIGINITE_INGOT),
+                            new ItemStack(ModItems.ORIGINITE_AXE, 1),
+                            12,10,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 2,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 30),
+                            new ItemStack(ModItems.ORIGINITE_INGOT),
+                            new ItemStack(ModItems.ORIGINITE_HOE, 1),
+                            12,10,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 3,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 64),
+                            new ItemStack(Items.HEART_OF_THE_SEA),
+                            new ItemStack(ModItems.ELDER_TRIDENT, 1),
+                            12,13,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 4,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 50),
+                            new ItemStack(ModItems.BOW_EFFECT_CHIP_INFUSION, 1),
+                            12,30,0.08f));
                 });
     }
 
