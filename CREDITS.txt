@@ -5,8 +5,6 @@ https://www.fiverr.com/nanoattack/help-design-and-draw-pixel-art
 distributed under CC BY-SA 4.0 International License:
 https://creativecommons.org/licenses/by-sa/4.0/
 
-If you use those textures, add this file to your repository and add this to your project!
-
 Orichalcum Blaster & Paintings by PlatinumG17 (https://creativecommons.org/licenses/by-sa/4.0/):
 https://www.curseforge.com/members/platinumg17/projects
 
@@ -22,10 +20,6 @@ https://www.fiverr.com/yoruniii/make-and-animate-3d-model-in-blockbench
 Structure Code & JSON Files all from TelepathicGrunt
 (Under MIT-License: https://github.com/TelepathicGrunt/StructureTutorialMod/blob/1.18.2-Forge-Jigsaw/LICENSE.txt):
 https://github.com/TelepathicGrunt/StructureTutorialMod
-
-ModHealingStaff Code & ModHealingOrb all from Globox1997
-(Under MIT-License: https://github.com/Globox1997/MedievalWeapons/blob/1.18/LICENSE.txt):
-https://github.com/Globox1997/MedievalWeapons
 
 Elemental Blade texture by chronosacaria
 (Under MIT-License: https://github.com/chronosacaria/MCDungeonsWeapons/blob/1.18/LICENSE.txt):

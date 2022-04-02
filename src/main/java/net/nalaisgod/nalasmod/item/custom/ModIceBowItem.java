@@ -73,7 +73,7 @@ public class ModIceBowItem extends BowItem {
             int j;
             ModFreezeItem modFreezeItem = (ModFreezeItem) (itemStack.getItem() instanceof ModFreezeItem ? itemStack.getItem() : ModItems.FREEZE_ROD);
             PersistentProjectileEntity persistentProjectileEntity = modFreezeItem.createArrow(world, itemStack, playerEntity);
-            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 3.0f, 0.0f);
+            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 2.0f, 0.0f);
             if (f == 1.0f) {
                 persistentProjectileEntity.setCritical(true);
             }
@@ -104,8 +104,9 @@ public class ModIceBowItem extends BowItem {
 
     @Override
     public int getRange() {
-        return 40;
+        return 10;
     }
+
 
 
 

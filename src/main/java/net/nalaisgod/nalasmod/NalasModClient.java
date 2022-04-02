@@ -14,11 +14,14 @@ import net.nalaisgod.nalasmod.entity.ModEntities;
 import net.nalaisgod.nalasmod.entity.client.ExiterRenderer;
 import net.nalaisgod.nalasmod.entity.client.RaccoonRenderer;
 import net.nalaisgod.nalasmod.entity.client.TigerRenderer;
+import net.nalaisgod.nalasmod.entity.client.armor.OriginiteArmorRenderer;
 import net.nalaisgod.nalasmod.event.ReplaceTitleScreenEvent;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
+import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.screen.ModScreenHandlers;
 import net.nalaisgod.nalasmod.screen.OriginiteBlasterScreen;
 import net.nalaisgod.nalasmod.util.ModModelPredicateProvider;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 public class NalasModClient implements ClientModInitializer {
     @Override
@@ -55,5 +58,9 @@ public class NalasModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.RACCOON, RaccoonRenderer::new);
         EntityRendererRegistry.register(ModEntities.TIGER, TigerRenderer::new);
         EntityRendererRegistry.register(ModEntities.EXITER, ExiterRenderer::new);
+
+
+        GeoArmorRenderer.registerArmorRenderer(new OriginiteArmorRenderer(), ModItems.ORIGINITE_BOOTS,
+                ModItems.ORIGINITE_LEGGINGS, ModItems.ORIGINITE_CHESTPLATE, ModItems.ORIGINITE_HELMET);
     }
 }

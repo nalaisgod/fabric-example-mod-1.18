@@ -70,7 +70,7 @@ public class ModWitherBowItem extends BowItem {
             int j;
             ModWitherItem modWitherItem = (ModWitherItem) (itemStack.getItem() instanceof ModWitherItem ? itemStack.getItem() : ModItems.WITHER_ROD);
             PersistentProjectileEntity persistentProjectileEntity = modWitherItem.createArrow(world, itemStack, playerEntity);
-            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 3.0f, 0.0f);
+            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 2.0f, 0.0f);
             if (f == 1.0f) {
                 persistentProjectileEntity.setCritical(true);
             }
@@ -101,8 +101,10 @@ public class ModWitherBowItem extends BowItem {
 
     @Override
     public int getRange() {
-        return 40;
+        return 10;
     }
+
+
 
 
 

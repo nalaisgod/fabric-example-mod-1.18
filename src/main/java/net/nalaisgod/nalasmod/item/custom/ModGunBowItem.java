@@ -17,6 +17,8 @@ import net.minecraft.item.*;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class ModGunBowItem extends BowItem {
@@ -96,10 +98,6 @@ public class ModGunBowItem extends BowItem {
     public int getRange() {
         return 40;
     }
-
-
-
-
 
 
     @Override

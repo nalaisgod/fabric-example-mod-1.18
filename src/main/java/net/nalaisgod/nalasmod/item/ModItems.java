@@ -59,19 +59,19 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_HELMET = registerItem("originite_helmet",
-            new ModArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.HEAD,
+            new OriginiteArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.HEAD,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_CHESTPLATE = registerItem("originite_chestplate",
-            new ArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.CHEST,
+            new OriginiteArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.CHEST,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_LEGGINGS = registerItem("originite_leggings",
-            new ArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.LEGS,
+            new OriginiteArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.LEGS,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_BOOTS = registerItem("originite_boots",
-            new ArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.FEET,
+            new OriginiteArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.FEET,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item ORIGINITE_HORSE_ARMOR = registerItem("originite_horse_armor",
@@ -169,6 +169,7 @@ public class ModItems {
 
     public static final Item SHORT_BOW = registerItem("short_bow",
             new ModShortBowItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.RARE)));
+
 
 
 

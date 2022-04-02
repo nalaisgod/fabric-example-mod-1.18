@@ -16,6 +16,7 @@ import net.nalaisgod.nalasmod.world.gen.ModWorldGen;
 import net.nalaisgod.nalasmod.world.structures.ModStructures;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 public class NalasMod implements ModInitializer {
 	public static final String MOD_ID = "nalasmod";
@@ -46,5 +47,7 @@ public class NalasMod implements ModInitializer {
 		ModPotions.registerPotions();
 
 		ModStructures.registerStructureFeatures();
+
+		GeckoLib.initialize();
 	}
 }

@@ -95,6 +95,7 @@ public class ModShortBowItem extends BowItem {
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
     }
 
+
     @Override
     public int getRange() {
         return 3;
