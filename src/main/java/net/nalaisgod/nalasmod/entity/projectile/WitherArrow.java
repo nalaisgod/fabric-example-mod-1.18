@@ -53,9 +53,9 @@ public class WitherArrow extends PersistentProjectileEntity{
         if (entity instanceof LivingEntity) {
             areaEffectCloudEntity.setOwner((LivingEntity)entity);
         }
-        areaEffectCloudEntity.setRadius(3.0f);
-        areaEffectCloudEntity.setRadiusOnUse(-0.5f);
-        areaEffectCloudEntity.setWaitTime(10);
+        areaEffectCloudEntity.setRadius(1.0f);
+        areaEffectCloudEntity.setRadiusOnUse(-0.3f);
+        areaEffectCloudEntity.setWaitTime(3);
         areaEffectCloudEntity.setRadiusGrowth(-areaEffectCloudEntity.getRadius() / (float)areaEffectCloudEntity.getDuration());
         areaEffectCloudEntity.setPotion(Potions.HARMING);
         for (StatusEffectInstance statusEffectInstance : PotionUtil.getCustomPotionEffects(stack)) {
