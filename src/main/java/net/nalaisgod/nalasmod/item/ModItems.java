@@ -14,6 +14,8 @@ import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.custom.*;
 import net.nalaisgod.nalasmod.sound.ModSounds;
 
+import java.util.Optional;
+
 public class ModItems {
     public static final Item ORIGINITE_INGOT = registerItem("originite_ingot",
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
@@ -181,6 +183,9 @@ public class ModItems {
 
     public static final Item GRAV_STABLE = registerItem("grav_stable",
             new ModGravDisItem(new FabricItemSettings().maxDamage(5).group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC)));
+
+    public static final Item POUCH_O_HOLDING = registerItem("pouch_o_holding",
+            new ModBundleItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC).maxCount(1)));
 
 
 
