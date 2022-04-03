@@ -1,15 +1,16 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:staff_of_the_orb"
+      "item": "nalasmod:wither_bow"
     },
-    "title": "YEET",
-    "description": "Reward From Vault Gamma. Through It I Dare You",
+    "title": "Death To All",
+    "description": "The True Wither Bow",
     "frame": "challenge",
     "show_toast": true,
-    "announce_to_chat": true
+    "announce_to_chat": true,
+    "hidden": true
   },
-  "parent": "nalasmod:grav_rod",
+  "parent": "nalasmod:wither_bow",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,7 +18,7 @@
         "items": [
           {
             "items": [
-              "nalasmod:staff_of_the_orb"
+              "nalasmod:wither_bow"
             ]
           }
         ]
@@ -26,7 +27,7 @@
   },
   "rewards": {
     "loot": [
-      "minecraft:ender_pearl"
+      "minecraft:jukebox"
     ],
     "experience": 500
   }

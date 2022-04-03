@@ -3,6 +3,8 @@ package net.nalaisgod.nalasmod.item.custom;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.*;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
@@ -22,6 +24,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -32,7 +35,9 @@ import net.minecraft.world.event.GameEvent;
 import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.sound.ModSounds;
 import net.nalaisgod.nalasmod.util.InventoryUtil;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 public class ModGravRodItem extends RangedWeaponItem {
@@ -96,5 +101,13 @@ public class ModGravRodItem extends RangedWeaponItem {
     @Override
     public int getRange() {
         return 100;
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(new TranslatableText("item.nalasmod.grav_rod.tooltip.shift"));
+        } else {
+            tooltip.add(new TranslatableText("item.nalasmod.dowsing_rod.tooltip"));
+        }
     }
 }

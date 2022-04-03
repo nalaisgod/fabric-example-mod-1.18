@@ -2,6 +2,8 @@ package net.nalaisgod.nalasmod.item.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
@@ -18,13 +20,17 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.tag.ItemTags;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import net.nalaisgod.nalasmod.effect.ModEffects;
 import net.nalaisgod.nalasmod.item.ModItems;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 
@@ -121,6 +127,15 @@ public class ModIceBowItem extends BowItem {
     @Override
     public Predicate<ItemStack> getProjectiles() {
         return ICE_ARROW;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(new TranslatableText("item.nalasmod.ice_bow.tooltip.shift"));
+        } else {
+            tooltip.add(new TranslatableText("item.nalasmod.dowsing_rod.tooltip"));
+        }
     }
 
 }

@@ -138,7 +138,7 @@ public class ModBlocks {
                     () -> ModConfiguredFeatures.SOUL_BLOSSOM_SPAWN_PLANTED), ModItemGroup.ORIGINITE);
 
     public static final Block WINTER_WINDOW = registerBlock("winter_window",
-            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(60.0f, 10000f)), ModItemGroup.ORIGINITE);
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(60.0f, 100f).requiresTool()), ModItemGroup.ORIGINITE);
 
 
 

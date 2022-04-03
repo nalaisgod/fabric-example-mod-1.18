@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:staff_of_the_orb"
+      "item": "nalasmod:wither_bow"
     },
-    "title": "YEET",
-    "description": "Reward From Vault Gamma. Through It I Dare You",
-    "frame": "challenge",
+    "title": "AHHHHH",
+    "description": "The Wrath Weapon (Might Need Some Powering Tho)",
+    "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:grav_rod",
+  "parent": "nalasmod:wither_rod",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "nalasmod:staff_of_the_orb"
+              "nalasmod:unpowered_wither_bow"
             ]
           }
         ]
@@ -26,8 +26,8 @@
   },
   "rewards": {
     "loot": [
-      "minecraft:ender_pearl"
+      "minecraft:jukebox"
     ],
-    "experience": 500
+    "experience": 50
   }
 }

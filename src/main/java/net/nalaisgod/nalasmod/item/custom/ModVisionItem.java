@@ -49,4 +49,12 @@ public class ModVisionItem extends Item {
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.SPYGLASS;
     }
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(new TranslatableText("item.nalasmod.vision.tooltip.shift"));
+        } else {
+            tooltip.add(new TranslatableText("item.nalasmod.dowsing_rod.tooltip"));
+        }
+    }
 }

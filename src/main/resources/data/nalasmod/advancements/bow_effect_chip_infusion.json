@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:staff_of_the_orb"
+      "item": "nalasmod:bow_effect_chip_infusion"
     },
-    "title": "YEET",
-    "description": "Reward From Vault Gamma. Through It I Dare You",
-    "frame": "challenge",
+    "title": "Power Online",
+    "description": "A Chip Sold By A Rare Villager To Power Elemental Bows",
+    "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:grav_rod",
+  "parent": "nalasmod:ice_bow",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "nalasmod:staff_of_the_orb"
+              "nalasmod:bow_effect_chip_infusion"
             ]
           }
         ]
@@ -26,8 +26,8 @@
   },
   "rewards": {
     "loot": [
-      "minecraft:ender_pearl"
+      "minecraft:jukebox"
     ],
-    "experience": 500
+    "experience": 50
   }
 }

@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:staff_of_the_orb"
+      "item": "nalasmod:grav_rod"
     },
-    "title": "YEET",
-    "description": "Reward From Vault Gamma. Through It I Dare You",
+    "title": "I Belive I Can Fly",
+    "description": "A Reward From Vault Beta Treasure Variant",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:grav_rod",
+  "parent": "nalasmod:elemental_blade",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "nalasmod:staff_of_the_orb"
+              "nalasmod:grav_rod"
             ]
           }
         ]
@@ -26,7 +26,7 @@
   },
   "rewards": {
     "loot": [
-      "minecraft:ender_pearl"
+      "minecraft:jukebox"
     ],
     "experience": 500
   }
