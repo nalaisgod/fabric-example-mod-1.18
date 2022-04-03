@@ -179,6 +179,9 @@ public class ModItems {
     public static final Item UNPOWERED_WITHER_BOW = registerItem("unpowered_wither_bow",
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.RARE)));
 
+    public static final Item GRAV_STABLE = registerItem("grav_stable",
+            new ModGravDisItem(new FabricItemSettings().maxDamage(5).group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC)));
+
 
 
 

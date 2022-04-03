@@ -1,0 +1,15 @@
+{
+  "name": "nalasmod:better_end_city/small_tower_base",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "nalasmod:better_end_city/tower_base",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
