@@ -33,7 +33,7 @@ import java.util.List;
 public class ModBlocks {
 
     public static final Block ORIGINITE_BLOCK = registerBlock("originite_block",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(150f, 10000000f).requiresTool()),
+            new ModUnmoveableBlock(FabricBlockSettings.of(Material.METAL).strength(150f, 10000000f).requiresTool()),
             ModItemGroup.ORIGINITE, "tooltip.nalasmod.originite_block");
 
     public static final Block ORIGINITE_ORE = registerBlock("originite_ore",
@@ -138,7 +138,7 @@ public class ModBlocks {
                     () -> ModConfiguredFeatures.SOUL_BLOSSOM_SPAWN_PLANTED), ModItemGroup.ORIGINITE);
 
     public static final Block WINTER_WINDOW = registerBlock("winter_window",
-            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(60.0f, 100f).requiresTool()), ModItemGroup.ORIGINITE);
+            new ModGlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(100.0f, 100f).requiresTool()), ModItemGroup.ORIGINITE);
 
 
 
