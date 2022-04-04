@@ -90,12 +90,12 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     }
 
     public static DefaultAttributeContainer.Builder setAttributes() {
-        return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 300.0)
+        return TameableEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 1500.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.3f)
-                .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.6f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40.0)
-                .add(EntityAttributes.GENERIC_ARMOR, 4.0);
+                .add(EntityAttributes.GENERIC_FLYING_SPEED, 1.3f)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 60.0)
+                .add(EntityAttributes.GENERIC_ARMOR, 7.0);
     }
 
     @Override
@@ -177,17 +177,6 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         return false;
     }
 
-    @Override
-    protected float applyEnchantmentsToDamage(DamageSource source, float amount) {
-        amount = super.applyEnchantmentsToDamage(source, amount);
-        if (source.getAttacker() == this) {
-            amount = 0.0f;
-        }
-        if (DamageSource.DRAGON_BREATH.bypassesArmor()) {
-            amount *= 0.0f;
-        }
-        return amount;
-    }
 
     //bossbar
 
@@ -318,7 +307,8 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
             }
             this.setInvulTimer(i2);
             if (this.age % 10 == 0) {
-                this.heal(10.0f);
+                this.heal(20.0f);
+                this.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 100, 4));
             }
             return;
         }
@@ -590,7 +580,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     class DescendAtHalfHealthGoal
             extends Goal {
         public DescendAtHalfHealthGoal() {
-            this.setControls(EnumSet.of(Goal.Control.MOVE, Goal.Control.JUMP, Goal.Control.LOOK));
+            this.setControls(EnumSet.of(Control.MOVE, Control.JUMP, Control.LOOK));
         }
 
         @Override

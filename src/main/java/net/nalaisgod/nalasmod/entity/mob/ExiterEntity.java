@@ -119,9 +119,6 @@ public class ExiterEntity extends HostileEntity implements Mount, IAnimatable {
     @Override
     protected float applyEnchantmentsToDamage(DamageSource source, float amount) {
         amount = super.applyEnchantmentsToDamage(source, amount);
-        if (source.getAttacker() == this) {
-            amount = 0.0f;
-        }
         if (DamageSource.DRAGON_BREATH.bypassesArmor()) {
             amount *= 0.15f;
         }
