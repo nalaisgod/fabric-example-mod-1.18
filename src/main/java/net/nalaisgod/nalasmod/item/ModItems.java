@@ -1,6 +1,7 @@
 package net.nalaisgod.nalasmod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.potion.Potion;
@@ -190,9 +191,6 @@ public class ModItems {
 
     public static final Item POUCH_O_HOLDING = registerItem("pouch_o_holding",
             new ModBundleItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC).maxCount(1)));
-
-
-
 
 
 

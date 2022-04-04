@@ -141,6 +141,10 @@ public class ModBlocks {
             new ModGlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(100.0f, 100f).requiresTool()), ModItemGroup.ORIGINITE);
 
 
+    public static final Block BOB_HEAD = registerBlock("bob_head",
+            new ModHeadClass(FabricBlockSettings.of(Material.METAL).strength(150f, 10000000f).requiresTool()),
+            ModItemGroup.ORIGINITE);
+
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

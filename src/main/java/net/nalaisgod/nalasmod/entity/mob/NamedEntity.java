@@ -45,6 +45,7 @@ import net.minecraft.world.*;
 import net.minecraft.world.explosion.Explosion;
 import net.nalaisgod.nalasmod.effect.ModEffects;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
+import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -62,14 +63,12 @@ import java.util.function.Predicate;
 
 public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverlayOwner, RangedAttackMob {
     private AnimationFactory factory = new AnimationFactory(this);
-    private static final TrackedData<Byte> NAMED_FLAGS = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.BYTE);
-    private static final float field_30498 = 0.1f;
     private static final TrackedData<Integer> TRACKED_ENTITY_ID_1 = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Integer> TRACKED_ENTITY_ID_2 = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Integer> TRACKED_ENTITY_ID_3 = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final List<TrackedData<Integer>> TRACKED_ENTITY_IDS = ImmutableList.of(TRACKED_ENTITY_ID_1, TRACKED_ENTITY_ID_2, TRACKED_ENTITY_ID_3);
-    private static final TrackedData<Integer> INVUL_TIMER = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final int DEFAULT_INVUL_TIMER = 220;
+    private static final TrackedData<Integer> INVUL_TIMER_NAMED = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final int DEFAULT_INVUL_TIMER_NAMED = 220;
     private final float[] sideHeadPitches = new float[2];
     private final float[] sideHeadYaws = new float[2];
     private final float[] prevSideHeadPitches = new float[2];
@@ -83,7 +82,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
 
 
 
-    public NamedEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public NamedEntity(EntityType<? extends NamedEntity> entityType, World world) {
         super((EntityType<? extends HostileEntity>)entityType, world);
         this.moveControl = new FlightMoveControl(this, 10, false);
         this.setHealth(this.getMaxHealth());
@@ -110,7 +109,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(0, new NamedEntity.DescendAtHalfHealthGoal());
+        this.goalSelector.add(0, new DescendAtHalfHealthGoal());
         this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0, 40, 20.0f));
         this.goalSelector.add(5, new FlyGoal(this, 1.0));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
@@ -131,28 +130,6 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         return super.canHaveStatusEffect(effect);
     }
 
-    @Override
-    public boolean isClimbing() {
-        return this.isClimbingWall();
-    }
-
-    public boolean isClimbingWall() {
-        return (this.dataTracker.get(NAMED_FLAGS) & 1) != 0;
-    }
-
-    public void setClimbingWall(boolean climbing) {
-        byte b = this.dataTracker.get(NAMED_FLAGS);
-        b = climbing ? (byte)(b | 1) : (byte)(b & 0xFFFFFFFE);
-        this.dataTracker.set(NAMED_FLAGS, b);
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        if (!this.world.isClient) {
-            this.setClimbingWall(this.horizontalCollision);
-        }
-    }
 
     @Override
     public void registerControllers(AnimationData animationData) {
@@ -211,48 +188,6 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         }
         return amount;
     }
-    static class AttackGoal
-            extends MeleeAttackGoal {
-        public AttackGoal(NamedEntity named) {
-            super(named, 1.0, true);
-        }
-
-        @Override
-        public boolean canStart() {
-            return super.canStart() && !this.mob.hasPassengers();
-        }
-
-        @Override
-        public boolean shouldContinue() {
-            float f = this.mob.getBrightnessAtEyes();
-            if (f >= 0.5f && this.mob.getRandom().nextInt(100) == 0) {
-                this.mob.setTarget(null);
-                return false;
-            }
-            return super.shouldContinue();
-        }
-
-        @Override
-        protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-            return 4.0f + entity.getWidth();
-        }
-    }
-
-    static class TargetGoal<T extends LivingEntity>
-            extends ActiveTargetGoal<T> {
-        public TargetGoal(NamedEntity named, Class<T> targetEntityClass) {
-            super((MobEntity)named, targetEntityClass, true);
-        }
-
-        @Override
-        public boolean canStart() {
-            float f = this.mob.getBrightnessAtEyes();
-            if (f >= 0.5f) {
-                return false;
-            }
-            return super.canStart();
-        }
-    }
 
     //bossbar
 
@@ -262,8 +197,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         this.dataTracker.startTracking(TRACKED_ENTITY_ID_1, 0);
         this.dataTracker.startTracking(TRACKED_ENTITY_ID_2, 0);
         this.dataTracker.startTracking(TRACKED_ENTITY_ID_3, 0);
-        this.dataTracker.startTracking(INVUL_TIMER, 0);
-        this.dataTracker.startTracking(NAMED_FLAGS, (byte)0);
+        this.dataTracker.startTracking(INVUL_TIMER_NAMED, 0);
     }
 
     @Override
@@ -581,7 +515,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     @Override
     protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
         super.dropEquipment(source, lootingMultiplier, allowDrops);
-        ItemEntity itemEntity = this.dropItem(Items.NETHER_STAR);
+        ItemEntity itemEntity = this.dropItem(ModItems.GRAV_ROD);
         if (itemEntity != null) {
             itemEntity.setCovetedItem();
         }
@@ -607,6 +541,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     }
 
 
+
     public float getHeadYaw(int headIndex) {
         return this.sideHeadYaws[headIndex];
     }
@@ -616,11 +551,11 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     }
 
     public int getInvulnerableTimer() {
-        return this.dataTracker.get(INVUL_TIMER);
+        return this.dataTracker.get(INVUL_TIMER_NAMED);
     }
 
     public void setInvulTimer(int ticks) {
-        this.dataTracker.set(INVUL_TIMER, ticks);
+        this.dataTracker.set(INVUL_TIMER_NAMED, ticks);
     }
 
     public int getTrackedEntityId(int headIndex) {
