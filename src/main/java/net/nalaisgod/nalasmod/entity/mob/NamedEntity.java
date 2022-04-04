@@ -505,7 +505,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     @Override
     protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
         super.dropEquipment(source, lootingMultiplier, allowDrops);
-        ItemEntity itemEntity = this.dropItem(ModItems.GRAV_ROD);
+        ItemEntity itemEntity = this.dropItem(ModItems.GRAV_STABLE);
         if (itemEntity != null) {
             itemEntity.setCovetedItem();
         }

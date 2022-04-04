@@ -187,7 +187,7 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.RARE)));
 
     public static final Item GRAV_STABLE = registerItem("grav_stable",
-            new ModGravDisItem(new FabricItemSettings().maxDamage(5).group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC)));
+            new ModGravDisItem(new FabricItemSettings().maxDamage(50).group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC)));
 
     public static final Item POUCH_O_HOLDING = registerItem("pouch_o_holding",
             new ModBundleItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC).maxCount(1)));
