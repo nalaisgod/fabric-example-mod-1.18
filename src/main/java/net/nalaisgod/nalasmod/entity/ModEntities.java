@@ -10,6 +10,7 @@ import net.nalaisgod.nalasmod.NalasMod;
 import net.nalaisgod.nalasmod.entity.custom.RaccoonEntity;
 import net.nalaisgod.nalasmod.entity.custom.TigerEntity;
 import net.nalaisgod.nalasmod.entity.mob.ExiterEntity;
+import net.nalaisgod.nalasmod.entity.mob.NamedEntity;
 
 public class ModEntities {
 
@@ -25,5 +26,9 @@ public class ModEntities {
     public static final EntityType<ExiterEntity> EXITER = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(NalasMod.MOD_ID, "exiter"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ExiterEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 0.75f)).build());
+    public static final EntityType<NamedEntity> NAMED = Registry.register(
+            Registry.ENTITY_TYPE, new Identifier(NalasMod.MOD_ID, "named"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, NamedEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 0.75f)).build());
 }

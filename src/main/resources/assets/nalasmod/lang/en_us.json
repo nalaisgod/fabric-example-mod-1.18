@@ -29,6 +29,7 @@
   "item.nalasmod.raccoon_spawn_egg": "Raccoon Spawn Egg",
   "item.nalasmod.tiger_spawn_egg": "Tiger Spawn Egg",
   "item.nalasmod.exiter_spawn_egg": "Exiter Spawn Egg",
+  "item.nalasmod.named_spawn_egg": "BOB Spawn Egg",
   "item.nalasmod.elder_trident": "Elder Trident",
   "item.nalasmod.elemental_blade": "Elemental Blade",
   "item.nalasmod.grav_rod": "Grav Rod",
@@ -117,5 +118,6 @@
   "entity.nalasmod.tiger": "Robo Tiger",
   "entity.nalasmod.raccoon": "Raccoon",
   "entity.nalasmod.exiter": "Exiter",
+  "entity.nalasmod.named": "BOB",
   "entity.minecraft.villager.blastmaster": "Blastmaster"
 }

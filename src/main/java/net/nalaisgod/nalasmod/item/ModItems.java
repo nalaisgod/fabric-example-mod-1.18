@@ -140,7 +140,11 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item EXITER_SPAWN_EGG = registerItem("exiter_spawn_egg",
-            new SpawnEggItem(ModEntities.EXITER,0x948e8d, 0x3b3635,
+            new SpawnEggItem(ModEntities.EXITER,99999999, 0x3b3635,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final Item NAMED_SPAWN_EGG = registerItem("named_spawn_egg",
+            new SpawnEggItem(ModEntities.NAMED,22222222, 0x3b3635,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item TIGER_SPAWN_EGG = registerItem("tiger_spawn_egg",

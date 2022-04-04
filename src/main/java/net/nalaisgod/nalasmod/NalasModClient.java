@@ -12,6 +12,7 @@ import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.config.ModConfigs;
 import net.nalaisgod.nalasmod.entity.ModEntities;
 import net.nalaisgod.nalasmod.entity.client.ExiterRenderer;
+import net.nalaisgod.nalasmod.entity.client.NamedRenderer;
 import net.nalaisgod.nalasmod.entity.client.RaccoonRenderer;
 import net.nalaisgod.nalasmod.entity.client.TigerRenderer;
 import net.nalaisgod.nalasmod.entity.client.armor.OriginiteArmorRenderer;
@@ -58,6 +59,7 @@ public class NalasModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.RACCOON, RaccoonRenderer::new);
         EntityRendererRegistry.register(ModEntities.TIGER, TigerRenderer::new);
         EntityRendererRegistry.register(ModEntities.EXITER, ExiterRenderer::new);
+        EntityRendererRegistry.register(ModEntities.NAMED, NamedRenderer::new);
 
 
         GeoArmorRenderer.registerArmorRenderer(new OriginiteArmorRenderer(), ModItems.ORIGINITE_BOOTS,
