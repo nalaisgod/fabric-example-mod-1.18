@@ -44,6 +44,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.*;
 import net.minecraft.world.explosion.Explosion;
 import net.nalaisgod.nalasmod.effect.ModEffects;
+import net.nalaisgod.nalasmod.entity.projectile.NamedSkullEntity;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.util.ModTags;
@@ -458,13 +459,13 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         double g = targetX - d;
         double h = targetY - e;
         double i = targetZ - f;
-        WitherSkullEntity witherSkullEntity = new WitherSkullEntity(this.world, this, g, h, i);
-        witherSkullEntity.setOwner(this);
+        NamedSkullEntity namedSkullEntity = new NamedSkullEntity(this.world, this, g, h, i);
+        namedSkullEntity.setOwner(this);
         if (charged) {
-            witherSkullEntity.setCharged(true);
+            namedSkullEntity.setCharged(true);
         }
-        witherSkullEntity.setPos(d, e, f);
-        this.world.spawnEntity(witherSkullEntity);
+        namedSkullEntity.setPos(d, e, f);
+        this.world.spawnEntity(namedSkullEntity);
     }
 
     @Override

@@ -82,7 +82,7 @@ public class ModHeadClass
 
     private static BlockPattern getNamedBossPattern() {
         if (namedBossPattern == null) {
-            namedBossPattern = BlockPatternBuilder.start().aisle("^^^", "###", "#~#").where('#', pos -> pos.getBlockState().isOf(ModBlocks.ORIGINITE_BLOCK)).where('^', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.BOB_HEAD))).where('~', CachedBlockPosition.matchesBlockState(MaterialPredicate.create(Material.AIR))).build();
+            namedBossPattern = BlockPatternBuilder.start().aisle("^^^", "#@#", "#~#").where('#', pos -> pos.getBlockState().isOf(ModBlocks.ORIGINITE_BLOCK)).where('^', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.BOB_HEAD))).where('~', CachedBlockPosition.matchesBlockState(MaterialPredicate.create(Material.AIR))).where('@', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.BOB_CORE))).build();
         }
         return namedBossPattern;
     }

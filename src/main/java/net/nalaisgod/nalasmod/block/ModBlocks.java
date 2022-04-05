@@ -138,12 +138,16 @@ public class ModBlocks {
                     () -> ModConfiguredFeatures.SOUL_BLOSSOM_SPAWN_PLANTED), ModItemGroup.ORIGINITE);
 
     public static final Block WINTER_WINDOW = registerBlock("winter_window",
-            new ModGlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(100.0f, 100f).requiresTool()), ModItemGroup.ORIGINITE);
+            new ModGlassBlock(FabricBlockSettings.copy(Blocks.GLASS).nonOpaque().strength(100.0f, 10000000f).requiresTool()), ModItemGroup.ORIGINITE);
 
 
     public static final Block BOB_HEAD = registerBlock("bob_head",
-            new ModHeadClass(FabricBlockSettings.of(Material.METAL).strength(150f, 10000000f).requiresTool()),
+            new ModHeadClass(FabricBlockSettings.of(Material.METAL).strength(150f, 10000000f)),
             ModItemGroup.ORIGINITE);
+
+    public static final Block BOB_CORE = registerBlock("bob_core",
+            new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool()), ModItemGroup.ORIGINITE);
+
 
 
 
