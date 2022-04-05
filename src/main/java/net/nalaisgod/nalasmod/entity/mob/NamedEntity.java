@@ -308,7 +308,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
             }
             this.setInvulTimer(i2);
             if (this.age % 10 == 0) {
-                this.heal(20.0f);
+                this.heal(0.0f);
                 this.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 100, 4));
             }
             return;
@@ -378,7 +378,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
             }
         }
         if (this.age % 20 == 0) {
-            this.heal(1.0f);
+            this.heal(0.0f);
         }
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
     }

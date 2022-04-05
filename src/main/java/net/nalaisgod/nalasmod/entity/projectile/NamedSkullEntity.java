@@ -39,7 +39,7 @@ public class NamedSkullEntity
 
     @Override
     protected float getDrag() {
-        return this.isCharged() ? 1.73f : super.getDrag();
+        return this.isCharged() ? 0.73f : super.getDrag();
     }
 
     @Override
@@ -95,7 +95,7 @@ public class NamedSkullEntity
         super.onCollision(hitResult);
         if (!this.world.isClient) {
             Explosion.DestructionType destructionType = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
-            this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 7.0f, false, destructionType);
+            this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 4.0f, false, destructionType);
             this.discard();
         }
     }

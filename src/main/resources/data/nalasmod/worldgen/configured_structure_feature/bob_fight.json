@@ -4,7 +4,7 @@
 
   "config": {
     // the path to the template pool json file to use
-    "start_pool": "nalasmod:gamma_vault/start_pool",
+    "start_pool": "nalasmod:bob_fight",
 
     // This is how many pieces away from the starting piece a piece of the structure can spawn
     // Think of it like the length of the branch of the structure
@@ -12,7 +12,7 @@
   },
 
   // The biome tag to use for what biomes that this structure can spawn in"
-  "biomes": "#nalasmod:has_structure/gamma_vault",
+  "biomes": "#nalasmod:has_structure/bob_fight",
 
   // If true, land will be add around the bottom of the structure. (Based on the starting piece's y value)
   "adapt_noise": false,
@@ -24,16 +24,16 @@
       "bounding_box": "piece",
       "spawns": [
         {
-          "type": "nalasmod:exiter",
+          "type": "minecraft:enderman",
           "weight": 5,
           "minCount": 1,
-          "maxCount": 8
+          "maxCount": 3
         },
         {
           "type": "minecraft:illusioner",
           "weight": 1,
           "minCount": 1,
-          "maxCount": 1
+          "maxCount": 3
         }
       ]
     }
