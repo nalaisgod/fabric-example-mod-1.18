@@ -14,6 +14,8 @@ import net.nalaisgod.nalasmod.entity.ModEntities;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.custom.*;
 import net.nalaisgod.nalasmod.sound.ModSounds;
+import software.bernie.example.item.PistolItem;
+import software.bernie.example.registry.RegistryUtils;
 
 import java.util.Optional;
 
@@ -191,6 +193,11 @@ public class ModItems {
 
     public static final Item POUCH_O_HOLDING = registerItem("pouch_o_holding",
             new ModBundleItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC).maxCount(1)));
+
+    public static final Item HA_HA_FUNI = registerItem("ha_ha_funi",
+            new ModFunnyItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC).maxCount(1).maxDamage(201)));
+
+
 
 
 

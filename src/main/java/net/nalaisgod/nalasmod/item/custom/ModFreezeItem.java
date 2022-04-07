@@ -23,7 +23,7 @@ import java.util.List;
 
 public class ModFreezeItem
         extends ArrowItem {
-        public ModFreezeItem(Item.Settings settings) {
+        public ModFreezeItem(Settings settings) {
             super(settings);
         }
 

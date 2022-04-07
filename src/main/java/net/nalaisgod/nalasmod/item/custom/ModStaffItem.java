@@ -16,6 +16,7 @@ import net.minecraft.entity.MovementType;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -38,6 +39,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.example.registry.ItemRegistry;
 import software.bernie.example.registry.SoundRegistry;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -52,6 +54,8 @@ import software.bernie.geckolib3.network.GeckoLibNetwork;
 import software.bernie.geckolib3.network.ISyncable;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -61,6 +65,7 @@ public class ModStaffItem extends RangedWeaponItem implements IAnimatable, ISync
     private static final String controllerName = "controller";
     private static final int ANIM_OPEN = 0;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
+
 
 
     public ModStaffItem(Settings properties) {
@@ -187,21 +192,10 @@ public class ModStaffItem extends RangedWeaponItem implements IAnimatable, ISync
         // To register a particle listener or custom event listener you do the exact
         // same thing, just with registerParticleListener and
         // registerCustomInstructionListener, respectively.
-        controller.registerSoundListener(this::soundListener);
         data.addAnimationController(controller);
     }
 
     @SuppressWarnings("resource")
-    private <ENTITY extends IAnimatable> void soundListener(SoundKeyframeEvent<ENTITY> event) {
-        // The animation for the jackinthebox has a sound keyframe at time 0:00.
-        // As soon as that keyframe gets hit this method fires and it starts playing the
-        // sound to the current player.
-        // The music is synced with the animation so the box opens as soon as the music
-        // plays the box opening sound
-        ClientPlayerEntity player = MinecraftClient.getInstance().player;
-        player.playSound(SoundRegistry.JACK_MUSIC, 1, 1);
-    }
-
     @Override
     public AnimationFactory getFactory() {
         return this.factory;
