@@ -8,13 +8,11 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.item.Item;
 import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.config.ModConfigs;
 import net.nalaisgod.nalasmod.entity.ModEntities;
-import net.nalaisgod.nalasmod.entity.client.ExiterRenderer;
-import net.nalaisgod.nalasmod.entity.client.NamedRenderer;
-import net.nalaisgod.nalasmod.entity.client.RaccoonRenderer;
-import net.nalaisgod.nalasmod.entity.client.TigerRenderer;
+import net.nalaisgod.nalasmod.entity.client.*;
 import net.nalaisgod.nalasmod.entity.client.armor.OriginiteArmorRenderer;
 import net.nalaisgod.nalasmod.event.ReplaceTitleScreenEvent;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
@@ -22,7 +20,9 @@ import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.screen.ModScreenHandlers;
 import net.nalaisgod.nalasmod.screen.OriginiteBlasterScreen;
 import net.nalaisgod.nalasmod.util.ModModelPredicateProvider;
+import software.bernie.example.registry.ItemRegistry;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
+import software.bernie.geckolib3.renderers.geo.GeoItemRenderer;
 
 public class NalasModClient implements ClientModInitializer {
     @Override
@@ -64,5 +64,8 @@ public class NalasModClient implements ClientModInitializer {
 
         GeoArmorRenderer.registerArmorRenderer(new OriginiteArmorRenderer(), ModItems.ORIGINITE_BOOTS,
                 ModItems.ORIGINITE_LEGGINGS, ModItems.ORIGINITE_CHESTPLATE, ModItems.ORIGINITE_HELMET);
+        GeoItemRenderer.registerItemRenderer(ModItems.STAFF_OF_THE_ORB, new StaffRenderer());
+
+
     }
 }
