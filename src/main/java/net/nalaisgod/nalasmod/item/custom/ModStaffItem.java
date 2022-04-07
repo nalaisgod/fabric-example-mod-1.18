@@ -1,5 +1,7 @@
 package net.nalaisgod.nalasmod.item.custom;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.MinecraftClient;
@@ -8,8 +10,12 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -54,10 +60,24 @@ public class ModStaffItem extends RangedWeaponItem implements IAnimatable, ISync
     public AnimationFactory factory = new AnimationFactory(this);
     private static final String controllerName = "controller";
     private static final int ANIM_OPEN = 0;
+    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
+
 
     public ModStaffItem(Settings properties) {
         super(properties);
+        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", 7.0, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)-2.9f, EntityAttributeModifier.Operation.ADDITION));
+        this.attributeModifiers = builder.build();
         GeckoLibNetwork.registerSyncable(this);
+    }
+
+    @Override
+    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
+        if (slot == EquipmentSlot.MAINHAND) {
+            return this.attributeModifiers;
+        }
+        return super.getAttributeModifiers(slot);
     }
 
     @Override
@@ -207,7 +227,7 @@ public class ModStaffItem extends RangedWeaponItem implements IAnimatable, ISync
                 // Set the animation to open the JackInTheBoxItem which will start playing music
                 // and
                 // eventually do the actual animation. Also sets it to not loop
-                controller.setAnimation(new AnimationBuilder().addAnimation("spin", false));
+                controller.setAnimation(new AnimationBuilder().addAnimation("spin", true));
             }
         }
     }
