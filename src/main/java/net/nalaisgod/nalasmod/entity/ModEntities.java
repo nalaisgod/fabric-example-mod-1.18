@@ -13,8 +13,6 @@ import net.nalaisgod.nalasmod.entity.custom.RaccoonEntity;
 import net.nalaisgod.nalasmod.entity.custom.TigerEntity;
 import net.nalaisgod.nalasmod.entity.mob.ExiterEntity;
 import net.nalaisgod.nalasmod.entity.mob.NamedEntity;
-import net.nalaisgod.nalasmod.entity.projectile.FunnyShot;
-import software.bernie.example.entity.RocketProjectile;
 import software.bernie.example.registry.EntityRegistryBuilder;
 import software.bernie.geckolib3.GeckoLib;
 
@@ -38,16 +36,4 @@ public class ModEntities {
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, NamedEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 0.75f)).build());
 
-    public static EntityType<FunnyShot> FUNNY_SHOT = buildEntity(FunnyShot::new, FunnyShot.class, 0.5F,
-            0.5F, SpawnGroup.MISC);
-
-    public static <T extends Entity> EntityType<T> buildEntity(EntityType.EntityFactory<T> entity, Class<T> entityClass,
-                                                               float width, float height, SpawnGroup group) {
-        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-            String name = entityClass.getSimpleName().toLowerCase();
-            return EntityRegistryBuilder.<T>createBuilder(new Identifier(GeckoLib.ModID, name)).entity(entity)
-                    .category(group).dimensions(EntityDimensions.changing(width, height)).build();
-        }
-        return null;
-    }
 }
