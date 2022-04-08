@@ -64,6 +64,7 @@ public class NalasModClient implements ClientModInitializer {
         GeoArmorRenderer.registerArmorRenderer(new OriginiteArmorRenderer(), ModItems.ORIGINITE_BOOTS,
                 ModItems.ORIGINITE_LEGGINGS, ModItems.ORIGINITE_CHESTPLATE, ModItems.ORIGINITE_HELMET);
         GeoItemRenderer.registerItemRenderer(ModItems.STAFF_OF_THE_ORB, new StaffRenderer());
+        GeoItemRenderer.registerItemRenderer(ModItems.CLICK_BOOM, new GunRender());
 
     }
 }

@@ -197,8 +197,6 @@ public class ModItems {
 
 
 
-
-
     private static Item registerItem(String name, Item item) {
        return Registry.register(Registry.ITEM, new Identifier(NalasMod.MOD_ID, name), item);
     }
