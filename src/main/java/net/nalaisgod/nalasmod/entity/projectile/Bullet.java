@@ -40,6 +40,6 @@ public class Bullet extends PersistentProjectileEntity{
 
     @Override
     protected ItemStack asItemStack() {
-        return new ItemStack(ModItems.BULLET);
+        return new ItemStack(ModItems.FREEZE_ROD);
     }
 }
