@@ -11,6 +11,7 @@ import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -25,6 +26,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.nalaisgod.nalasmod.entity.ModEntities;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -69,6 +71,7 @@ public class TigerEntity extends TameableEntity implements Mount, IAnimatable {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new SitGoal(this)); // Important that the Sit Goal is higher than WanderGoal!
         this.targetSelector.add(2, new TrackOwnerAttackerGoal(this));
+        this.targetSelector.add(3, new AnimalMateGoal(this, 1d));
         this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.75f, false));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
         this.goalSelector.add(4, new LookAroundGoal(this));
@@ -76,9 +79,22 @@ public class TigerEntity extends TameableEntity implements Mount, IAnimatable {
     }
 
 
-    public boolean canWalkOnFluid(Fluid fluid) {
-        return fluid.isIn(FluidTags.WATER);
+    @Override
+    public boolean isBreedingItem(ItemStack stack) {
+        return stack.getItem() == Items.COOKED_BEEF;
     }
+
+    @Nullable
+    @Override
+    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+        return ModEntities.TIGER.create(world);
+    }
+
+    @Override
+    public boolean canWalkOnFluid(FluidState fluidState) {
+        return fluidState.isIn(FluidTags.WATER);
+    }
+
 
 
     @Override
@@ -92,11 +108,6 @@ public class TigerEntity extends TameableEntity implements Mount, IAnimatable {
         return factory;
     }
 
-    @Nullable
-    @Override
-    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return null;
-    }
 
 
 
