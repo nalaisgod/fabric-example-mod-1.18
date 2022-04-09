@@ -85,7 +85,7 @@ public class NamedSkullEntity
                 i = 3;
             }
             if (i > 0) {
-                ((LivingEntity)entity).addStatusEffect(new StatusEffectInstance(ModEffects.FREEZE, 10 * i, 1), this.getEffectCause());
+                ((LivingEntity)entity).addStatusEffect(new StatusEffectInstance(ModEffects.FREEZE, 10 * i, 0), this.getEffectCause());
             }
         }
     }

@@ -27,6 +27,7 @@ import net.minecraft.entity.mob.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.entity.projectile.WitherSkullEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Items;
@@ -69,7 +70,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     private static final TrackedData<Integer> TRACKED_ENTITY_ID_3 = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final List<TrackedData<Integer>> TRACKED_ENTITY_IDS = ImmutableList.of(TRACKED_ENTITY_ID_1, TRACKED_ENTITY_ID_2, TRACKED_ENTITY_ID_3);
     private static final TrackedData<Integer> INVUL_TIMER_NAMED = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final int DEFAULT_INVUL_TIMER_NAMED = 220;
+    private static final int DEFAULT_INVUL_TIMER_NAMED = 300;
     private final float[] sideHeadPitches = new float[2];
     private final float[] sideHeadYaws = new float[2];
     private final float[] prevSideHeadPitches = new float[2];
@@ -93,8 +94,8 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     public static DefaultAttributeContainer.Builder setAttributes() {
         return TameableEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 1500.0)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.3f)
-                .add(EntityAttributes.GENERIC_FLYING_SPEED, 1.3f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1f)
+                .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.1f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 60.0)
                 .add(EntityAttributes.GENERIC_ARMOR, 7.0);
     }
@@ -111,17 +112,14 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new DescendAtHalfHealthGoal());
-        this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0, 40, 20.0f));
-        this.goalSelector.add(5, new FlyGoal(this, 1.0));
+        this.goalSelector.add(2, new ProjectileAttackGoal(this, 2, 400, 80.0f));
+        this.goalSelector.add(5, new FlyGoal(this, 0.7));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
         this.targetSelector.add(2, new ActiveTargetGoal<LivingEntity>(this, LivingEntity.class, 0, false, false, CAN_ATTACK_PREDICATE));
     }
 
-    public boolean canWalkOnFluid(Fluid fluid) {
-        return fluid.isIn(FluidTags.WATER) || fluid.isIn(FluidTags.LAVA);
-    }
 
     @Override
     public boolean canHaveStatusEffect(StatusEffectInstance effect) {
@@ -130,6 +128,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         }
         return super.canHaveStatusEffect(effect);
     }
+
 
 
     @Override
@@ -298,17 +297,26 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         int i;
         if (this.getInvulnerableTimer() > 0) {
             int i2 = this.getInvulnerableTimer() - 1;
-            this.bossBar.setPercent(1.0f - (float)i2 / 220.0f);
+            this.bossBar.setPercent(1.0f - (float)i2 / 300.0f);
             if (i2 <= 0) {
                 Explosion.DestructionType destructionType = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 7.0f, false, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 1.0f, true, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 2.0f, true, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 3.0f, true, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 4.0f, true, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 5.0f, true, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 6.0f, true, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 7.0f, true, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 8.0f, true, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 9.0f, true, destructionType);
+                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 10.0f, false, destructionType);
                 if (!this.isSilent()) {
                     this.world.syncGlobalEvent(WorldEvents.WITHER_SPAWNS, this.getBlockPos(), 0);
                 }
             }
             this.setInvulTimer(i2);
             if (this.age % 10 == 0) {
-                this.heal(0.0f);
+                this.heal(1.0f);
                 this.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 100, 4));
             }
             return;
@@ -316,17 +324,17 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         super.mobTick();
         for (i = 1; i < 3; ++i) {
             if (this.age < this.skullCooldowns[i - 1]) continue;
-            this.skullCooldowns[i - 1] = this.age + 10 + this.random.nextInt(10);
+            this.skullCooldowns[i - 1] = this.age + 40 + this.random.nextInt(10);
             if (this.world.getDifficulty() == Difficulty.NORMAL || this.world.getDifficulty() == Difficulty.HARD) {
                 int n = i - 1;
                 int n2 = this.chargedSkullCooldowns[n];
                 this.chargedSkullCooldowns[n] = n2 + 1;
                 if (n2 > 15) {
-                    float f = 10.0f;
-                    float g = 5.0f;
-                    double d = MathHelper.nextDouble(this.random, this.getX() - 10.0, this.getX() + 10.0);
-                    double e = MathHelper.nextDouble(this.random, this.getY() - 5.0, this.getY() + 5.0);
-                    double h = MathHelper.nextDouble(this.random, this.getZ() - 10.0, this.getZ() + 10.0);
+                    float f = 30.0f;
+                    float g = 15.0f;
+                    double d = MathHelper.nextDouble(this.random, this.getX() - 30.0, this.getX() + 30.0);
+                    double e = MathHelper.nextDouble(this.random, this.getY() - 15.0, this.getY() + 15.0);
+                    double h = MathHelper.nextDouble(this.random, this.getZ() - 30.0, this.getZ() + 30.0);
                     this.shootSkullAt(i + 1, d, e, h, true);
                     this.chargedSkullCooldowns[i - 1] = 0;
                 }
@@ -338,7 +346,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
                     continue;
                 }
                 this.shootSkullAt(i + 1, livingEntity);
-                this.skullCooldowns[i - 1] = this.age + 40 + this.random.nextInt(20);
+                this.skullCooldowns[i - 1] = this.age + 160 + this.random.nextInt(20);
                 this.chargedSkullCooldowns[i - 1] = 0;
                 continue;
             }
@@ -378,7 +386,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
             }
         }
         if (this.age % 20 == 0) {
-            this.heal(0.0f);
+            this.heal(1.0f);
         }
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
     }
@@ -388,9 +396,9 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     }
 
     public void onSummoned() {
-        this.setInvulTimer(220);
+        this.setInvulTimer(300);
         this.bossBar.setPercent(0.0f);
-        this.setHealth(this.getMaxHealth() / 3.0f);
+        this.setHealth(this.getMaxHealth() / 1.0f);
     }
 
     @Override
@@ -446,7 +454,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     }
 
     private void shootSkullAt(int headIndex, LivingEntity target) {
-        this.shootSkullAt(headIndex, target.getX(), target.getY() + (double)target.getStandingEyeHeight() * 0.5, target.getZ(), headIndex == 0 && this.random.nextFloat() < 0.001f);
+        this.shootSkullAt(headIndex, target.getX(), target.getY() + (double)target.getStandingEyeHeight(), target.getZ(), headIndex == 0 && this.random.nextFloat() < 0.001f);
     }
 
     private void shootSkullAt(int headIndex, double targetX, double targetY, double targetZ, boolean charged) {
@@ -471,6 +479,22 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     @Override
     public void attack(LivingEntity target, float pullProgress) {
         this.shootSkullAt(0, target);
+    }
+
+
+    @Override
+    protected float applyEnchantmentsToDamage(DamageSource source, float amount) {
+        amount = super.applyEnchantmentsToDamage(source, amount);
+        if (source == DamageSource.MAGIC) {
+            amount *= 2.5f;
+        }
+        if (source == DamageSource.explosion(this)) {
+            amount *= 22.5f;
+        }
+        if (source == DamageSource.SWEET_BERRY_BUSH) {
+            amount *= 100f;
+        }
+        return amount;
     }
 
     @Override

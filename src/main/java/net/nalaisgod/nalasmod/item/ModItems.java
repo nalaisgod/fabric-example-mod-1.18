@@ -194,6 +194,9 @@ public class ModItems {
     public static final Item POUCH_O_HOLDING = registerItem("pouch_o_holding",
             new ModBundleItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC).maxCount(1)));
 
+    public static final Item EL_WALL = registerItem("el_wall",
+            new ModShieldItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC).maxDamage(500)));
+
 
 
 

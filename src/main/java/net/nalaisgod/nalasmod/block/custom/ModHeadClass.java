@@ -68,7 +68,7 @@ public class ModHeadClass
         namedEntity.refreshPositionAndAngles((double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.55, (double)blockPos.getZ() + 0.5, result.getForwards().getAxis() == Direction.Axis.X ? 0.0f : 90.0f, 0.0f);
         namedEntity.bodyYaw = result.getForwards().getAxis() == Direction.Axis.X ? 0.0f : 90.0f;
         namedEntity.onSummoned();
-        for (ServerPlayerEntity serverPlayerEntity : world.getNonSpectatingEntities(ServerPlayerEntity.class, namedEntity.getBoundingBox().expand(50.0))) {
+        for (ServerPlayerEntity serverPlayerEntity : world.getNonSpectatingEntities(ServerPlayerEntity.class, namedEntity.getBoundingBox().expand(500.0))) {
             Criteria.SUMMONED_ENTITY.trigger(serverPlayerEntity, namedEntity);
         }
         world.spawnEntity(namedEntity);
