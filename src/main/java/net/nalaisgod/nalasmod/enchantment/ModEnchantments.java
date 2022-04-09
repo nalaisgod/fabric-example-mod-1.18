@@ -22,7 +22,7 @@ public class ModEnchantments {
 
     public static Enchantment ELEMENTAL_BANE = register("elemental_bane",
             new ElementalBaneEnchantment(Enchantment.Rarity.COMMON,
-                    EnchantmentTarget.DIGGER, EquipmentSlot.MAINHAND));
+                    EnchantmentTarget.TRIDENT, EquipmentSlot.MAINHAND));
 
 
     private static Enchantment register(String name, Enchantment enchantment) {

@@ -133,8 +133,6 @@ public class ModItems {
     public static final Item PAXEL_CHIP_C = registerItem("paxel_chip_c",
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE)));
 
-
-
     public static final Item ELDER_TRIDENT = registerItem("elder_trident",
             new TridentItem(new FabricItemSettings().maxDamage(250).group(ModItemGroup.ORIGINITE)));
 
@@ -196,6 +194,7 @@ public class ModItems {
 
     public static final Item EL_WALL = registerItem("el_wall",
             new ModShieldItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC).maxDamage(500)));
+
 
 
 

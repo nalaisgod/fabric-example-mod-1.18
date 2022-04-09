@@ -24,10 +24,11 @@ extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
+        user.getItemCooldownManager().set(this, 1200);
         user.setCurrentHand(hand);
         itemStack.damage(3, user, p -> p.sendToolBreakStatus(hand));
-        user.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 200000, 3));
-        user.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200000, 5));
+        user.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 600, 3));
+        user.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 600, 5));
 
         return TypedActionResult.success(itemStack, world.isClient());
     }
