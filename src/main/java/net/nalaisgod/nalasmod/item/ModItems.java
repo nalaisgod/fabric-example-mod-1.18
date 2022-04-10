@@ -195,6 +195,9 @@ public class ModItems {
     public static final Item EL_WALL = registerItem("el_wall",
             new ModShieldItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC).maxDamage(500)));
 
+    public static final Item GRAVITY_PUSHER = registerItem("gravity_pusher",
+            new ModIDKSwordItem(ModToolMaterial.ELEMENT, 5, -2.4f,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
 
 
