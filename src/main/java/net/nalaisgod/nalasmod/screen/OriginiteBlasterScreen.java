@@ -16,7 +16,13 @@ public class OriginiteBlasterScreen extends HandledScreen<OriginiteBlasterScreen
 
     public OriginiteBlasterScreen(OriginiteBlasterScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
+        this.backgroundHeight = 212;
+        this.titleX = 8;
+        this.titleY = 10;
+        this.playerInventoryTitleX = 8;
+        this.playerInventoryTitleY = this.backgroundHeight - 91;
     }
+
 
     @Override
     protected void init() {
@@ -34,11 +40,10 @@ public class OriginiteBlasterScreen extends HandledScreen<OriginiteBlasterScreen
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
         if(handler.isCrafting()) {
-            drawTexture(matrices, x + 84, y + 22, 176, 14, handler.getScaledProgress(), 36);
+            drawTexture(matrices, x + 32, y + 43, 0, 231, 113, handler.getScaledProgress());
         }
-
         if(handler.hasFuel()) {
-            drawTexture(matrices, x + 18, y + 33 + 14 - handler.getScaledFuelProgress(), 176,
+            drawTexture(matrices, x + 81, y + 90 + 14 - handler.getScaledFuelProgress(), 176,
                     14 - handler.getScaledFuelProgress(), 14, handler.getScaledFuelProgress());
         }
     }
