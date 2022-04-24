@@ -6,12 +6,14 @@ import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.Heightmap;
+import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
@@ -66,9 +68,27 @@ public class ModConfiguredFeatures {
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> END_ORIGINITE_ORE = ConfiguredFeatures.register("end_originite_ore",
             Feature.SCATTERED_ORE, new OreFeatureConfig(END_STONE, ModBlocks.END_ORIGINITE_ORE.getDefaultState(), 20));
 
+
+
+
+
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> DEATH_VINE_PATCH = ConfiguredFeatures.register("death_vine_patch",
-            Feature.RANDOM_PATCH, ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                    new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.DEATH_VINE))));
+            Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                    new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.DEATH_VINE)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
+                            BlockPredicate.matchingBlock(Blocks.END_STONE, new BlockPos(0, -1, 0))))));
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MOSSLIGHT_PATCH = ConfiguredFeatures.register("mosslight_patch",
+            Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                    new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.MOSSLIGHT)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
+                            BlockPredicate.matchingBlock(Blocks.END_STONE, new BlockPos(0, -1, 0))))));
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> ENDSTONE_PATCH = ConfiguredFeatures.register("endstone_patch",
+            Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                    new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.END_STONE)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
+                            BlockPredicate.matchingBlock(Blocks.END_STONE, new BlockPos(0, -1, 0))))));
+
+
+
 
 
 

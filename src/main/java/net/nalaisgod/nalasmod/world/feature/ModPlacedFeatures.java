@@ -20,8 +20,13 @@ public class ModPlacedFeatures {
                     PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> DEATH_VINE_PATCH_PLACED = PlacedFeatures.register("death_vine_patch_placed",
-            ModConfiguredFeatures.DEATH_VINE_PATCH, RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(),
-            PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+            ModConfiguredFeatures.DEATH_VINE_PATCH, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> MOSSLIGHT_PATCH_PLACED = PlacedFeatures.register("mosslight_patch_placed",
+            ModConfiguredFeatures.MOSSLIGHT_PATCH, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(90), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> ENDSTONE_PATCH_PLACED = PlacedFeatures.register("endstone_patch_placed",
+            ModConfiguredFeatures.ENDSTONE_PATCH, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(60), BiomePlacementModifier.of());
 
 
     public static final RegistryEntry<PlacedFeature> ORIGINITE_ORE_PLACED = PlacedFeatures.register("originite_ore_placed",
