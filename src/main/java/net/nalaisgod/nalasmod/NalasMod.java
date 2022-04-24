@@ -12,6 +12,7 @@ import net.nalaisgod.nalasmod.recipe.ModRecipes;
 import net.nalaisgod.nalasmod.util.ModLootTableModifiers;
 import net.nalaisgod.nalasmod.util.ModRegistries;
 import net.nalaisgod.nalasmod.villager.ModVillagers;
+import net.nalaisgod.nalasmod.world.dimension.ModPortals;
 import net.nalaisgod.nalasmod.world.feature.ModConfiguredFeatures;
 import net.nalaisgod.nalasmod.world.gen.ModWorldGen;
 import net.nalaisgod.nalasmod.world.structures.ModStructures;
@@ -23,10 +24,12 @@ public class NalasMod implements ModInitializer {
 	public static final String MOD_ID = "nalasmod";
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
+
+
+
 	@Override
 	public void onInitialize() {
 		ModConfiguredFeatures.registerConfiguredFeatures();
-
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
@@ -53,6 +56,7 @@ public class NalasMod implements ModInitializer {
 
 		GeckoLib.initialize();
 
+		ModPortals.registerPortals();
 
 
 	}

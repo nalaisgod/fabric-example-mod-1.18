@@ -6,6 +6,7 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
@@ -23,10 +24,40 @@ import net.nalaisgod.nalasmod.block.entity.OriginiteBlasterEntity;
 
 import javax.annotation.Nullable;
 import javax.lang.model.element.ModuleElement;
+import java.util.Random;
 import java.util.stream.Stream;
 
 public class OriginiteBlasterBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+
+
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        float chance = 0.35f;
+
+        if(chance < random.nextFloat()) {
+            world.addParticle(ParticleTypes.SOUL, pos.getX() + random.nextDouble(),
+                    pos.getY() + 0.5D, pos.getZ() + random.nextDouble(),
+                    0d, 0.015d + random.nextDouble(0.075d), 0d);
+        }
+
+        if(chance < random.nextFloat()) {
+            world.addParticle(ParticleTypes.SOUL, pos.getX() + random.nextDouble(),
+                    pos.getY() + 0.5D, pos.getZ() + random.nextDouble(),
+                    0d, 0.015d + random.nextDouble(0.075d), 0d);
+        }
+
+        if(chance < random.nextFloat()) {
+            world.addParticle(ParticleTypes.SOUL_FIRE_FLAME, pos.getX() + random.nextDouble(),
+                    pos.getY() + 0.5D, pos.getZ() + random.nextDouble(),
+                    0d, 0.015d + random.nextDouble(0.075d), 0d);
+        }
+
+        if(chance < random.nextFloat()) {
+            world.addParticle(ParticleTypes.SOUL, pos.getX() + random.nextDouble(),
+                    pos.getY() + 0.5D, pos.getZ() + random.nextDouble(),
+                    0d, 0.015d + random.nextDouble(0.075d), 0d);
+        }
+    }
 
 
     public OriginiteBlasterBlock(Settings settings) {

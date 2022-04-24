@@ -148,6 +148,11 @@ public class ModBlocks {
     public static final Block BOB_CORE = registerBlock("bob_core",
             new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool()), ModItemGroup.ORIGINITE);
 
+    public static final Block DEATH_VINE = registerBlock("death_vine",
+            new DeathVine(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool()), ModItemGroup.ORIGINITE);
+
+    public static final Block MOSSLIGHT = registerBlock("mosslight",
+            new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
 
 

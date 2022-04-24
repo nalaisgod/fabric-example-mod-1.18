@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -27,10 +28,13 @@ import net.nalaisgod.nalasmod.screen.OriginiteBlasterScreenHandler;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
+import java.util.Random;
 
 public class OriginiteBlasterEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory =
             DefaultedList.ofSize(4, ItemStack.EMPTY);
+
+
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -65,6 +69,7 @@ public class OriginiteBlasterEntity extends BlockEntity implements NamedScreenHa
             }
         };
     }
+
 
     @Override
     public DefaultedList<ItemStack> getItems() {

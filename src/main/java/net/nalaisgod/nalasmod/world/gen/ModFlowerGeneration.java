@@ -13,5 +13,7 @@ public class ModFlowerGeneration {
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_FOR_ALL_PLACED.getKey().get());
         BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_FOR_ALL_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DEATH_VINE_PATCH_PLACED.getKey().get());
     }
 }

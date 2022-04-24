@@ -19,6 +19,10 @@ public class ModPlacedFeatures {
             ModConfiguredFeatures.FLOWER_FOR_ALL, RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(),
                     PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
+    public static final RegistryEntry<PlacedFeature> DEATH_VINE_PATCH_PLACED = PlacedFeatures.register("death_vine_patch_placed",
+            ModConfiguredFeatures.DEATH_VINE_PATCH, RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(),
+            PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+
 
     public static final RegistryEntry<PlacedFeature> ORIGINITE_ORE_PLACED = PlacedFeatures.register("originite_ore_placed",
             ModConfiguredFeatures.ORIGINITE_ORE, ModOreFeatures.modifiersWithCount(7,
@@ -31,7 +35,5 @@ public class ModPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> ORIGINAL_ORIGINITE_ORE_PLACED = PlacedFeatures.register("original_originite_ore_placed",
             ModConfiguredFeatures.END_ORIGINITE_ORE, ModOreFeatures.modifiersWithCount(70,
                     HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(300))));
-
-
 
 }
