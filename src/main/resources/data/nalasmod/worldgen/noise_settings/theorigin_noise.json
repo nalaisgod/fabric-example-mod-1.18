@@ -2,18 +2,18 @@
   "aquifers_enabled": false,
   "ore_veins_enabled": true,
   "legacy_random_source": true,
-  "sea_level": -64,
-  "disable_mob_generation": true,
+  "sea_level": 0,
+  "disable_mob_generation": false,
   "default_fluid": {
     "Properties": {
       "level": "0"
     },
-    "Name": "minecraft:water"
+    "Name": "nalasmod:honey_flowing"
   },
   "noise_router": {
     "final_density": {
       "argument": {
-        "argument1": 0.64,
+        "argument1": 0.85,
         "argument2": {
           "argument": {
             "argument": {
@@ -35,7 +35,7 @@
     "depth": "minecraft:overworld/depth",
     "ridges": "minecraft:overworld/ridges",
     "initial_density_without_jaggedness": {
-      "argument1": 4.0,
+      "argument1": 7.0,
       "argument2": {
         "argument": {
           "argument1": "minecraft:overworld/depth",
@@ -51,7 +51,7 @@
     },
     "lava": 0.0,
     "temperature": {
-      "xz_scale": 0.25,
+      "xz_scale": 0.4,
       "y_scale": 0.0,
       "noise": "minecraft:temperature",
       "shift_x": "minecraft:shift_x",
@@ -60,7 +60,7 @@
       "type": "minecraft:shifted_noise"
     },
     "vegetation": {
-      "xz_scale": 0.25,
+      "xz_scale": 0.4,
       "y_scale": 0.0,
       "noise": "minecraft:vegetation",
       "shift_x": "minecraft:shift_x",
@@ -155,7 +155,7 @@
                           },
                           "then_run": {
                             "result_state": {
-                              "Name": "minecraft:stone"
+                              "Name": "minecraft:end_stone"
                             },
                             "type": "minecraft:block"
                           },
@@ -170,7 +170,7 @@
                           },
                           "then_run": {
                             "result_state": {
-                              "Name": "minecraft:stone"
+                              "Name": "minecraft:end_stone"
                             },
                             "type": "minecraft:block"
                           },
@@ -185,7 +185,7 @@
                           },
                           "then_run": {
                             "result_state": {
-                              "Name": "minecraft:stone"
+                              "Name": "minecraft:end_stone"
                             },
                             "type": "minecraft:block"
                           },
@@ -205,7 +205,7 @@
                                   "Properties": {
                                     "snowy": "false"
                                   },
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -213,7 +213,7 @@
                             },
                             {
                               "result_state": {
-                                "Name": "minecraft:stone"
+                                "Name": "minecraft:end_stone"
                               },
                               "type": "minecraft:block"
                             }
@@ -464,7 +464,7 @@
                             },
                             "then_run": {
                               "result_state": {
-                                "Name": "minecraft:stone"
+                                "Name": "minecraft:end_stone"
                               },
                               "type": "minecraft:block"
                             },
@@ -726,7 +726,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -791,7 +791,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -898,7 +898,7 @@
                                 },
                                 {
                                   "result_state": {
-                                    "Name": "minecraft:stone"
+                                    "Name": "minecraft:end_stone"
                                   },
                                   "type": "minecraft:block"
                                 }
@@ -935,7 +935,7 @@
                                         },
                                         "then_run": {
                                           "result_state": {
-                                            "Name": "minecraft:stone"
+                                            "Name": "minecraft:end_stone"
                                           },
                                           "type": "minecraft:block"
                                         },
@@ -954,7 +954,7 @@
                                 },
                                 {
                                   "result_state": {
-                                    "Name": "minecraft:stone"
+                                    "Name": "minecraft:end_stone"
                                   },
                                   "type": "minecraft:block"
                                 }
@@ -979,7 +979,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -1070,7 +1070,7 @@
                             },
                             "then_run": {
                               "result_state": {
-                                "Name": "minecraft:stone"
+                                "Name": "minecraft:end_stone"
                               },
                               "type": "minecraft:block"
                             },
@@ -1097,7 +1097,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -1112,7 +1112,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -1151,7 +1151,7 @@
                                     },
                                     "then_run": {
                                       "result_state": {
-                                        "Name": "minecraft:stone"
+                                        "Name": "minecraft:end_stone"
                                       },
                                       "type": "minecraft:block"
                                     },
@@ -1177,7 +1177,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -1204,7 +1204,7 @@
                                         "Properties": {
                                           "snowy": "false"
                                         },
-                                        "Name": "minecraft:stone"
+                                        "Name": "minecraft:end_stone"
                                       },
                                       "type": "minecraft:block"
                                     },
@@ -1212,7 +1212,7 @@
                                   },
                                   {
                                     "result_state": {
-                                      "Name": "minecraft:stone"
+                                      "Name": "minecraft:end_stone"
                                     },
                                     "type": "minecraft:block"
                                   }
@@ -1233,7 +1233,7 @@
                                   },
                                   "then_run": {
                                     "result_state": {
-                                      "Name": "minecraft:stone"
+                                      "Name": "minecraft:end_stone"
                                     },
                                     "type": "minecraft:block"
                                   },
@@ -1272,7 +1272,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -1337,7 +1337,7 @@
                             "Properties": {
                               "snowy": "false"
                             },
-                            "Name": "minecraft:stone"
+                            "Name": "minecraft:end_stone"
                           },
                           "type": "minecraft:block"
                         },
@@ -1357,7 +1357,7 @@
                                 "Properties": {
                                   "snowy": "false"
                                 },
-                                "Name": "minecraft:stone"
+                                "Name": "minecraft:end_stone"
                               },
                               "type": "minecraft:block"
                             },
@@ -1365,7 +1365,7 @@
                           },
                           {
                             "result_state": {
-                              "Name": "minecraft:stone"
+                              "Name": "minecraft:end_stone"
                             },
                             "type": "minecraft:block"
                           }
@@ -1522,7 +1522,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -1581,7 +1581,7 @@
                         },
                         "then_run": {
                           "result_state": {
-                            "Name": "minecraft:stone"
+                            "Name": "minecraft:end_stone"
                           },
                           "type": "minecraft:block"
                         },
@@ -1622,7 +1622,7 @@
                             },
                             {
                               "result_state": {
-                                "Name": "minecraft:stone"
+                                "Name": "minecraft:end_stone"
                               },
                               "type": "minecraft:block"
                             }
@@ -1659,7 +1659,7 @@
                                 },
                                 {
                                   "result_state": {
-                                    "Name": "minecraft:stone"
+                                    "Name": "minecraft:end_stone"
                                   },
                                   "type": "minecraft:block"
                                 }
@@ -1696,7 +1696,7 @@
                                         },
                                         "then_run": {
                                           "result_state": {
-                                            "Name": "minecraft:stone"
+                                            "Name": "minecraft:end_stone"
                                           },
                                           "type": "minecraft:block"
                                         },
@@ -1715,7 +1715,7 @@
                                 },
                                 {
                                   "result_state": {
-                                    "Name": "minecraft:stone"
+                                    "Name": "minecraft:end_stone"
                                   },
                                   "type": "minecraft:block"
                                 }
@@ -1740,7 +1740,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -1831,7 +1831,7 @@
                             },
                             "then_run": {
                               "result_state": {
-                                "Name": "minecraft:stone"
+                                "Name": "minecraft:end_stone"
                               },
                               "type": "minecraft:block"
                             },
@@ -1856,7 +1856,7 @@
                           },
                           "then_run": {
                             "result_state": {
-                              "Name": "minecraft:stone"
+                              "Name": "minecraft:end_stone"
                             },
                             "type": "minecraft:block"
                           },
@@ -1892,7 +1892,7 @@
                                     },
                                     "then_run": {
                                       "result_state": {
-                                        "Name": "minecraft:stone"
+                                        "Name": "minecraft:end_stone"
                                       },
                                       "type": "minecraft:block"
                                     },
@@ -1918,7 +1918,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -1933,7 +1933,7 @@
                               },
                               "then_run": {
                                 "result_state": {
-                                  "Name": "minecraft:stone"
+                                  "Name": "minecraft:end_stone"
                                 },
                                 "type": "minecraft:block"
                               },
@@ -1951,7 +1951,7 @@
                                   },
                                   "then_run": {
                                     "result_state": {
-                                      "Name": "minecraft:stone"
+                                      "Name": "minecraft:end_stone"
                                     },
                                     "type": "minecraft:block"
                                   },
@@ -1973,7 +1973,7 @@
                       },
                       {
                         "result_state": {
-                          "Name": "minecraft:stone"
+                          "Name": "minecraft:end_stone"
                         },
                         "type": "minecraft:block"
                       }
@@ -2059,7 +2059,7 @@
                   },
                   "then_run": {
                     "result_state": {
-                      "Name": "minecraft:stone"
+                      "Name": "minecraft:end_stone"
                     },
                     "type": "minecraft:block"
                   },
@@ -2115,7 +2115,7 @@
                       },
                       "then_run": {
                         "result_state": {
-                          "Name": "minecraft:stone"
+                          "Name": "minecraft:end_stone"
                         },
                         "type": "minecraft:block"
                       },
@@ -2165,9 +2165,9 @@
   },
   "noise": {
     "bottom_slide": {
-      "target": 2.5,
-      "size": 4,
-      "offset": -1
+      "target": 4.5,
+      "size": 7,
+      "offset": -3
     },
     "size_horizontal": 1,
     "size_vertical": 2,
@@ -2178,19 +2178,20 @@
     },
     "min_y": -64,
     "height": 384,
+    "island_noise_override": true,
     "sampling": {
-      "xz_scale": 1.0,
-      "y_scale": 3.0,
-      "xz_factor": 80.0,
-      "y_factor": 60.0
+      "xz_scale": 2.0,
+      "y_scale": 7.3,
+      "xz_factor": 83.0,
+      "y_factor": 92.0
     },
     "top_slide": {
-      "target": 0.9375,
-      "size": 3,
-      "offset": 0
+      "target": 0.99275,
+      "size": 6,
+      "offset": 1
     }
   },
   "default_block": {
-    "Name": "minecraft:stone"
+    "Name": "minecraft:end_stone"
   }
 }

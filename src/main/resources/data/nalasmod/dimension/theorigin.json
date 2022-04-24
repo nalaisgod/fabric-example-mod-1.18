@@ -28,7 +28,7 @@
               -1.05
             ]
           },
-          "biome": "minecraft:mushroom_fields"
+          "biome": "nalasmod:the_origin_biome"
         }
       ],
       "type": "minecraft:multi_noise"

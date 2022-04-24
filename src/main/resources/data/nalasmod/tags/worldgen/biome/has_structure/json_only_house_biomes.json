@@ -12,6 +12,7 @@
     "minecraft:sunflower_plains",
     "minecraft:savanna",
     "minecraft:savanna_plateau",
-    "minecraft:windswept_savanna"
+    "minecraft:windswept_savanna",
+    "nalasmod:the_origin_biome"
   ]
 }
