@@ -95,7 +95,7 @@ public class ModBlocks {
             new ModAppleBlock(FabricBlockSettings.copy(Blocks.BEETROOTS)));
 
     public static final Block FLOWER_FOR_ALL = registerBlock("flower_for_all",
-            new FlowerBlock(StatusEffects.LEVITATION, 5,
+            new ModEndFlowerBlock(StatusEffects.LEVITATION, 5,
                     FabricBlockSettings.copy(Blocks.PINK_TULIP)), ModItemGroup.ORIGINITE);
 
     public static final Block POTTED_FLOWER_FOR_ALL = registerBlockWithoutBlockItem("potted_flower_for_all",

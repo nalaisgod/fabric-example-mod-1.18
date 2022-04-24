@@ -24,6 +24,7 @@ public class ModEntitySpawn {
                 ModEntities.EXITER, 1, 1, 1);
 
 
+
         SpawnRestrictionAccessor.callRegister(ModEntities.RACCOON, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::isValidNaturalSpawn);
         SpawnRestrictionAccessor.callRegister(ModEntities.TIGER, SpawnRestriction.Location.ON_GROUND,
