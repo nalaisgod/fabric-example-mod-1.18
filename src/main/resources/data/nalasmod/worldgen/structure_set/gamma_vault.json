@@ -4,12 +4,12 @@
   "structures": [
     {
       "structure": "nalasmod:gamma_vault",
-      "weight": 1
+      "weight": 100
     }
   ],
   "placement": {
     // Make sure this is unique and does not match any other structure set's salt
-    "salt": 1694768742,
+    "salt": 1677768742,
 
     // The average distance apart in chunks for spawn attempts
     "spacing": 128,

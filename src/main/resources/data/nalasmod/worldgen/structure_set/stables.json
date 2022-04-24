@@ -9,7 +9,7 @@
   ],
   "placement": {
     // Make sure this is unique and does not match any other structure set's salt
-    "salt": 1697307080,
+    "salt": 1600007080,
 
     // The average distance apart in chunks for spawn attempts
     "spacing": 48,
