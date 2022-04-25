@@ -138,7 +138,7 @@ public class ModBlocks {
 
 
     public static final Block BOB_HEAD = registerBlock("bob_head",
-            new ModHeadClass(FabricBlockSettings.of(Material.METAL).strength(150f, 10000000f)),
+            new ModHeadClass(FabricBlockSettings.of(Material.METAL).nonOpaque().noCollision().strength(150f, 10000000f)),
             ModItemGroup.ORIGINITE);
 
     public static final Block BOB_CORE = registerBlock("bob_core",
@@ -148,13 +148,13 @@ public class ModBlocks {
             new DeathVine(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block MOSSLIGHT = registerBlock("mosslight",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+            new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
     public static final Block PEDISTAL = registerBlock("pedistal",
-            new ModSummonDave(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).luminance(state -> 15).requiresTool()), ModItemGroup.ORIGINITE);
+            new ModSummonDave(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().luminance(state -> 15).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ENERGY_CRYSTAL = registerBlock("energy_crystal",
-            new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+            new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

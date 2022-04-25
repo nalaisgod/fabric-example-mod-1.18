@@ -203,6 +203,8 @@ public class ModItems {
     public static final BlockItem PEDISTAL = RegistryUtils.registerItem("pedistal",
             new BlockItem(ModBlocks.PEDISTAL, new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
+    public static final BlockItem BOB_HEAD = RegistryUtils.registerItem("bob_head",
+            new BlockItem(ModBlocks.BOB_HEAD, new Item.Settings().group(ModItemGroup.ORIGINITE)));
 
 
 

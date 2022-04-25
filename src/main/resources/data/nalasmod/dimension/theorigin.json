@@ -6,10 +6,10 @@
         {
           "parameters": {
             "erosion": [
-              -1.0,
+              -2.0,
               1.0
             ],
-            "depth": 0.0,
+            "depth": -1.0,
             "weirdness": [
               -1.0,
               1.0

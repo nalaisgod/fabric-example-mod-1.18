@@ -8,10 +8,12 @@ import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.block.pattern.BlockPatternBuilder;
 import net.minecraft.block.pattern.CachedBlockPosition;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.block.BlockStatePredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.state.StateManager;
 import net.minecraft.util.function.MaterialPredicate;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -19,6 +21,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.nalaisgod.nalasmod.block.ModBlocks;
+import net.nalaisgod.nalasmod.block.entity.ModBlockEntities;
 import net.nalaisgod.nalasmod.entity.ModEntities;
 import net.nalaisgod.nalasmod.entity.mob.NamedEntity;
 import net.nalaisgod.nalasmod.item.ModItems;
@@ -28,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
  * Access widened by fabric-transitive-access-wideners-v1 to accessible
  */
 public class ModHeadClass
-        extends Block {
+        extends Block implements BlockEntityProvider {
     @Nullable
     private static BlockPattern namedBossPattern;
 
@@ -36,6 +39,23 @@ public class ModHeadClass
     public ModHeadClass(AbstractBlock.Settings settings) {
         super(settings);
     }
+
+
+
+
+        @Override
+        public BlockRenderType getRenderType(BlockState state) {
+            return BlockRenderType.ENTITYBLOCK_ANIMATED;
+        }
+
+
+        @Nullable
+        @Override
+        public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+            return ModBlockEntities.BOB_HEAD.instantiate(pos, state);
+        }
+
+
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
@@ -82,7 +102,7 @@ public class ModHeadClass
 
     private static BlockPattern getNamedBossPattern() {
         if (namedBossPattern == null) {
-            namedBossPattern = BlockPatternBuilder.start().aisle("^^^", "#@#", "#~#").where('#', pos -> pos.getBlockState().isOf(ModBlocks.ORIGINITE_BLOCK)).where('^', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.BOB_HEAD))).where('~', CachedBlockPosition.matchesBlockState(MaterialPredicate.create(Material.AIR))).where('@', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.BOB_CORE))).build();
+            namedBossPattern = BlockPatternBuilder.start().aisle("^", "#").where('#', pos -> pos.getBlockState().isOf(ModBlocks.PEDISTAL)).where('^', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.BOB_HEAD))).build();
         }
         return namedBossPattern;
     }

@@ -13,7 +13,7 @@
   "noise_router": {
     "final_density": {
       "argument": {
-        "argument1": 0.85,
+        "argument1": 1.85,
         "argument2": {
           "argument": {
             "argument": {
@@ -73,6 +73,9 @@
     "fluid_level_floodedness": 0.0,
     "fluid_level_spread": 0.0
   },
+
+
+
   "surface_rule": {
     "sequence": [
       {
@@ -431,7 +434,7 @@
                           },
                           {
                             "result_state": {
-                              "Name": "minecraft:gravel"
+                              "Name": "minecraft:end_stone"
                             },
                             "type": "minecraft:block"
                           }
@@ -1998,6 +2001,9 @@
             },
             "type": "minecraft:condition"
           },
+
+
+
           {
             "if_true": {
               "offset": 0,
@@ -2045,7 +2051,7 @@
                         },
                         "then_run": {
                           "result_state": {
-                            "Name": "minecraft:sandstone"
+                            "Name": "minecraft:end_stone"
                           },
                           "type": "minecraft:block"
                         },
@@ -2053,7 +2059,7 @@
                       },
                       {
                         "result_state": {
-                          "Name": "minecraft:sand"
+                          "Name": "minecraft:end_stone"
                         },
                         "type": "minecraft:block"
                       }
@@ -2082,7 +2088,7 @@
                     },
                     {
                       "result_state": {
-                        "Name": "minecraft:gravel"
+                        "Name": "minecraft:end_stone"
                       },
                       "type": "minecraft:block"
                     }
@@ -2099,7 +2105,7 @@
       },
       {
         "if_true": {
-          "random_name": "minecraft:deepslate",
+          "random_name": "minecraft:end_stone",
           "true_at_and_below": {
             "absolute": 0
           },
@@ -2113,7 +2119,7 @@
             "Properties": {
               "axis": "y"
             },
-            "Name": "minecraft:deepslate"
+            "Name": "minecraft:end_stone"
           },
           "type": "minecraft:block"
         },

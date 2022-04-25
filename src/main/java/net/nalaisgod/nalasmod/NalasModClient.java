@@ -74,6 +74,10 @@ public class NalasModClient implements ClientModInitializer {
         GeoItemRenderer.registerItemRenderer(ModItems.STAFF_OF_THE_ORB, new StaffRenderer());
         BlockEntityRendererRegistry.register(ModBlockEntities.PEDISTAL,
                 (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new PedistalRenderer());
+        BlockEntityRendererRegistry.register(ModBlockEntities.ENERGY_CRYSTAL,
+                (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new EnergyCrystalRenderer());
+        BlockEntityRendererRegistry.register(ModBlockEntities.BOB_HEAD,
+                (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new BOBHeadRenderer());
 
     }
 }

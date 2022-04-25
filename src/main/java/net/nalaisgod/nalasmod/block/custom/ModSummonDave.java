@@ -27,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
  * Access widened by fabric-transitive-access-wideners-v1 to accessible
  */
 public class ModSummonDave
-        extends FacingBlock implements BlockEntityProvider {
+        extends Block implements BlockEntityProvider {
 
     public ModSummonDave(Settings settings) {
         super(settings);
@@ -39,14 +39,6 @@ public class ModSummonDave
         return BlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-    }
-
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext context) {
-        return this.getDefaultState().with(FACING, context.getPlayerLookDirection().getOpposite());
-    }
 
     @Nullable
     @Override

@@ -10,6 +10,8 @@ import net.nalaisgod.nalasmod.block.ModBlocks;
 public class ModBlockEntities {
     public static BlockEntityType<OriginiteBlasterEntity> ORIGINITE_BLASTER;
     public static BlockEntityType<PedistalEntity> PEDISTAL;
+    public static BlockEntityType<BOBHeadEntity> BOB_HEAD;
+    public static BlockEntityType<CrystalEntity> ENERGY_CRYSTAL;
 
     public static void registerAllEntities() {
         ORIGINITE_BLASTER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
@@ -20,6 +22,14 @@ public class ModBlockEntities {
                 new Identifier(NalasMod.MOD_ID, "pedistal"),
                 FabricBlockEntityTypeBuilder.create(PedistalEntity::new,
                         ModBlocks.PEDISTAL).build(null));
+        BOB_HEAD = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                new Identifier(NalasMod.MOD_ID, "bob_head"),
+                FabricBlockEntityTypeBuilder.create(BOBHeadEntity::new,
+                        ModBlocks.BOB_HEAD).build(null));
+        ENERGY_CRYSTAL = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                new Identifier(NalasMod.MOD_ID, "energy_crystal"),
+                FabricBlockEntityTypeBuilder.create(CrystalEntity::new,
+                        ModBlocks.ENERGY_CRYSTAL).build(null));
     }
 
 
