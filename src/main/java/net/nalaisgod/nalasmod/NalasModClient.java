@@ -64,7 +64,6 @@ public class NalasModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.DAVE, DaveRenderer::new);
         EntityRendererRegistry.register(ModEntities.DEATHBOMB, DeathBombRender::new);
 
-
         GeoArmorRenderer.registerArmorRenderer(new OriginiteArmorRenderer(), ModItems.ORIGINITE_BOOTS,
                 ModItems.ORIGINITE_LEGGINGS, ModItems.ORIGINITE_CHESTPLATE, ModItems.ORIGINITE_HELMET);
         GeoItemRenderer.registerItemRenderer(ModItems.STAFF_OF_THE_ORB, new StaffRenderer());
