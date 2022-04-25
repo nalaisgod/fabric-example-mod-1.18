@@ -90,11 +90,11 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return TameableEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 1500.0)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 150.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 5.0f)
                 .add(EntityAttributes.GENERIC_FLYING_SPEED, 5.0f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 60.0)
-                .add(EntityAttributes.GENERIC_ARMOR, 7.0);
+                .add(EntityAttributes.GENERIC_ARMOR, 3.0);
     }
 
     @Override
@@ -296,18 +296,9 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
         int i;
         if (this.getInvulnerableTimer() > 0) {
             int i2 = this.getInvulnerableTimer() - 1;
-            this.bossBar.setPercent(1.0f - (float)i2 / 300.0f);
+            this.bossBar.setPercent(1.0f - (float)i2 / 150.0f);
             if (i2 <= 0) {
-                Explosion.DestructionType destructionType = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 1.0f, true, destructionType);
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 2.0f, true, destructionType);
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 3.0f, true, destructionType);
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 4.0f, true, destructionType);
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 5.0f, true, destructionType);
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 6.0f, true, destructionType);
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 7.0f, true, destructionType);
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 8.0f, true, destructionType);
-                this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 9.0f, true, destructionType);
+                Explosion.DestructionType destructionType = Explosion.DestructionType.NONE;
                 this.world.createExplosion(this, this.getX(), this.getEyeY(), this.getZ(), 10.0f, false, destructionType);
                 if (!this.isSilent()) {
                     this.world.syncGlobalEvent(WorldEvents.WITHER_SPAWNS, this.getBlockPos(), 0);
@@ -606,6 +597,7 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
         public DescendAtHalfHealthGoal() {
             this.setControls(EnumSet.of(Control.MOVE, Control.JUMP, Control.LOOK));
         }
+
 
         @Override
         public boolean canStart() {

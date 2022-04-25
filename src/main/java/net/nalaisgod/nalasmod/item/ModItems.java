@@ -15,6 +15,7 @@ import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.custom.*;
 import net.nalaisgod.nalasmod.sound.ModSounds;
 import software.bernie.example.item.PistolItem;
+import software.bernie.example.registry.BlockRegistry;
 import software.bernie.example.registry.RegistryUtils;
 
 import java.util.Optional;
@@ -198,6 +199,9 @@ public class ModItems {
     public static final Item GRAVITY_PUSHER = registerItem("gravity_pusher",
             new ModIDKSwordItem(ModToolMaterial.ELEMENT, 5, -2.4f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
+    public static final BlockItem PEDISTAL = RegistryUtils.registerItem("pedistal",
+            new BlockItem(ModBlocks.PEDISTAL, new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
 
 
