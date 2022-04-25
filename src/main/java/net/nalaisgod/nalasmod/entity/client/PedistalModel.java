@@ -6,9 +6,7 @@ package net.nalaisgod.nalasmod.entity.client;
 
 import net.minecraft.util.Identifier;
 import net.nalaisgod.nalasmod.NalasMod;
-import net.nalaisgod.nalasmod.entity.custom.PedistalEntity;
-import software.bernie.example.block.tile.BotariumTileEntity;
-import software.bernie.geckolib3.GeckoLib;
+import net.nalaisgod.nalasmod.block.entity.PedistalEntity;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class PedistalModel extends AnimatedGeoModel<PedistalEntity> {

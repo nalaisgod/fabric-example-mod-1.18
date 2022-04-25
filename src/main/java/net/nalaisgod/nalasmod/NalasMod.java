@@ -18,6 +18,7 @@ import net.nalaisgod.nalasmod.world.gen.ModWorldGen;
 import net.nalaisgod.nalasmod.world.structures.ModStructures;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.example.registry.TileRegistry;
 import software.bernie.geckolib3.GeckoLib;
 
 public class NalasMod implements ModInitializer {
@@ -57,7 +58,5 @@ public class NalasMod implements ModInitializer {
 		GeckoLib.initialize();
 
 		ModPortals.registerPortals();
-
-
 	}
 }

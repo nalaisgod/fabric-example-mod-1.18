@@ -2,37 +2,27 @@ package net.nalaisgod.nalasmod.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.block.custom.*;
-import net.nalaisgod.nalasmod.entity.custom.PedistalEntity;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.ModItemGroup;
 import net.nalaisgod.nalasmod.sound.ModSounds;
 import net.nalaisgod.nalasmod.world.feature.ModConfiguredFeatures;
-import net.nalaisgod.nalasmod.world.feature.tree.SoulBlossomSaplingGenerator;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.system.CallbackI;
-import software.bernie.example.block.tile.BotariumTileEntity;
-import software.bernie.example.registry.BlockRegistry;
-import software.bernie.geckolib3.GeckoLib;
 
 import java.util.List;
 
@@ -161,12 +151,10 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
     public static final Block PEDISTAL = registerBlock("pedistal",
-            new ModSummonDave(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool()), ModItemGroup.ORIGINITE);
-
-
+            new ModSummonDave(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).luminance(state -> 15).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ENERGY_CRYSTAL = registerBlock("energy_crystal",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+            new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

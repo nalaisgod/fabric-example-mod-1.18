@@ -1,10 +1,8 @@
-package net.nalaisgod.nalasmod.entity.custom;
+package net.nalaisgod.nalasmod.block.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
-import net.nalaisgod.nalasmod.block.ModBlocks;
-import net.nalaisgod.nalasmod.util.TileRegistry;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -17,7 +15,7 @@ public class PedistalEntity extends BlockEntity implements IAnimatable {
     private final AnimationFactory factory = new AnimationFactory(this);
 
     public PedistalEntity(BlockPos pos, BlockState state) {
-        super(TileRegistry.PEDISTAL, pos, state);
+        super(ModBlockEntities.PEDISTAL, pos, state);
     }
 
     @SuppressWarnings("unchecked")

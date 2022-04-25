@@ -109,6 +109,8 @@
   "block.nalasmod.bob_head": "BOB Head",
   "block.nalasmod.bob_core": "BOB Core",
   "block.nalasmod.death_vine": "DEATH VINE",
+  "block.nalasmod.pedistal": "THE SACRED PILLAR OF DAVE",
+  "block.nalasmod.energy_crystal": "Energy Crystal",
 
   "tooltip.nalasmod.originite_block": "A Magical Block",
   "tooltip.nalasmod.speedy_block": "A SPEEEEEEEEEEEEEEEEEEEEEEEEEEEEDY block",
@@ -124,5 +126,7 @@
   "entity.nalasmod.raccoon": "Raccoon",
   "entity.nalasmod.exiter": "Exiter",
   "entity.nalasmod.named": "BOB",
+  "entity.nalasmod.dave": "DAVE, BOB's Older Brother",
+  "entity.nalasmod.deathbomb": "Death Bomb",
   "entity.minecraft.villager.blastmaster": "Blastmaster"
 }
