@@ -13,6 +13,7 @@ import net.nalaisgod.nalasmod.config.ModConfigs;
 import net.nalaisgod.nalasmod.entity.ModEntities;
 import net.nalaisgod.nalasmod.entity.client.*;
 import net.nalaisgod.nalasmod.entity.client.armor.OriginiteArmorRenderer;
+import net.nalaisgod.nalasmod.entity.mob.DaveEntity;
 import net.nalaisgod.nalasmod.event.ReplaceTitleScreenEvent;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.ModItems;
@@ -60,6 +61,8 @@ public class NalasModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.TIGER, TigerRenderer::new);
         EntityRendererRegistry.register(ModEntities.EXITER, ExiterRenderer::new);
         EntityRendererRegistry.register(ModEntities.NAMED, NamedRenderer::new);
+        EntityRendererRegistry.register(ModEntities.DAVE, DaveRenderer::new);
+        EntityRendererRegistry.register(ModEntities.DEATHBOMB, DeathBombRender::new);
 
 
         GeoArmorRenderer.registerArmorRenderer(new OriginiteArmorRenderer(), ModItems.ORIGINITE_BOOTS,

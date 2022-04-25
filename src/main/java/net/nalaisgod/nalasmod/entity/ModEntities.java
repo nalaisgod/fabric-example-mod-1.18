@@ -6,13 +6,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.projectile.WitherSkullEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.nalaisgod.nalasmod.entity.custom.RaccoonEntity;
 import net.nalaisgod.nalasmod.entity.custom.TigerEntity;
+import net.nalaisgod.nalasmod.entity.mob.DaveEntity;
 import net.nalaisgod.nalasmod.entity.mob.ExiterEntity;
 import net.nalaisgod.nalasmod.entity.mob.NamedEntity;
+import net.nalaisgod.nalasmod.entity.projectile.DeathBomb;
 import software.bernie.example.entity.RocketProjectile;
 import software.bernie.example.registry.EntityRegistryBuilder;
 import software.bernie.geckolib3.GeckoLib;
@@ -36,4 +39,23 @@ public class ModEntities {
             Registry.ENTITY_TYPE, new Identifier(NalasMod.MOD_ID, "named"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, NamedEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 0.75f)).build());
+    public static final EntityType<DaveEntity> DAVE = Registry.register(
+            Registry.ENTITY_TYPE, new Identifier(NalasMod.MOD_ID, "dave"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, DaveEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 0.75f)).build());
+
+
+    public static EntityType<DeathBomb> DEATHBOMB = buildEntity(DeathBomb::new, DeathBomb.class, 0.5F,
+            0.5F, SpawnGroup.MISC);
+
+    public static <T extends Entity> EntityType<T> buildEntity(EntityType.EntityFactory<T> entity, Class<T> entityClass,
+                                                               float width, float height, SpawnGroup group) {
+        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+            String name = entityClass.getSimpleName().toLowerCase();
+            return EntityRegistryBuilder.<T>createBuilder(new Identifier(NalasMod.MOD_ID, name)).entity(entity)
+                    .category(group).dimensions(EntityDimensions.changing(width, height)).build();
+        }
+        return null;
+    }
+
 }

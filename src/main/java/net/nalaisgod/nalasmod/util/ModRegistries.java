@@ -18,6 +18,7 @@ import net.nalaisgod.nalasmod.command.SetHomeCommand;
 import net.nalaisgod.nalasmod.entity.ModEntities;
 import net.nalaisgod.nalasmod.entity.custom.RaccoonEntity;
 import net.nalaisgod.nalasmod.entity.custom.TigerEntity;
+import net.nalaisgod.nalasmod.entity.mob.DaveEntity;
 import net.nalaisgod.nalasmod.entity.mob.ExiterEntity;
 import net.nalaisgod.nalasmod.entity.mob.NamedEntity;
 import net.nalaisgod.nalasmod.event.ModPlayerEventCopyFrom;
@@ -69,7 +70,8 @@ public class ModRegistries {
         FabricDefaultAttributeRegistry.register(ModEntities.RACCOON, RaccoonEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.TIGER, TigerEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.EXITER, ExiterEntity.setAttributes());
-            FabricDefaultAttributeRegistry.register(ModEntities.NAMED, NamedEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.NAMED, NamedEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.DAVE, DaveEntity.setAttributes());
     }
 
     private static void registerCustomTrades() {

@@ -3,6 +3,8 @@ package net.nalaisgod.nalasmod.entity.mob;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.TargetPredicate;
@@ -10,45 +12,40 @@ import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.BirdNavigation;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
-import net.minecraft.entity.ai.pathing.SpiderNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
-import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.*;
-import net.minecraft.entity.passive.*;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.TridentEntity;
-import net.minecraft.entity.projectile.WitherSkullEntity;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.*;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.GameRules;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldEvents;
 import net.minecraft.world.explosion.Explosion;
 import net.nalaisgod.nalasmod.effect.ModEffects;
+import net.nalaisgod.nalasmod.entity.projectile.DeathBomb;
 import net.nalaisgod.nalasmod.entity.projectile.NamedSkullEntity;
-import net.nalaisgod.nalasmod.fluid.ModFluids;
+import net.nalaisgod.nalasmod.entity.projectile.WitherArrow;
 import net.nalaisgod.nalasmod.item.ModItems;
-import net.nalaisgod.nalasmod.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -63,14 +60,14 @@ import java.util.List;
 import java.util.function.Predicate;
 
 
-public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverlayOwner, RangedAttackMob {
+public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverlayOwner, RangedAttackMob {
     private AnimationFactory factory = new AnimationFactory(this);
-    private static final TrackedData<Integer> TRACKED_ENTITY_ID_1 = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final TrackedData<Integer> TRACKED_ENTITY_ID_2 = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final TrackedData<Integer> TRACKED_ENTITY_ID_3 = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> TRACKED_ENTITY_ID_1 = DataTracker.registerData(DaveEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> TRACKED_ENTITY_ID_2 = DataTracker.registerData(DaveEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> TRACKED_ENTITY_ID_3 = DataTracker.registerData(DaveEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final List<TrackedData<Integer>> TRACKED_ENTITY_IDS = ImmutableList.of(TRACKED_ENTITY_ID_1, TRACKED_ENTITY_ID_2, TRACKED_ENTITY_ID_3);
-    private static final TrackedData<Integer> INVUL_TIMER_NAMED = DataTracker.registerData(NamedEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final int DEFAULT_INVUL_TIMER_NAMED = 300;
+    private static final TrackedData<Integer> INVUL_TIMER_DAVE = DataTracker.registerData(DaveEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final int DEFAULT_INVUL_TIMER_DAVE = 300;
     private final float[] sideHeadPitches = new float[2];
     private final float[] sideHeadYaws = new float[2];
     private final float[] prevSideHeadPitches = new float[2];
@@ -84,7 +81,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
 
 
 
-    public NamedEntity(EntityType<? extends NamedEntity> entityType, World world) {
+    public DaveEntity(EntityType<? extends DaveEntity> entityType, World world) {
         super((EntityType<? extends HostileEntity>)entityType, world);
         this.moveControl = new FlightMoveControl(this, 10, false);
         this.setHealth(this.getMaxHealth());
@@ -94,8 +91,8 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     public static DefaultAttributeContainer.Builder setAttributes() {
         return TameableEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 1500.0)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1f)
-                .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.1f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 5.0f)
+                .add(EntityAttributes.GENERIC_FLYING_SPEED, 5.0f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 60.0)
                 .add(EntityAttributes.GENERIC_ARMOR, 7.0);
     }
@@ -112,8 +109,8 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new DescendAtHalfHealthGoal());
-        this.goalSelector.add(2, new ProjectileAttackGoal(this, 2, 400, 80.0f));
-        this.goalSelector.add(5, new FlyGoal(this, 0.7));
+        this.goalSelector.add(2, new ProjectileAttackGoal(this, 1, 2, 80.0f));
+        this.goalSelector.add(5, new FlyGoal(this, 1.0));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
@@ -131,6 +128,8 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
 
 
 
+
+
     @Override
     public void registerControllers(AnimationData animationData) {
         animationData.addAnimationController(new AnimationController(this, "controller",
@@ -139,10 +138,10 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.named.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dave.walk", true));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.named.attack", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dave.attack", true));
         return PlayState.CONTINUE;
     }
 
@@ -186,7 +185,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         this.dataTracker.startTracking(TRACKED_ENTITY_ID_1, 0);
         this.dataTracker.startTracking(TRACKED_ENTITY_ID_2, 0);
         this.dataTracker.startTracking(TRACKED_ENTITY_ID_3, 0);
-        this.dataTracker.startTracking(INVUL_TIMER_NAMED, 0);
+        this.dataTracker.startTracking(INVUL_TIMER_DAVE, 0);
     }
 
     @Override
@@ -375,7 +374,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
                             int q = k + m;
                             BlockPos blockPos = new BlockPos(o, p, q);
                             BlockState blockState = this.world.getBlockState(blockPos);
-                            if (!NamedEntity.canDestroy(blockState)) continue;
+                            if (!DaveEntity.canDestroy(blockState)) continue;
                             bl = this.world.breakBlock(blockPos, true, this) || bl;
                         }
                     }
@@ -467,13 +466,13 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         double g = targetX - d;
         double h = targetY - e;
         double i = targetZ - f;
-        NamedSkullEntity namedSkullEntity = new NamedSkullEntity(this.world, this, g, h, i);
-        namedSkullEntity.setOwner(this);
+        DeathBomb deathBomb = new DeathBomb(this.world, this, g, h, i);
+        deathBomb.setOwner(this);
         if (charged) {
-            namedSkullEntity.setCharged(true);
+            deathBomb.setCharged(true);
         }
-        namedSkullEntity.setPos(d, e, f);
-        this.world.spawnEntity(namedSkullEntity);
+        deathBomb.setPos(d, e, f);
+        this.world.spawnEntity(deathBomb);
     }
 
     @Override
@@ -503,7 +502,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         if (this.isInvulnerableTo(source)) {
             return false;
         }
-        if (source == DamageSource.DROWN || source.getAttacker() instanceof NamedEntity) {
+        if (source == DamageSource.DROWN || source.getAttacker() instanceof DaveEntity) {
             return false;
         }
         if (this.getInvulnerableTimer() > 0 && source != DamageSource.OUT_OF_WORLD) {
@@ -530,7 +529,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     @Override
     protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
         super.dropEquipment(source, lootingMultiplier, allowDrops);
-        ItemEntity itemEntity = this.dropItem(ModItems.UNPOWERED_ICE_BOW);
+        ItemEntity itemEntity = this.dropItem(ModItems.UNPOWERED_WITHER_BOW);
         if (itemEntity != null) {
             itemEntity.setCovetedItem();
         }
@@ -566,11 +565,11 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     }
 
     public int getInvulnerableTimer() {
-        return this.dataTracker.get(INVUL_TIMER_NAMED);
+        return this.dataTracker.get(INVUL_TIMER_DAVE);
     }
 
     public void setInvulTimer(int ticks) {
-        this.dataTracker.set(INVUL_TIMER_NAMED, ticks);
+        this.dataTracker.set(INVUL_TIMER_DAVE, ticks);
     }
 
     public int getTrackedEntityId(int headIndex) {
@@ -610,7 +609,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
 
         @Override
         public boolean canStart() {
-            return NamedEntity.this.getInvulnerableTimer() > 0;
+            return DaveEntity.this.getInvulnerableTimer() > 0;
         }
     }
 
