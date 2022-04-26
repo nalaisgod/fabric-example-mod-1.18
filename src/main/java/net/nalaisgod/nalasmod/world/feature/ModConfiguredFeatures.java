@@ -87,6 +87,11 @@ public class ModConfiguredFeatures {
                     new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.DEATH_VINE)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
                             BlockPredicate.matchingBlock(Blocks.HORN_CORAL_BLOCK, new BlockPos(0, -1, 0))))));
 
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MINE = ConfiguredFeatures.register("mine",
+            Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                    new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.END_MINE)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
+                            BlockPredicate.matchingBlock(Blocks.HORN_CORAL_BLOCK, new BlockPos(0, -1, 0))))));
+
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MOSSLIGHT_PATCH = ConfiguredFeatures.register("mosslight_patch",
             Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                     new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.MOSSLIGHT)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
@@ -151,10 +156,15 @@ public class ModConfiguredFeatures {
                     1, List.of(Blocks.END_STONE.getDefaultState(), ModBlocks.SPEEDY_BLOCK.getDefaultState())));
 
     public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> SOUL_BUSH
-            = ConfiguredFeatures.register("soul_bush", Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.SOUL_BLOSSOM_LEAVES),
-            new StraightTrunkPlacer(1, 0, 0), BlockStateProvider.of(ModBlocks.SOUL_BLOSSOM_LOG), new BushFoliagePlacer(ConstantIntProvider.create(2),
+            = ConfiguredFeatures.register("soul_bush", Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.SOUL_BLOSSOM_LOG),
+            new StraightTrunkPlacer(1, 0, 0), BlockStateProvider.of(ModBlocks.SOUL_BLOSSOM_LEAVES), new BushFoliagePlacer(ConstantIntProvider.create(2),
             ConstantIntProvider.create(1), 2), new TwoLayersFeatureSize(0, 0, 0)).build());
 
+    public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> END_MINE = ConfiguredFeatures.register("end_mine",
+            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.END_MINE),
+                    PlacedFeatures.createEntry(MINE), VerticalSurfaceType.FLOOR,
+                    UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7),
+                    0.3f));
 
 
 

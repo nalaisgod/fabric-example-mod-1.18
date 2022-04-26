@@ -148,13 +148,16 @@ public class ModBlocks {
             new DeathVine(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block MOSSLIGHT = registerBlock("mosslight",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+            new ModHealblock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
     public static final Block PEDISTAL = registerBlock("pedistal",
             new ModSummonDave(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().luminance(state -> 15).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ENERGY_CRYSTAL = registerBlock("energy_crystal",
             new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+
+    public static final Block END_MINE = registerBlock("end_mine",
+            new ModBOOMBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 1200f).requiresTool()), ModItemGroup.ORIGINITE);
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

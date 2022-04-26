@@ -22,6 +22,9 @@ public class ModPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> DEATH_VINE_PATCH_PLACED = PlacedFeatures.register("death_vine_patch_placed",
             ModConfiguredFeatures.DEATH_VINE_PATCH, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
 
+    public static final RegistryEntry<PlacedFeature> MINE_PLACED = PlacedFeatures.register("mine_placed",
+            ModConfiguredFeatures.MINE, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
     public static final RegistryEntry<PlacedFeature> MOSSLIGHT_PATCH_PLACED = PlacedFeatures.register("mosslight_patch_placed",
             ModConfiguredFeatures.MOSSLIGHT_PATCH, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(90), BiomePlacementModifier.of());
 
@@ -53,6 +56,8 @@ public class ModPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> LAKE_HONEY_PLACED = PlacedFeatures.register("lake_honey_placed",
             ModConfiguredFeatures.LAKE_HONEY, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
 
+    public static final RegistryEntry<PlacedFeature> END_MINE_PLACED = PlacedFeatures.register("end_mine_placed",
+            ModConfiguredFeatures.END_MINE, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
 
 
 

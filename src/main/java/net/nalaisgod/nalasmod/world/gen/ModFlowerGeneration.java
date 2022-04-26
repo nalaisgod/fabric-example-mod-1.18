@@ -35,5 +35,9 @@ public class ModFlowerGeneration {
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DISK_SPEED_PLACED.getKey().get());
         BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SOUL_BUSH_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.END_MINE_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MINE_PLACED.getKey().get());
     }
 }
