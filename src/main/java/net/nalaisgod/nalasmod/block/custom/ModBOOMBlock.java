@@ -37,9 +37,11 @@ public class ModBOOMBlock extends Block {
 
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-        ModBOOMBlock.primeTnt(world, pos);
-        super.onSteppedOn(world, pos, state, entity);
-        world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+        if (entity.isPlayer()) {
+            ModBOOMBlock.primeTnt(world, pos);
+            super.onSteppedOn(world, pos, state, entity);
+            world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+        }
     }
 
 

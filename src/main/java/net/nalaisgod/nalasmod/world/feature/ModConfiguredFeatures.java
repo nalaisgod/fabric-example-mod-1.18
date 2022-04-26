@@ -163,7 +163,7 @@ public class ModConfiguredFeatures {
     public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> END_MINE = ConfiguredFeatures.register("end_mine",
             Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.END_MINE),
                     PlacedFeatures.createEntry(MINE), VerticalSurfaceType.FLOOR,
-                    UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7),
+                    UniformIntProvider.create(1, 2), 0.0f, 1, 0.08f, UniformIntProvider.create(1, 1),
                     0.3f));
 
 
