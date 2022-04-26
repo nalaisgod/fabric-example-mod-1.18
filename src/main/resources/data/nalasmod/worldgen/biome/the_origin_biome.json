@@ -68,7 +68,9 @@
       "minecraft:disk_clay",
       "minecraft:disk_gravel"
     ],
-    [],
+    [
+
+    ],
     [
       "minecraft:spring_water",
       "minecraft:spring_lava"
@@ -82,7 +84,9 @@
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin"
+      "minecraft:patch_pumpkin",
+      "minecraft:twisting_vines",
+      "minecraft:weeping_vines"
     ],
     [
       "minecraft:freeze_top_layer"

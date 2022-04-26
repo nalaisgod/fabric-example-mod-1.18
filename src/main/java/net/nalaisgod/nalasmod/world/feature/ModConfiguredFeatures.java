@@ -1,14 +1,22 @@
 package net.nalaisgod.nalasmod.world.feature;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CaveVines;
+import net.minecraft.block.CaveVinesHeadBlock;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.util.math.intprovider.WeightedListIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
@@ -18,7 +26,10 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.RandomizedIntBlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.nalaisgod.nalasmod.NalasMod;
@@ -82,10 +93,25 @@ public class ModConfiguredFeatures {
                     new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.MOSSLIGHT)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
                             BlockPredicate.matchingBlock(Blocks.END_STONE, new BlockPos(0, -1, 0))))));
 
-    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> ENDSTONE_PATCH = ConfiguredFeatures.register("endstone_patch",
-            Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
-                    new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.END_STONE)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
-                            BlockPredicate.matchingBlock(Blocks.END_STONE, new BlockPos(0, -1, 0))))));
+
+    public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> DEATH_VINE_PATCH_1 = ConfiguredFeatures.register("death_vine_patch_1",
+            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.DEATH_VINE),
+                    PlacedFeatures.createEntry(DEATH_VINE_PATCH), VerticalSurfaceType.CEILING,
+                    UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7),
+                    0.3f));
+
+    public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> DEATH_VINE_PATCH_2 = ConfiguredFeatures.register("death_vine_patch_2",
+            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.DEATH_VINE),
+                    PlacedFeatures.createEntry(DEATH_VINE_PATCH), VerticalSurfaceType.FLOOR,
+                    UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7),
+                    0.3f));
+
+    public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> MOSSLIGHT_PATCH_1 = ConfiguredFeatures.register("mosslight_patch_1",
+            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.MOSSLIGHT),
+                    PlacedFeatures.createEntry(MOSSLIGHT_PATCH), VerticalSurfaceType.CEILING,
+                    UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7),
+                    0.3f));
+
 
 
 

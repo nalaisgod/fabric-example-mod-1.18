@@ -18,6 +18,10 @@ public class ModFlowerGeneration {
         BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MOSSLIGHT_PATCH_PLACED.getKey().get());
         BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
-                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.ENDSTONE_PATCH_PLACED.getKey().get());
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MOSSLIGHT_PATCH_PLACED_1.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DEATH_VINE_PATCH_PLACED_1.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DEATH_VINE_PATCH_PLACED_2.getKey().get());
     }
 }

@@ -25,8 +25,16 @@ public class ModPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> MOSSLIGHT_PATCH_PLACED = PlacedFeatures.register("mosslight_patch_placed",
             ModConfiguredFeatures.MOSSLIGHT_PATCH, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(90), BiomePlacementModifier.of());
 
-    public static final RegistryEntry<PlacedFeature> ENDSTONE_PATCH_PLACED = PlacedFeatures.register("endstone_patch_placed",
-            ModConfiguredFeatures.ENDSTONE_PATCH, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(60), BiomePlacementModifier.of());
+    public static final RegistryEntry<PlacedFeature> MOSSLIGHT_PATCH_PLACED_1 = PlacedFeatures.register("mosslight_patch_placed_1",
+            ModConfiguredFeatures.MOSSLIGHT_PATCH_1, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(90), BiomePlacementModifier.of());
+
+
+    public static final RegistryEntry<PlacedFeature> DEATH_VINE_PATCH_PLACED_1 = PlacedFeatures.register("death_vine_patch_placed_1",
+            ModConfiguredFeatures.DEATH_VINE_PATCH_1, CountMultilayerPlacementModifier.of(1), RarityFilterPlacementModifier.of(10), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> DEATH_VINE_PATCH_PLACED_2 = PlacedFeatures.register("death_vine_patch_placed_2",
+            ModConfiguredFeatures.DEATH_VINE_PATCH_2, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
 
 
     public static final RegistryEntry<PlacedFeature> ORIGINITE_ORE_PLACED = PlacedFeatures.register("originite_ore_placed",
@@ -40,5 +48,7 @@ public class ModPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> ORIGINAL_ORIGINITE_ORE_PLACED = PlacedFeatures.register("original_originite_ore_placed",
             ModConfiguredFeatures.END_ORIGINITE_ORE, ModOreFeatures.modifiersWithCount(70,
                     HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(300))));
+
+
 
 }

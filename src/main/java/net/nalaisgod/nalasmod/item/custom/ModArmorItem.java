@@ -39,6 +39,8 @@ public class ModArmorItem extends ArmorItem {
 
                 if(hasFullSuitOfArmorOn(player)) {
                     evaluateArmorEffects(player);
+                } else {
+                    player.setNoGravity(false);
                 }
             }
         }
@@ -51,11 +53,18 @@ public class ModArmorItem extends ArmorItem {
             ArmorMaterial mapArmorMaterial = entry.getKey();
             StatusEffectInstance mapStatusEffect = entry.getValue();
 
+
             if(hasCorrectArmorOn(mapArmorMaterial, player)) {
                 addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
+                player.setNoGravity(true);
             }
+
         }
     }
+
+
+
+
 
     private void addStatusEffectForMaterial(PlayerEntity player, ArmorMaterial mapArmorMaterial, StatusEffectInstance mapStatusEffect) {
         boolean hasPlayerEffect = player.hasStatusEffect(mapStatusEffect.getEffectType());
@@ -78,6 +87,7 @@ public class ModArmorItem extends ArmorItem {
 
         return !helmet.isEmpty() && !breastplate.isEmpty()
                 && !leggings.isEmpty() && !boots.isEmpty();
+
     }
 
     private boolean hasCorrectArmorOn(ArmorMaterial material, PlayerEntity player) {
@@ -93,5 +103,6 @@ public class ModArmorItem extends ArmorItem {
 
         return helmet.getMaterial() == material && breastplate.getMaterial() == material &&
                 leggings.getMaterial() == material && boots.getMaterial() == material;
+
     }
 }
