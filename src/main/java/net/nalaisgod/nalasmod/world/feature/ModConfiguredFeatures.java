@@ -1,9 +1,6 @@
 package net.nalaisgod.nalasmod.world.feature;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CaveVines;
-import net.minecraft.block.CaveVinesHeadBlock;
+import net.minecraft.block.*;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
@@ -20,12 +17,14 @@ import net.minecraft.util.math.intprovider.WeightedListIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.util.registry.RegistryEntryList;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.foliage.BushFoliagePlacer;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.RandomizedIntBlockStateProvider;
@@ -86,12 +85,12 @@ public class ModConfiguredFeatures {
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> DEATH_VINE_PATCH = ConfiguredFeatures.register("death_vine_patch",
             Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                     new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.DEATH_VINE)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
-                            BlockPredicate.matchingBlock(Blocks.END_STONE, new BlockPos(0, -1, 0))))));
+                            BlockPredicate.matchingBlock(Blocks.HORN_CORAL_BLOCK, new BlockPos(0, -1, 0))))));
 
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MOSSLIGHT_PATCH = ConfiguredFeatures.register("mosslight_patch",
             Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                     new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.MOSSLIGHT)), BlockPredicate.bothOf(BlockPredicate.replaceable(),
-                            BlockPredicate.matchingBlock(Blocks.END_STONE, new BlockPos(0, -1, 0))))));
+                            BlockPredicate.matchingBlock(Blocks.HORN_CORAL_BLOCK, new BlockPos(0, -1, 0))))));
 
 
     public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> DEATH_VINE_PATCH_1 = ConfiguredFeatures.register("death_vine_patch_1",
@@ -109,8 +108,53 @@ public class ModConfiguredFeatures {
     public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> MOSSLIGHT_PATCH_1 = ConfiguredFeatures.register("mosslight_patch_1",
             Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.MOSSLIGHT),
                     PlacedFeatures.createEntry(MOSSLIGHT_PATCH), VerticalSurfaceType.CEILING,
-                    UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7),
+                    UniformIntProvider.create(1, 2), 0.0f, 2, 0.08f, UniformIntProvider.create(4, 7),
                     0.3f));
+
+    public static final RegistryEntry<ConfiguredFeature<GlowLichenFeatureConfig, ?>>
+            GLOW_LICHEN_END = ConfiguredFeatures.register("glow_lichen_end", Feature.GLOW_LICHEN,
+            new GlowLichenFeatureConfig(20, false, true, true, 0.5f,
+                    RegistryEntryList.of(Block::getRegistryEntry,
+                            Blocks.END_STONE)));
+
+    public static final RegistryEntry<ConfiguredFeature<RootSystemFeatureConfig, ?>> ROOTED_SOUL_TREE
+            = ConfiguredFeatures.register("rooted_soul_tree", Feature.ROOT_SYSTEM,
+            new RootSystemFeatureConfig(PlacedFeatures.createEntry(ModConfiguredFeatures.SOUL_BLOSSOM_TREE),
+                    3, 3, BlockTags.DRAGON_IMMUNE,
+                    BlockStateProvider.of(ModBlocks.DEATH_VINE), 20, 100,
+                    3, 2, BlockStateProvider.of(ModBlocks.DEATH_VINE),
+                    20, 2,
+                    BlockPredicate.bothOf(BlockPredicate.anyOf(BlockPredicate.matchingBlocks(List.of(Blocks.AIR,
+                            Blocks.CAVE_AIR, Blocks.VOID_AIR, Blocks.WATER)), BlockPredicate.matchingBlockTag(BlockTags.LEAVES),
+                            BlockPredicate.matchingBlockTag(BlockTags.REPLACEABLE_PLANTS)),
+                            BlockPredicate.matchingBlockTag(BlockTags.DRAGON_IMMUNE, Direction.DOWN.getVector()))));
+
+    public static final RegistryEntry<ConfiguredFeature<RootSystemFeatureConfig, ?>> ROOTED_LICHEN_TREE
+            = ConfiguredFeatures.register("rooted_lichen_tree", Feature.ROOT_SYSTEM,
+            new RootSystemFeatureConfig(PlacedFeatures.createEntry(ModConfiguredFeatures.GLOW_LICHEN_END),
+                    3, 3, BlockTags.DRAGON_IMMUNE,
+                    BlockStateProvider.of(ModBlocks.DEATH_VINE), 20, 100,
+                    3, 2, BlockStateProvider.of(ModBlocks.DEATH_VINE),
+                    20, 2,
+                    BlockPredicate.bothOf(BlockPredicate.anyOf(BlockPredicate.matchingBlocks(List.of(Blocks.AIR,
+                                            Blocks.CAVE_AIR, Blocks.VOID_AIR, Blocks.WATER)), BlockPredicate.matchingBlockTag(BlockTags.LEAVES),
+                                    BlockPredicate.matchingBlockTag(BlockTags.REPLACEABLE_PLANTS)),
+                            BlockPredicate.matchingBlockTag(BlockTags.DRAGON_IMMUNE, Direction.DOWN.getVector()))));
+
+
+    public static final RegistryEntry<ConfiguredFeature<LakeFeature.Config, ?>> LAKE_HONEY = ConfiguredFeatures.register("honey_lake",
+            Feature.LAKE, new LakeFeature.Config(BlockStateProvider.of(ModBlocks.HONEY_FLUID_BLOCK.getDefaultState()),
+                    BlockStateProvider.of(Blocks.HONEYCOMB_BLOCK.getDefaultState())));
+
+    public static final RegistryEntry<ConfiguredFeature<DiskFeatureConfig, ?>> DISK_SPEED = ConfiguredFeatures.register("disk_speed",
+            Feature.DISK, new DiskFeatureConfig(ModBlocks.SPEEDY_BLOCK.getDefaultState(), UniformIntProvider.create(2, 3),
+                    1, List.of(Blocks.END_STONE.getDefaultState(), ModBlocks.SPEEDY_BLOCK.getDefaultState())));
+
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> SOUL_BUSH
+            = ConfiguredFeatures.register("soul_bush", Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.SOUL_BLOSSOM_LEAVES),
+            new StraightTrunkPlacer(1, 0, 0), BlockStateProvider.of(ModBlocks.SOUL_BLOSSOM_LOG), new BushFoliagePlacer(ConstantIntProvider.create(2),
+            ConstantIntProvider.create(1), 2), new TwoLayersFeatureSize(0, 0, 0)).build());
+
 
 
 

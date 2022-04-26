@@ -23,5 +23,17 @@ public class ModFlowerGeneration {
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DEATH_VINE_PATCH_PLACED_1.getKey().get());
         BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DEATH_VINE_PATCH_PLACED_2.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.ROOTED_SOUL_TREE_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.ROOTED_LICHEN_TREE_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.GLOW_LICHEN_END_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.LAKE_HONEY_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DISK_SPEED_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.spawnsOneOf(ModEntities.EXITER),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SOUL_BUSH_PLACED.getKey().get());
     }
 }

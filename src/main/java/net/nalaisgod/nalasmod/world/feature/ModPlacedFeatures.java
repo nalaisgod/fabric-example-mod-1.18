@@ -30,10 +30,29 @@ public class ModPlacedFeatures {
 
 
     public static final RegistryEntry<PlacedFeature> DEATH_VINE_PATCH_PLACED_1 = PlacedFeatures.register("death_vine_patch_placed_1",
-            ModConfiguredFeatures.DEATH_VINE_PATCH_1, CountMultilayerPlacementModifier.of(1), RarityFilterPlacementModifier.of(10), BiomePlacementModifier.of());
+            ModConfiguredFeatures.DEATH_VINE_PATCH_1, CountMultilayerPlacementModifier.of(3), RarityFilterPlacementModifier.of(10), BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> DEATH_VINE_PATCH_PLACED_2 = PlacedFeatures.register("death_vine_patch_placed_2",
             ModConfiguredFeatures.DEATH_VINE_PATCH_2, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> GLOW_LICHEN_END_PLACED = PlacedFeatures.register("glow_lichen_end_placed",
+            ModConfiguredFeatures.GLOW_LICHEN_END, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> ROOTED_LICHEN_TREE_PLACED = PlacedFeatures.register("rooted_lichen_tree_placed",
+            ModConfiguredFeatures.ROOTED_LICHEN_TREE, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> ROOTED_SOUL_TREE_PLACED = PlacedFeatures.register("rooted_soul_tree_placed",
+            ModConfiguredFeatures.ROOTED_SOUL_TREE, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> DISK_SPEED_PLACED = PlacedFeatures.register("disc_speed_placed",
+            ModConfiguredFeatures.DISK_SPEED, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> SOUL_BUSH_PLACED = PlacedFeatures.register("soul_bush_placed",
+            ModConfiguredFeatures.SOUL_BUSH, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> LAKE_HONEY_PLACED = PlacedFeatures.register("lake_honey_placed",
+            ModConfiguredFeatures.LAKE_HONEY, CountMultilayerPlacementModifier.of(5), RarityFilterPlacementModifier.of(70), BiomePlacementModifier.of());
+
 
 
 
