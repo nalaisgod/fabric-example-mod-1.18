@@ -18,6 +18,9 @@
     "nalasmod:originite_pressure_plate",
     "nalasmod:originite_fence",
     "nalasmod:originite_fence_gate",
-    "nalasmod:originite_wall"
+    "nalasmod:originite_wall",
+    "nalasmod:death_vine",
+    "nalasmod:mosslight",
+    "nalasmod:end_mine"
   ]
 }

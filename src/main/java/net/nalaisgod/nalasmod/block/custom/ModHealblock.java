@@ -24,7 +24,7 @@ public class ModHealblock extends Block {
             if(entity instanceof LivingEntity) {
                 LivingEntity livingEntity = ((LivingEntity) entity);
                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 20, 3));
-                ((LivingEntity) entity).heal(1f);
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20));
             }
         }
 

@@ -14,6 +14,12 @@
     "nalasmod:originite_fence",
     "nalasmod:originite_fence_gate",
     "nalasmod:originite_wall",
-    "nalasmod:winter_window"
+    "nalasmod:winter_window",
+    "nalasmod:death_vine",
+    "nalasmod:mosslight",
+    "nalasmod:end_mine",
+    "nalasmod:pedistal",
+    "nalasmod:bob_head",
+    "nalasmod:energy_crystal"
   ]
 }

@@ -4,6 +4,9 @@
     "nalasmod:soul_blossom_door",
     "nalasmod:soul_blossom_trapdoor",
     "nalasmod:originite_block",
-    "#nalasmod:soul_blossom_logs"
+    "#nalasmod:soul_blossom_logs",
+    "nalasmod:pedistal",
+    "nalasmod:bob_head",
+    "nalasmod:energy_crystal"
   ]
 }
