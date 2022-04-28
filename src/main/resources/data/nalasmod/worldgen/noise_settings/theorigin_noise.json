@@ -2153,26 +2153,6 @@
                     "Name": "nalasmod:death_vine"
                   },
                   "type": "minecraft:block"
-                },
-
-                {
-                  "if_true": {
-                    "biome_is": [
-                      "nalasmod:ice_feild"
-                    ],
-                    "type": "minecraft:biome",
-                    "offset": 4,
-                    "add_surface_depth": true,
-                    "secondary_depth_range": 6,
-                    "surface_type": "floor"
-                  },
-                  "then_run": {
-                    "result_state": {
-                      "Name": "minecraft:ice"
-                    },
-                    "type": "minecraft:block"
-                  },
-                  "type": "minecraft:condition"
                 }
               ],
               "type": "minecraft:sequence"
