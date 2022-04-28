@@ -7,6 +7,8 @@
     "minecraft:crimson_forest",
     "minecraft:warped_forest",
     "minecraft:nether_wastes",
-    "nalasmod:the_origin_biome"
+    "nalasmod:the_origin_biome",
+    "nalasmod:mine_field",
+    "nalasmod:ice_feild"
   ]
 }

@@ -5,57 +5,39 @@
       "biomes": [
         {
           "parameters": {
-            "erosion": [
-              -1,
-              1
-            ],
-            "depth": 1.0,
-            "weirdness": [
-              -1,
-              1
-            ],
-            "offset": 1.0,
-            "temperature": [
-              -1.0,
-              1.0
-            ],
-            "humidity": [
-              -1.0,
-              1
-            ],
-            "continentalness": [
-              -1,
-              1.0
-            ]
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0,
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": 0.0
+          },
+          "biome": "nalasmod:the_origin_biome"
+        },
+        {
+          "parameters": {
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.375,
+            "temperature": 0.0,
+            "humidity": 0.5,
+            "continentalness": 0.0
           },
           "biome": "nalasmod:ice_feild"
         },
         {
           "parameters": {
-            "erosion": [
-              -1,
-              1
-            ],
-            "depth": 1.0,
-            "weirdness": [
--1,
-              1
-            ],
-            "offset": 1.0,
-            "temperature": [
-              -1.0,
-              1.0
-            ],
-            "humidity": [
-              -1.0,
-              1
-            ],
-            "continentalness": [
-              -1,
-              1.0
-            ]
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.175,
+            "temperature": -0.5,
+            "humidity": 0.0,
+            "continentalness": 0.0
           },
-          "biome": "nalasmod:the_origin_biome"
+          "biome": "nalasmod:mine_field"
         }
       ],
       "type": "minecraft:multi_noise"
