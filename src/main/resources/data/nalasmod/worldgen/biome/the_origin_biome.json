@@ -144,7 +144,7 @@
 },
 {
 "type": "minecraft:piglin_brute",
-"weight": 1,
+"weight": 25,
 "minCount": 1,
 "maxCount": 1
 }
