@@ -59,7 +59,7 @@
     "monster": [
       {
         "type": "minecraft:ravager",
-        "weight": 3,
+        "weight": 30,
         "minCount": 1,
         "maxCount": 10
       }

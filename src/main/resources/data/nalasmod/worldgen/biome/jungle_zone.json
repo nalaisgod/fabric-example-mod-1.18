@@ -105,7 +105,7 @@
       },
       {
         "type": "minecraft:ravager",
-        "weight": 3,
+        "weight": 5,
         "minCount": 1,
         "maxCount": 2
       },
