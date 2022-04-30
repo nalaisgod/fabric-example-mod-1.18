@@ -12,7 +12,7 @@
   },
 
   // The biome tag to use for what biomes that this structure can spawn in"
-  "biomes": "#nalasmod:has_structure/original_biome",
+  "biomes": "#nalasmod:has_structure/original_biome_jungle",
 
   // If true, land will be add around the bottom of the structure. (Based on the starting piece's y value)
   "adapt_noise": true,
