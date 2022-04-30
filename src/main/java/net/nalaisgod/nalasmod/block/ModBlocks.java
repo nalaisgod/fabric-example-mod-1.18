@@ -160,7 +160,7 @@ public class ModBlocks {
             new ModBOOMBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 1200f).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block SPACE_CHANGER = registerBlock("space_changer",
-            new ModPortalTeleportBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 1200f).requiresTool()), ModItemGroup.ORIGINITE);
+            new ModPortalTeleportBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 1200f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {
