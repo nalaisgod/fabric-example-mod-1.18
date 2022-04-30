@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "nalasmod:soul_blossom_log"
+      "item": "c:plank_making_soul"
     }
   ],
   "result": {
