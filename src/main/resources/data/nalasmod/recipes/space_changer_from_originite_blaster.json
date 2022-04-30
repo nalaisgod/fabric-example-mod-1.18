@@ -1,0 +1,14 @@
+{
+  "type": "nalasmod:originite_blaster",
+  "ingredients": [
+    {
+      "item": "minecraft:end_stone"
+    },
+    {
+      "item": "nalasmod:originite_block"
+    }
+  ],
+  "output": {
+    "item": "nalasmod:space_changer"
+  }
+}

@@ -25,3 +25,6 @@ Elemental Blade texture by chronosacaria
 (Under MIT-License: https://github.com/chronosacaria/MCDungeonsWeapons/blob/1.18/LICENSE.txt):
 https://github.com/chronosacaria/MCDungeonsWeapons
 
+Dimension Code & JSON Files all from kwpugh
+(https://creativecommons.org/licenses/by-sa/4.0/):
+https://github.com/kwpugh/mining_Dimensions-1.17

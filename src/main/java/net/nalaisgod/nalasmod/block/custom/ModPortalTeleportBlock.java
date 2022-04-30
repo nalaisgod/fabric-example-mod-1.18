@@ -37,10 +37,10 @@ public class ModPortalTeleportBlock extends Block {
                                         serverPlayer.bodyYaw, serverPlayer.prevPitch);
                             }
                         } if (world.getRegistryKey() == World.OVERWORLD) {
-                            ServerWorld serverWorld = server.getWorld(World.NETHER);
+                            ServerWorld serverWorld = server.getWorld(ModDimensions.THEORIGIN_KEY);
                             if (serverWorld != null) {
                                 BlockPos destPos = getDest(serverPlayer.getBlockPos(), serverWorld, true);
-                                boolean doSetBlock = true;
+                                boolean doSetBlock = false;
                                 for (BlockPos checkPos : BlockPos.iterate(destPos.down(10).west(10).south(10), destPos.up(10).east(10).north(10))) {
                                     if (serverWorld.getBlockState(checkPos).getBlock() == ModBlocks.SPACE_CHANGER) {
                                         doSetBlock = false;

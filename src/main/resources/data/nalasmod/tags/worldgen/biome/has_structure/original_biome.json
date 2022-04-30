@@ -4,7 +4,6 @@
   "_comment": " This biome tag can specify the biome directly. Or specify another biome tag by starting with # ",
   "values": [
     "nalasmod:the_origin_biome",
-    "nalasmod:mine_field",
     "nalasmod:ice_feild",
     "nalasmod:rich",
     "nalasmod:jungle_zone"

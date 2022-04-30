@@ -144,7 +144,7 @@
 },
 {
 "type": "minecraft:piglin_brute",
-"weight": 25,
+"weight": 5,
 "minCount": 1,
 "maxCount": 1
 }
@@ -153,14 +153,14 @@
       {
         "type": "nalasmod:tiger",
         "weight": 10,
-        "minCount": 8,
-        "maxCount": 8
+        "minCount": 1,
+        "maxCount": 4
       },
       {
         "type": "nalasmod:raccoon",
         "weight": 10,
-        "minCount": 8,
-        "maxCount": 8
+        "minCount": 1,
+        "maxCount": 4
       }
     ],
     "ambient": [],
