@@ -58,6 +58,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.logging.Level;
 
 
 public class ModStaffItem extends RangedWeaponItem implements IAnimatable, ISyncable {
@@ -75,7 +76,10 @@ public class ModStaffItem extends RangedWeaponItem implements IAnimatable, ISync
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", (double)-2.9f, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
         GeckoLibNetwork.registerSyncable(this);
+
     }
+
+
 
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {

@@ -200,6 +200,10 @@ public class ModItems {
             new ModIDKSwordItem(ModToolMaterial.ELEMENT, 5, -2.4f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
+    public static final Item RANDOM_BLADE = registerItem("random_blade",
+            new random_blade(ModToolMaterial.ORIGINITE, 3, -2.2f,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
 
 
 
