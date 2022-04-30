@@ -159,6 +159,9 @@ public class ModBlocks {
     public static final Block END_MINE = registerBlock("end_mine",
             new ModBOOMBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 1200f).requiresTool()), ModItemGroup.ORIGINITE);
 
+    public static final Block SPACE_CHANGER = registerBlock("space_changer",
+            new ModPortalTeleportBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 1200f).requiresTool()), ModItemGroup.ORIGINITE);
+
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(NalasMod.MOD_ID, name), block);
