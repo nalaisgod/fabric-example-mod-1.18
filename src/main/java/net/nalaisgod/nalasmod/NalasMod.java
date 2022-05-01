@@ -12,13 +12,11 @@ import net.nalaisgod.nalasmod.recipe.ModRecipes;
 import net.nalaisgod.nalasmod.util.ModLootTableModifiers;
 import net.nalaisgod.nalasmod.util.ModRegistries;
 import net.nalaisgod.nalasmod.villager.ModVillagers;
-import net.nalaisgod.nalasmod.world.dimension.ModPortals;
 import net.nalaisgod.nalasmod.world.feature.ModConfiguredFeatures;
 import net.nalaisgod.nalasmod.world.gen.ModWorldGen;
 import net.nalaisgod.nalasmod.world.structures.ModStructures;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import software.bernie.example.registry.TileRegistry;
 import software.bernie.geckolib3.GeckoLib;
 
 public class NalasMod implements ModInitializer {
@@ -56,7 +54,5 @@ public class NalasMod implements ModInitializer {
 		ModVillagers.setupPOIs();
 
 		GeckoLib.initialize();
-
-		ModPortals.registerPortals();
 	}
 }

@@ -138,7 +138,7 @@ public class ModBlocks {
 
 
     public static final Block BOB_HEAD = registerBlock("bob_head",
-            new ModHeadClass(FabricBlockSettings.of(Material.METAL).nonOpaque().noCollision().strength(150f, 10000000f)),
+            new ModHeadClass(FabricBlockSettings.of(Material.METAL).nonOpaque().noCollision().strength(6f, 12f)),
             ModItemGroup.ORIGINITE);
 
     public static final Block BOB_CORE = registerBlock("bob_core",
@@ -163,10 +163,10 @@ public class ModBlocks {
             new ModPortalTeleportBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 1200f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
 
     public static final Block ENERGY_CRYSTAL_WITHER = registerBlock("energy_crystal_wither",
-            new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+            new ModSummonWither(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
     public static final Block ENERGY_CRYSTAL_DRAGON = registerBlock("energy_crystal_dragon",
-            new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+            new ModSummonDragon(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

@@ -36,7 +36,7 @@ public class ModSummonDragon extends Block implements BlockEntityProvider {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return ModBlockEntities.ENERGY_CRYSTAL.instantiate(pos, state);
+        return ModBlockEntities.ENERGY_CRYSTAL_DRAGON.instantiate(pos, state);
     }
 
 

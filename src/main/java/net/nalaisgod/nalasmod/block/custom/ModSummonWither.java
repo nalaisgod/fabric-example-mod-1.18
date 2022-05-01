@@ -36,7 +36,7 @@ public class ModSummonWither extends Block implements BlockEntityProvider {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return ModBlockEntities.ENERGY_CRYSTAL.instantiate(pos, state);
+        return ModBlockEntities.ENERGY_CRYSTAL_WITHER.instantiate(pos, state);
     }
 
 
