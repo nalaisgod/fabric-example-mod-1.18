@@ -91,6 +91,11 @@ public class TigerEntity extends TameableEntity implements Mount, IAnimatable {
     }
 
     @Override
+    protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
+        return this.isBaby() ? dimensions.height * 0.4f : dimensions.height * 0.4f;
+    }
+
+    @Override
     public boolean canWalkOnFluid(FluidState fluidState) {
         return fluidState.isIn(FluidTags.WATER);
     }

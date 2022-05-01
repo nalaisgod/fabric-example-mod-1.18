@@ -62,9 +62,9 @@
 
   "item.nalasmod.dowsing_rod.no_valuables": "No Valuables Found",
   "item.nalasmod.dowsing_rod.tooltip.shift": "by using this item you give nalaisgod permission to steal all you diamonds in game also money and also Right Click For Valuables at your y axis 16 uses",
-  "item.nalasmod.dowsing_rod.tooltip": "press SHIFT For More Info",
+  "item.nalasmod.dowsing_rod.tooltip": "Press SHIFT For More Info",
   "item.nalasmod.chip.tooltip.shift": "Use The Originite Blaster And An Unpowered Effect Bow To Power The Bow",
-  "item.nalasmod.chip.tooltip": "press SHIFT For More Info",
+  "item.nalasmod.chip.tooltip": "Press SHIFT For More Info",
   "item.nalasmod.elemental.tooltip.shift": "Can Get The Elemental Bane Enchantment Which Deal",
   "item.nalasmod.freeze_rod.tooltip.shift": "Ammo For Ice Bow Can Freeze Oppenents On Hit",
   "item.nalasmod.grav_dis.tooltip.shift": "Hit An Enemy To Remove You Gravity Right Click To Get It Back",
@@ -76,6 +76,7 @@
   "item.nalasmod.vision.tooltip.shift": "Right Click For Night Vision",
   "item.nalasmod.wither_bow.tooltip.shift": "Leave A Trail O Pain Behind Uses Wither Rods",
   "item.nalasmod.wither_rod.tooltip.shift": "Ammo For Wither Bow Can Apply WIther",
+  "item.nalasmod.originite_armour.tooltip.shift": "While Holding SHIFT Turn Off Gravity, every 30 seconds gain resistance and heal",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",

@@ -6,6 +6,8 @@ import net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -14,6 +16,8 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
 import net.minecraft.world.GameRules;
 import net.nalaisgod.nalasmod.item.ModArmorMaterials;
@@ -22,13 +26,11 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import javax.swing.plaf.basic.BasicTreeUI;
 import java.awt.event.KeyEvent;
-import java.util.Map;
-import java.util.Random;
-import java.util.Stack;
-import java.util.UUID;
+import java.util.*;
 
 public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
@@ -49,6 +51,7 @@ public class ModArmorItem extends ArmorItem {
 
                 if(hasFullSuitOfArmorOn(player)) {
                     evaluateArmorEffects(player);
+                    GravityChanger(player);
                 } else {
                     player.setNoGravity(false);
                 }
@@ -64,17 +67,41 @@ public class ModArmorItem extends ArmorItem {
             StatusEffectInstance mapStatusEffect = entry.getValue();
 
 
-            if(hasCorrectArmorOn(mapArmorMaterial, player) && player.getItemCooldownManager().isCoolingDown(this) == false) {
-                player.getItemCooldownManager().set(this, 600);
-                player.heal(1);
-                addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
-                player.setNoGravity(true);
+            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+                if (player.getItemCooldownManager().isCoolingDown(this) == false) {
+                    player.getItemCooldownManager().set(this, 600);
+                    addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
+                }
+
             }
 
         }
     }
 
 
+    private void GravityChanger(PlayerEntity player) {
+        for (Map.Entry<ArmorMaterial, StatusEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
+            ArmorMaterial mapArmorMaterial = entry.getKey();
+            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+                if(Screen.hasShiftDown()) {
+                    player.setNoGravity(true);
+                } else {
+                    player.setNoGravity(false);
+                }
+
+            }
+
+        }
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(new TranslatableText("item.nalasmod.originite-armour.tooltip.shift"));
+        } else {
+            tooltip.add(new TranslatableText("item.nalasmod.dowsing_rod.tooltip"));
+        }
+    }
 
 
 
@@ -84,8 +111,10 @@ public class ModArmorItem extends ArmorItem {
         if(hasCorrectArmorOn(mapArmorMaterial, player)) {
             player.addStatusEffect(new StatusEffectInstance(mapStatusEffect.getEffectType(),
                     mapStatusEffect.getDuration(), mapStatusEffect.getAmplifier()));
+            player.heal(1);
 
-             if(new Random().nextFloat() > 0.6f) { // 40% of damaging the armor! Possibly!
+
+            if(new Random().nextFloat() > 0.6f) { // 40% of damaging the armor! Possibly!
                  player.getInventory().damageArmor(DamageSource.MAGIC, 1f, new int[]{0, 1, 2, 3});
              }
         }
