@@ -86,7 +86,7 @@ public class ModArmorItem extends ArmorItem {
         for (Map.Entry<ArmorMaterial, StatusEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
             ArmorMaterial mapArmorMaterial = entry.getKey();
             if(hasCorrectArmorOn(mapArmorMaterial, player)) {
-                if(Screen.hasControlDown()) {
+                if(Screen.hasShiftDown()) {
                     player.setNoGravity(true);
                 }
                 if(Screen.hasAltDown()) {
