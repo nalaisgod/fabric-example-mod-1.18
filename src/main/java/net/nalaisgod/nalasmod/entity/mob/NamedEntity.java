@@ -93,7 +93,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return TameableEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 1500.0)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 1000.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1f)
                 .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.1f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 60.0)
@@ -490,9 +490,6 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         }
         if (source == DamageSource.explosion(this)) {
             amount *= 22.5f;
-        }
-        if (source == DamageSource.SWEET_BERRY_BUSH) {
-            amount *= 100f;
         }
         return amount;
     }

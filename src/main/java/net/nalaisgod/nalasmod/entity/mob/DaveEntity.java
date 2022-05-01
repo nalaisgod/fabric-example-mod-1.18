@@ -109,7 +109,7 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new DescendAtHalfHealthGoal());
-        this.goalSelector.add(2, new ProjectileAttackGoal(this, 1, 2, 80.0f));
+        this.goalSelector.add(2, new ProjectileAttackGoal(this, 0.1, 2, 80.0f));
         this.goalSelector.add(5, new FlyGoal(this, 1.0));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
         this.goalSelector.add(7, new LookAroundGoal(this));
@@ -481,9 +481,7 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
         if (source == DamageSource.explosion(this)) {
             amount *= 22.5f;
         }
-        if (source == DamageSource.SWEET_BERRY_BUSH) {
-            amount *= 100f;
-        }
+
         return amount;
     }
 
