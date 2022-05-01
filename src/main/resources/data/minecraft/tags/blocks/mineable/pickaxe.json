@@ -20,6 +20,8 @@
     "nalasmod:end_mine",
     "nalasmod:pedistal",
     "nalasmod:bob_head",
-    "nalasmod:energy_crystal"
+    "nalasmod:energy_crystal",
+    "nalasmod:energy_crystal_dragon",
+    "nalasmod:energy_crystal_wither"
   ]
 }

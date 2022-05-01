@@ -151,7 +151,7 @@ public class ModBlocks {
             new ModHealblock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
     public static final Block PEDISTAL = registerBlock("pedistal",
-            new ModSummonDave(FabricBlockSettings.of(Material.METAL).strength(6000.0f, 12f).nonOpaque().luminance(state -> 15).requiresTool()), ModItemGroup.ORIGINITE);
+            new ModSummonDave(FabricBlockSettings.of(Material.METAL).strength(6000.0f, 12f).requiresTool().nonOpaque().luminance(state -> 15).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ENERGY_CRYSTAL = registerBlock("energy_crystal",
             new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
@@ -163,10 +163,10 @@ public class ModBlocks {
             new ModPortalTeleportBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 1200f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
 
     public static final Block ENERGY_CRYSTAL_WITHER = registerBlock("energy_crystal_wither",
-            new ModSummonWither(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+            new ModSummonWither(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
     public static final Block ENERGY_CRYSTAL_DRAGON = registerBlock("energy_crystal_dragon",
-            new ModSummonDragon(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+            new ModSummonDragon(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

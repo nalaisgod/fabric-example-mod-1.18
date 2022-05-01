@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nalasmod:winter_window"
+          "name": "nalasmod:energy_crystal_wither"
         }
       ],
       "conditions": [
