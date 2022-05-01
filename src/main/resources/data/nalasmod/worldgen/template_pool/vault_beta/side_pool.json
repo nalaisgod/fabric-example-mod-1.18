@@ -30,7 +30,7 @@
       }
     },
     {
-      "weight": 6,
+      "weight": 2,
       "element": {
         "location": "nalasmod:vault_beta_treasure",
         "processors": "nalasmod:randomize_nether",
