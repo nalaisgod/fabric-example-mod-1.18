@@ -2,11 +2,14 @@ package net.nalaisgod.nalasmod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
+import com.ibm.icu.impl.locale.KeyTypeData;
+import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -83,9 +86,10 @@ public class ModArmorItem extends ArmorItem {
         for (Map.Entry<ArmorMaterial, StatusEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
             ArmorMaterial mapArmorMaterial = entry.getKey();
             if(hasCorrectArmorOn(mapArmorMaterial, player)) {
-                if(Screen.hasShiftDown()) {
+                if(Screen.hasControlDown()) {
                     player.setNoGravity(true);
-                } else {
+                }
+                if(Screen.hasAltDown()) {
                     player.setNoGravity(false);
                 }
 
@@ -97,7 +101,7 @@ public class ModArmorItem extends ArmorItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if(Screen.hasShiftDown()) {
-            tooltip.add(new TranslatableText("item.nalasmod.originite-armour.tooltip.shift"));
+            tooltip.add(new TranslatableText("item.nalasmod.originite_armour.tooltip.shift"));
         } else {
             tooltip.add(new TranslatableText("item.nalasmod.dowsing_rod.tooltip"));
         }
