@@ -12,10 +12,6 @@ public class ModEnchantments {
             new LightningStrikerEnchantment(Enchantment.Rarity.UNCOMMON,
                     EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
 
-    public static Enchantment CANNONSHOT = register("cannon_shot",
-            new CannonShotEnchantment(Enchantment.Rarity.VERY_RARE,
-                    EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
-
     public static Enchantment ILLAGERS_BANE = register("illagers_bane",
             new IllagersBaneEnchantment(Enchantment.Rarity.COMMON,
                     EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
