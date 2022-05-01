@@ -162,6 +162,12 @@ public class ModBlocks {
     public static final Block SPACE_CHANGER = registerBlock("space_changer",
             new ModPortalTeleportBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 1200f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
 
+    public static final Block ENERGY_CRYSTAL_WITHER = registerBlock("energy_crystal_wither",
+            new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+
+    public static final Block ENERGY_CRYSTAL_DRAGON = registerBlock("energy_crystal_dragon",
+            new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(NalasMod.MOD_ID, name), block);

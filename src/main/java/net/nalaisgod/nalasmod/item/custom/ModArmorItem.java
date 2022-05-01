@@ -2,7 +2,11 @@ package net.nalaisgod.nalasmod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
+import net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents;
 import net.minecraft.block.DispenserBlock;
+import net.minecraft.client.Keyboard;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -11,6 +15,7 @@ import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.Hand;
+import net.minecraft.world.GameRules;
 import net.nalaisgod.nalasmod.item.ModArmorMaterials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -18,6 +23,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.world.World;
 
+import javax.swing.plaf.basic.BasicTreeUI;
+import java.awt.event.KeyEvent;
 import java.util.Map;
 import java.util.Random;
 import java.util.Stack;
@@ -27,7 +34,7 @@ public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
                      .put(ModArmorMaterials.ORIGINITE,
-                             new StatusEffectInstance(StatusEffects.RESISTANCE, 400, 2)).build();
+                             new StatusEffectInstance(StatusEffects.RESISTANCE, 400, 1)).build();
 
 
     public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
@@ -58,7 +65,7 @@ public class ModArmorItem extends ArmorItem {
 
 
             if(hasCorrectArmorOn(mapArmorMaterial, player) && player.getItemCooldownManager().isCoolingDown(this) == false) {
-                player.getItemCooldownManager().set(this, 60);
+                player.getItemCooldownManager().set(this, 600);
                 player.heal(1);
                 addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
                 player.setNoGravity(true);

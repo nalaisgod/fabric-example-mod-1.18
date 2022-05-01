@@ -28,3 +28,6 @@ https://github.com/chronosacaria/MCDungeonsWeapons
 Dimension Code & JSON Files all from kwpugh
 (https://creativecommons.org/licenses/by-sa/4.0/):
 https://github.com/kwpugh/mining_Dimensions-1.17
+
+BAVDE1 for making randomizing code, raccon cult structure
+https://github.com/BAVDE1/atium_mod-Forge1.18.2

@@ -12,6 +12,8 @@ public class ModBlockEntities {
     public static BlockEntityType<PedistalEntity> PEDISTAL;
     public static BlockEntityType<BOBHeadEntity> BOB_HEAD;
     public static BlockEntityType<CrystalEntity> ENERGY_CRYSTAL;
+    public static BlockEntityType<CrystalEntityDragon> ENERGY_CRYSTAL_DRAGON;
+    public static BlockEntityType<CrystalEntityWither> ENERGY_CRYSTAL_WITHER;
 
     public static void registerAllEntities() {
         ORIGINITE_BLASTER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
@@ -30,6 +32,14 @@ public class ModBlockEntities {
                 new Identifier(NalasMod.MOD_ID, "energy_crystal"),
                 FabricBlockEntityTypeBuilder.create(CrystalEntity::new,
                         ModBlocks.ENERGY_CRYSTAL).build(null));
+        ENERGY_CRYSTAL_DRAGON = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                new Identifier(NalasMod.MOD_ID, "energy_crystal_dragon"),
+                FabricBlockEntityTypeBuilder.create(CrystalEntityDragon::new,
+                        ModBlocks.ENERGY_CRYSTAL_DRAGON).build(null));
+        ENERGY_CRYSTAL_WITHER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                new Identifier(NalasMod.MOD_ID, "energy_crystal_wither"),
+                FabricBlockEntityTypeBuilder.create(CrystalEntityWither::new,
+                        ModBlocks.ENERGY_CRYSTAL_WITHER).build(null));
     }
 
 

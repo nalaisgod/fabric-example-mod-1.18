@@ -112,6 +112,8 @@
   "block.nalasmod.death_vine": "DEATH VINE",
   "block.nalasmod.pedistal": "Pedistal",
   "block.nalasmod.energy_crystal": "Energy Crystal PURPLE (Summons DAVE)",
+  "block.nalasmod.energy_crystal_dragon": "Energy Crystal BLACK (Summons Ender Dragon)",
+  "block.nalasmod.energy_crystal_wither": "Energy Crystal BROWN (Summons Wither)",
   "block.nalasmod.mosslight": "MossLight",
   "block.nalasmod.end_mine": "End Mine",
   "block.nalasmod.space_changer": "Space Changer",

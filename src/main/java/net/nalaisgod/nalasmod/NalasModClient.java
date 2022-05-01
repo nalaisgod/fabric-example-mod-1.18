@@ -79,6 +79,10 @@ public class NalasModClient implements ClientModInitializer {
                 (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new EnergyCrystalRenderer());
         BlockEntityRendererRegistry.register(ModBlockEntities.BOB_HEAD,
                 (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new BOBHeadRenderer());
+        BlockEntityRendererRegistry.register(ModBlockEntities.ENERGY_CRYSTAL_DRAGON,
+                (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new EnergyCrystalDragonRenderer());
+        BlockEntityRendererRegistry.register(ModBlockEntities.ENERGY_CRYSTAL_WITHER,
+                (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new EnergyCrystalWitherRenderer());
 
     }
 }
