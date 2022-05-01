@@ -7,8 +7,10 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.util.Hand;
 import net.nalaisgod.nalasmod.item.ModArmorMaterials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -18,6 +20,7 @@ import net.minecraft.world.World;
 
 import java.util.Map;
 import java.util.Random;
+import java.util.Stack;
 import java.util.UUID;
 
 public class ModArmorItem extends ArmorItem {
@@ -54,7 +57,9 @@ public class ModArmorItem extends ArmorItem {
             StatusEffectInstance mapStatusEffect = entry.getValue();
 
 
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+            if(hasCorrectArmorOn(mapArmorMaterial, player) && player.getItemCooldownManager().isCoolingDown(this) == false) {
+                player.getItemCooldownManager().set(this, 60);
+                player.heal(1);
                 addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
                 player.setNoGravity(true);
             }
@@ -69,7 +74,7 @@ public class ModArmorItem extends ArmorItem {
     private void addStatusEffectForMaterial(PlayerEntity player, ArmorMaterial mapArmorMaterial, StatusEffectInstance mapStatusEffect) {
         boolean hasPlayerEffect = player.hasStatusEffect(mapStatusEffect.getEffectType());
 
-        if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
+        if(hasCorrectArmorOn(mapArmorMaterial, player)) {
             player.addStatusEffect(new StatusEffectInstance(mapStatusEffect.getEffectType(),
                     mapStatusEffect.getDuration(), mapStatusEffect.getAmplifier()));
 
