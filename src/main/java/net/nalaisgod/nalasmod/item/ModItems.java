@@ -204,9 +204,6 @@ public class ModItems {
             new random_blade(ModToolMaterial.ORIGINITE, 3, -2.2f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
-    public static final Item ELYTRAPLATE = registerItem("elytraplate",
-            new ModElytraItem(new FabricItemSettings().maxDamage(234).group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON)));
-
 
 
 
