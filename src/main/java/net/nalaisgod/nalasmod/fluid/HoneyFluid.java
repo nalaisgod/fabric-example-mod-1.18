@@ -45,7 +45,7 @@ public abstract class HoneyFluid extends FlowableFluid {
             if (random.nextInt(64) == 0) {
                 world.playSound((double)pos.getX() + 0.5D,
                         (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D,
-                        SoundEvents.AMBIENT_CAVE, SoundCategory.MASTER,
+                        SoundEvents.BLOCK_HONEY_BLOCK_STEP, SoundCategory.MASTER,
                         random.nextFloat() * 0.25F + 0.75F, random.nextFloat() + 0.5F,
                         false);
             }
