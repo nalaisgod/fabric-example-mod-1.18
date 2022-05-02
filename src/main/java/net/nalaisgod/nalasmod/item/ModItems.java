@@ -204,7 +204,12 @@ public class ModItems {
             new random_blade(ModToolMaterial.ORIGINITE, 3, -2.2f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
+    public static final Item CRIT_BLADE = registerItem("crit_blade",
+            new ModCritBlade(ModToolMaterial.ORIGINITE, 3, -2.4f,
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
+    public static final Item GOD_POT = registerItem("god_pot",
+            new ModGodPotItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON).maxDamage(3)));
 
 
     private static Item registerItem(String name, Item item) {

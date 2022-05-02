@@ -1,12 +1,17 @@
 package net.nalaisgod.nalasmod;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.block.entity.ModBlockEntities;
 import net.nalaisgod.nalasmod.effect.ModEffects;
 import net.nalaisgod.nalasmod.enchantment.ModEnchantments;
 import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.painting.ModPaintings;
+import net.nalaisgod.nalasmod.particle.ModParticles;
 import net.nalaisgod.nalasmod.potion.ModPotions;
 import net.nalaisgod.nalasmod.recipe.ModRecipes;
 import net.nalaisgod.nalasmod.util.ModLootTableModifiers;
@@ -54,5 +59,8 @@ public class NalasMod implements ModInitializer {
 		ModVillagers.setupPOIs();
 
 		GeckoLib.initialize();
+
+		ModParticles.registerParticles();
+
 	}
 }

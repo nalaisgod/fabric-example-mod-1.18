@@ -9,6 +9,10 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleType;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.VillagerProfession;
 import net.nalaisgod.nalasmod.NalasMod;
@@ -35,8 +39,6 @@ public class ModRegistries {
         registerAttributes();
         registerCustomTrades();
     }
-
-
 
     private static void registerFuels() {
         System.out.println("Registering Fuels For + " + NalasMod.MOD_ID);

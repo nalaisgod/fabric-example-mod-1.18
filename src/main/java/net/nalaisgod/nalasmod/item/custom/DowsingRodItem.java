@@ -18,6 +18,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.nalaisgod.nalasmod.item.ModItems;
+import net.nalaisgod.nalasmod.particle.ModParticles;
 import net.nalaisgod.nalasmod.sound.ModSounds;
 import net.nalaisgod.nalasmod.util.InventoryUtil;
 import net.nalaisgod.nalasmod.util.ModTags;
@@ -50,6 +51,10 @@ public class DowsingRodItem extends Item {
                         addNbtToDataTablet(player, positionClicked.add(0, -i,0), blockBelow);
                     }
 
+
+                    spawnFoundParticles(context, positionClicked);
+
+
                     context.getWorld().playSound(player, positionClicked, ModSounds.DOWSING_ROD_FOUND_ORE,
                             SoundCategory.BLOCKS,1f,1f);
 
@@ -66,6 +71,16 @@ public class DowsingRodItem extends Item {
                 (player) -> player.sendToolBreakStatus(player.getActiveHand()));
 
         return super.useOnBlock(context);
+    }
+
+    private void spawnFoundParticles(ItemUsageContext pContext, BlockPos positionClicked) {
+        for(int i = 0; i < 360; i++) {
+            if(i % 20 == 0) {
+                pContext.getWorld().addParticle(ModParticles.CITRINE_PARTICLE,
+                        positionClicked.getX() + 0.5d, positionClicked.getY() + 1, positionClicked.getZ() + 0.5d,
+                        Math.cos(i) * 0.25d, 0.15d, Math.sin(i) * 0.25d);
+            }
+        }
     }
 
 

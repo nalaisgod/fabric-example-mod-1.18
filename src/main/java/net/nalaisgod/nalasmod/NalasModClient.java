@@ -2,14 +2,19 @@ package net.nalaisgod.nalasmod;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
+import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
+import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
+import net.minecraft.screen.PlayerScreenHandler;
+import net.minecraft.util.Identifier;
 import net.nalaisgod.nalasmod.block.ModBlocks;
 import net.nalaisgod.nalasmod.block.entity.ModBlockEntities;
 import net.nalaisgod.nalasmod.config.ModConfigs;
@@ -20,6 +25,8 @@ import net.nalaisgod.nalasmod.entity.mob.DaveEntity;
 import net.nalaisgod.nalasmod.event.ReplaceTitleScreenEvent;
 import net.nalaisgod.nalasmod.fluid.ModFluids;
 import net.nalaisgod.nalasmod.item.ModItems;
+import net.nalaisgod.nalasmod.particle.ModParticles;
+import net.nalaisgod.nalasmod.particle.custom.CitrineParticle;
 import net.nalaisgod.nalasmod.screen.ModScreenHandlers;
 import net.nalaisgod.nalasmod.screen.OriginiteBlasterScreen;
 import net.nalaisgod.nalasmod.util.ModModelPredicateProvider;
@@ -83,6 +90,9 @@ public class NalasModClient implements ClientModInitializer {
                 (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new EnergyCrystalDragonRenderer());
         BlockEntityRendererRegistry.register(ModBlockEntities.ENERGY_CRYSTAL_WITHER,
                 (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new EnergyCrystalWitherRenderer());
+
+
+ParticleFactoryRegistry.getInstance().register(ModParticles.CITRINE_PARTICLE, CitrineParticle.Factory::new);
 
     }
 }
