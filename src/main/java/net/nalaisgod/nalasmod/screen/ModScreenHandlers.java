@@ -9,4 +9,7 @@ public class ModScreenHandlers {
     public static ScreenHandlerType<OriginiteBlasterScreenHandler> ORIGINITE_BLASTER_SCREEN_HANDLER =
             ScreenHandlerRegistry.registerSimple(new Identifier(NalasMod.MOD_ID, "originite_blaster"),
                     OriginiteBlasterScreenHandler::new);
+    public static ScreenHandlerType<OrbitalTransfuzerScreenHandler> ORBITAL_TRANSFUZER_SCREEN_HANDLER =
+            ScreenHandlerRegistry.registerSimple(new Identifier(NalasMod.MOD_ID, "orbital_transfuzer"),
+                    OrbitalTransfuzerScreenHandler::new);
 }

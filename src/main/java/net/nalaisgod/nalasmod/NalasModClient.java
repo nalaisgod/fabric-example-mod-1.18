@@ -28,6 +28,7 @@ import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.particle.ModParticles;
 import net.nalaisgod.nalasmod.particle.custom.CitrineParticle;
 import net.nalaisgod.nalasmod.screen.ModScreenHandlers;
+import net.nalaisgod.nalasmod.screen.OrbitalTransfuzerScreen;
 import net.nalaisgod.nalasmod.screen.OriginiteBlasterScreen;
 import net.nalaisgod.nalasmod.util.ModModelPredicateProvider;
 import software.bernie.example.client.renderer.entity.RocketRender;
@@ -70,6 +71,9 @@ public class NalasModClient implements ClientModInitializer {
                         SimpleFluidRenderHandler.WATER_OVERLAY, 0xe9860c));
 
         ScreenRegistry.register(ModScreenHandlers.ORIGINITE_BLASTER_SCREEN_HANDLER, OriginiteBlasterScreen::new);
+
+        ScreenRegistry.register(ModScreenHandlers.ORBITAL_TRANSFUZER_SCREEN_HANDLER, OrbitalTransfuzerScreen::new);
+
 
 
 

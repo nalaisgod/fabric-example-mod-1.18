@@ -29,9 +29,6 @@ import java.util.stream.Stream;
 public class orbital_transfuzer_block extends BlockWithEntity implements BlockEntityProvider {
 
 
-
-
-
     public orbital_transfuzer_block(Settings settings) {
         super(settings);
     }
@@ -50,7 +47,6 @@ public class orbital_transfuzer_block extends BlockWithEntity implements BlockEn
         return ModBlockEntities.ORBITAL_TRANSFUZER.instantiate(pos, state);
     }
 
-
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
@@ -62,7 +58,6 @@ public class orbital_transfuzer_block extends BlockWithEntity implements BlockEn
             super.onStateReplaced(state, world, pos, newState, moved);
         }
     }
-
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos,
                               PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -77,12 +72,12 @@ public class orbital_transfuzer_block extends BlockWithEntity implements BlockEn
         return ActionResult.SUCCESS;
     }
 
-
-
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.ORBITAL_TRANSFUZER, orbital_transfuzer_entity::tick);
     }
+
+
 
 }
