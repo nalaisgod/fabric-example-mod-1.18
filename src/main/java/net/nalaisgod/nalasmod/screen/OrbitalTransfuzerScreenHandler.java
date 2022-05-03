@@ -15,27 +15,29 @@ public class OrbitalTransfuzerScreenHandler extends ScreenHandler {
     private final World world;
 
     public OrbitalTransfuzerScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(10));
+        this(syncId, playerInventory, new SimpleInventory(11));
     }
 
     public OrbitalTransfuzerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
         super(ModScreenHandlers.ORBITAL_TRANSFUZER_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 10);
+        checkSize(inventory, 11);
         this.inventory = inventory;
         this.world = playerInventory.player.world;
         inventory.onOpen(playerInventory.player);
 
         // Our Slots
         this.addSlot(new Slot(inventory, 0, 79, 4));
-        this.addSlot(new Slot(inventory, 1, 152, 108));
-        this.addSlot(new Slot(inventory, 2, 117, 20));
-        this.addSlot(new Slot(inventory, 3, 127, 57));
-        this.addSlot(new Slot(inventory, 4, 117, 96));
-        this.addSlot(new Slot(inventory, 5, 79, 112));
-        this.addSlot(new Slot(inventory, 6, 41, 96));
-        this.addSlot(new Slot(inventory, 7, 24, 57));
-        this.addSlot(new Slot(inventory, 8, 41, 20));
-        this.addSlot(new ModResultSlotTransfuzer(inventory, 9, 79, 58));
+        this.addSlot(new Slot(inventory, 1, 117, 20));
+        this.addSlot(new Slot(inventory, 2, 127, 57));
+        this.addSlot(new Slot(inventory, 3, 117, 96));
+        this.addSlot(new Slot(inventory, 4, 79, 112));
+        this.addSlot(new Slot(inventory, 5, 41, 96));
+        this.addSlot(new Slot(inventory, 6, 24, 57));
+        this.addSlot(new Slot(inventory, 7, 41, 20));
+        this.addSlot(new Slot(inventory, 8, 152, 108));
+        this.addSlot(new Slot(inventory, 9, 8, 108));
+
+        this.addSlot(new ModResultSlotTransfuzer(inventory, 10, 79, 58));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

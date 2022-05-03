@@ -10,5 +10,11 @@ public class ModRecipes {
                 OriginiteBlasterRecipe.Serializer.INSTANCE);
         Registry.register(Registry.RECIPE_TYPE, new Identifier(NalasMod.MOD_ID, OriginiteBlasterRecipe.Type.ID),
                 OriginiteBlasterRecipe.Type.INSTANCE);
+
+
+        Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(NalasMod.MOD_ID, OrbitalTransfuzerRecipe.Serializer.ID),
+                OrbitalTransfuzerRecipe.Serializer.INSTANCE);
+        Registry.register(Registry.RECIPE_TYPE, new Identifier(NalasMod.MOD_ID, OrbitalTransfuzerRecipe.Type.ID),
+                OrbitalTransfuzerRecipe.Type.INSTANCE);
     }
 }
