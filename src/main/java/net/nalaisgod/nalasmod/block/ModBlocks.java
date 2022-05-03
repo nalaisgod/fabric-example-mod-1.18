@@ -168,6 +168,10 @@ public class ModBlocks {
     public static final Block ENERGY_CRYSTAL_DRAGON = registerBlock("energy_crystal_dragon",
             new ModSummonDragon(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
+    public static final Block ORBITAL_TRANSFUZER = registerBlock("orbital_transfuzer",
+            new orbital_transfuzer_block(FabricBlockSettings.of(Material.METAL).strength(6.0f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
+
+
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(NalasMod.MOD_ID, name), block);

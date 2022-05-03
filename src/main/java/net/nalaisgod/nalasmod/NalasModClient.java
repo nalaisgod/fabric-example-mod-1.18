@@ -52,6 +52,8 @@ public class NalasModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOUL_BLOSSOM_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOUL_BLOSSOM_SAPLING, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WINTER_WINDOW, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORBITAL_TRANSFUZER, RenderLayer.getCutout());
+
 
 
         ModModelPredicateProvider.registerModModels();
@@ -68,6 +70,8 @@ public class NalasModClient implements ClientModInitializer {
                         SimpleFluidRenderHandler.WATER_OVERLAY, 0xe9860c));
 
         ScreenRegistry.register(ModScreenHandlers.ORIGINITE_BLASTER_SCREEN_HANDLER, OriginiteBlasterScreen::new);
+
+
 
         ScreenEvents.BEFORE_INIT.register(new ReplaceTitleScreenEvent());
         EntityRendererRegistry.register(ModEntities.RACCOON, RaccoonRenderer::new);
@@ -90,6 +94,8 @@ public class NalasModClient implements ClientModInitializer {
                 (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new EnergyCrystalDragonRenderer());
         BlockEntityRendererRegistry.register(ModBlockEntities.ENERGY_CRYSTAL_WITHER,
                 (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new EnergyCrystalWitherRenderer());
+        BlockEntityRendererRegistry.register(ModBlockEntities.ORBITAL_TRANSFUZER,
+                (BlockEntityRendererFactory.Context rendererDispatcherIn) -> new OrbitalTransfuzerRenderer());
 
 
 ParticleFactoryRegistry.getInstance().register(ModParticles.CITRINE_PARTICLE, CitrineParticle.Factory::new);
