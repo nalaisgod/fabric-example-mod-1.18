@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:wither_skull"
+    }
+  ],
+  "result": {
+    "item": "nalasmod:energy_crystal_wither"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:dragon_head"
+    }
+  ],
+  "result": {
+    "item": "nalasmod:energy_crystal_dragon"
+  }
+}
