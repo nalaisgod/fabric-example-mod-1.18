@@ -209,7 +209,7 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item GOD_POT = registerItem("god_pot",
-            new ModGodPotItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON).maxDamage(3)));
+            new ModGodPotItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON)));
 
 
     private static Item registerItem(String name, Item item) {
@@ -220,3 +220,4 @@ public class ModItems {
         NalasMod.LOGGER.info("Registering Mod Items for " + NalasMod.MOD_ID);
     }
 }
+
