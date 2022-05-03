@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.world.World;
-import net.nalaisgod.nalasmod.screen.slot.ModResultSlotTransfuzer;
+import net.nalaisgod.nalasmod.screen.slot.ModResultSlot;
 
 public class OrbitalTransfuzerScreenHandler extends ScreenHandler {
     private final Inventory inventory;
@@ -37,7 +37,7 @@ public class OrbitalTransfuzerScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 8, 152, 108));
         this.addSlot(new Slot(inventory, 9, 8, 108));
 
-        this.addSlot(new ModResultSlotTransfuzer(inventory, 10, 79, 58));
+        this.addSlot(new ModResultSlot(inventory, 10, 79, 58));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

@@ -70,6 +70,17 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
         }
     }
 
+    @Override
+    protected void writeNbt(NbtCompound nbt) {
+        super.writeNbt(nbt);
+        Inventories.writeNbt(nbt, inventory);
+    }
+
+    @Override
+    public void readNbt(NbtCompound nbt) {
+        Inventories.readNbt(nbt, inventory);
+        super.readNbt(nbt);
+    }
 
     
     
@@ -113,6 +124,7 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
                     entity.getStack(10).getCount() + 1));
         }
     }
+
 
 
 

@@ -209,7 +209,7 @@ public class ModItems {
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item GOD_POT = registerItem("god_pot",
-            new ModGodPotItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON)));
+            new ModGodPotItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON).maxCount(32)));
 
 
     private static Item registerItem(String name, Item item) {
