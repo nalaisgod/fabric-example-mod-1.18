@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "nalasmod:orb_of_origin_place_holder"
+    }
+  ],
+  "result": {
+    "item": "origins:orb_of_origin"
+  }
+}

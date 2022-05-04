@@ -112,7 +112,7 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
             entity.removeStack(7, 1);
             entity.removeStack(8, 1);
             entity.removeStack(9, 1);
-            entity.setStack(10, new ItemStack(Items.HEART_OF_THE_SEA,
+            entity.setStack(10, new ItemStack(ModItems.ORB_OF_ORIGIN_PLACE_HOLDER,
                     entity.getStack(10).getCount() + 1));
         }
     }

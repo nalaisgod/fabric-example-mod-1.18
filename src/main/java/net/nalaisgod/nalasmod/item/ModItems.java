@@ -211,6 +211,9 @@ public class ModItems {
     public static final Item GOD_POT = registerItem("god_pot",
             new ModGodPotItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON).maxCount(32)));
 
+    public static final Item ORB_OF_ORIGIN_PLACE_HOLDER = registerItem("orb_of_origin_place_holder",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.UNCOMMON)));
+
 
     private static Item registerItem(String name, Item item) {
        return Registry.register(Registry.ITEM, new Identifier(NalasMod.MOD_ID, name), item);
