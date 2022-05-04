@@ -48,6 +48,11 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
     }
 
     @Override
+    public DefaultedList<ItemStack> getItems() {
+        return inventory;
+    }
+
+    @Override
     public Text getDisplayName() {
         return new LiteralText("Orbital Transfuzer");
     }
@@ -58,17 +63,9 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
         return new OrbitalTransfuzerScreenHandler(syncId, inv, this);
     }
 
-    @Override
-    public DefaultedList<ItemStack> getItems() {
-        return inventory;
-    }
 
 
-    public static void tick(World world, BlockPos pos, BlockState state, orbital_transfuzer_entity entity) {
-        if(hasRecipe(entity)) {
-            craftItem(entity);
-        }
-    }
+
 
     @Override
     protected void writeNbt(NbtCompound nbt) {
@@ -80,6 +77,13 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
     public void readNbt(NbtCompound nbt) {
         Inventories.readNbt(nbt, inventory);
         super.readNbt(nbt);
+    }
+
+
+    public static void tick(World world, BlockPos pos, BlockState state, orbital_transfuzer_entity entity) {
+        if(hasRecipe(entity)) {
+            craftItem(entity);
+        }
     }
 
     
