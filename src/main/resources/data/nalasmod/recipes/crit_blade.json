@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "*",
+    "*",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:quartz"
+    },
+    "*": {
+      "item": "minecraft:end_stone"
+    }
+  },
+  "result": {
+    "item": "nalasmod:crit_blade"
+  }
+}
