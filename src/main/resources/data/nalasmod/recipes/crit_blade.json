@@ -10,7 +10,7 @@
       "item": "minecraft:quartz"
     },
     "*": {
-      "item": "minecraft:end_stone"
+      "item": "minecraft:copper_ingot"
     }
   },
   "result": {
