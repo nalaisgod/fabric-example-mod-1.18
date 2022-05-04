@@ -1,9 +1,7 @@
 package net.nalaisgod.nalasmod.block.entity;
 
-import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -12,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -21,10 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.item.inventory.ImplementedInventory;
-import net.nalaisgod.nalasmod.recipe.OrbitalTransfuzerRecipe;
-import net.nalaisgod.nalasmod.recipe.OriginiteBlasterRecipe;
 import net.nalaisgod.nalasmod.screen.OrbitalTransfuzerScreenHandler;
-import net.nalaisgod.nalasmod.screen.OriginiteBlasterScreenHandler;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -81,38 +75,17 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
 
 
     public static void tick(World world, BlockPos pos, BlockState state, orbital_transfuzer_entity entity) {
-        if(hasRecipe(entity)) {
+        if(hasRecipe(entity) && hasNotReachedStackLimit(entity)) {
             craftItem(entity);
         }
     }
 
     
     
-    private static boolean hasRecipe(orbital_transfuzer_entity entity) {
-        World world = entity.world;
-        SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
-        for (int i = 0; i < entity.inventory.size(); i++) {
-            inventory.setStack(i, entity.getStack(i));
-        }
 
-        Optional<OrbitalTransfuzerRecipe> match = world.getRecipeManager()
-                .getFirstMatch(OrbitalTransfuzerRecipe.Type.INSTANCE, inventory, world);
-
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getOutput());
-    }
 
     private static void craftItem(orbital_transfuzer_entity entity) {
-        World world = entity.world;
-        SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
-        for (int i = 0; i < entity.inventory.size(); i++) {
-            inventory.setStack(i, entity.getStack(i));
-        }
 
-        Optional<OrbitalTransfuzerRecipe> match = world.getRecipeManager()
-                .getFirstMatch(OrbitalTransfuzerRecipe.Type.INSTANCE, inventory, world);
-
-        if(match.isPresent()) {
             entity.removeStack(0,1);
             entity.removeStack(1,1);
             entity.removeStack(2,1);
@@ -124,9 +97,31 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
             entity.removeStack(8,1);
             entity.removeStack(9,1);
 
-            entity.setStack(10, new ItemStack(match.get().getOutput().getItem(),
+            entity.setStack(10, new ItemStack(ModItems.ORIGINITE_INGOT,
                     entity.getStack(10).getCount() + 1));
-        }
+
+    }
+
+    private static boolean hasRecipe(orbital_transfuzer_entity entity) {
+        boolean hasItemInFirstSlot = entity.getStack(0).getItem() == ModItems.RAW_ORIGINITE;
+        boolean hasItemInNinthSlot = entity.getStack(1).getItem() == Items.COAL;
+        boolean hasItemInSeventhSlot = entity.getStack(2).getItem() == Items.RAW_GOLD;
+        boolean hasItemInThirdSlot = entity.getStack(3).getItem() == Items.EMERALD;
+        boolean hasItemInEighthSlot = entity.getStack(4).getItem() == Items.RAW_IRON;
+        boolean hasItemInFourthSlot = entity.getStack(5).getItem() == Items.LAPIS_LAZULI;
+        boolean hasItemInSixthSlot = entity.getStack(6).getItem() == Items.RAW_COPPER;
+        boolean hasItemInFifthSlot = entity.getStack(7).getItem() == Items.REDSTONE;
+        boolean hasItemInSecondSlot = entity.getStack(8).getItem() == Items.DIAMOND;
+        boolean hasItemInTenthSlot = entity.getStack(9).getItem() == Items.ANCIENT_DEBRIS;
+
+        return hasItemInFirstSlot && hasItemInSecondSlot && hasItemInThirdSlot && hasItemInFourthSlot &&
+                hasItemInFifthSlot && hasItemInSixthSlot && hasItemInSeventhSlot && hasItemInEighthSlot &&
+                hasItemInNinthSlot && hasItemInTenthSlot;
+
+    }
+
+    private static boolean hasNotReachedStackLimit(orbital_transfuzer_entity entity) {
+        return entity.getStack(9).getCount() < entity.getStack(9).getMaxCount();
     }
 
 
