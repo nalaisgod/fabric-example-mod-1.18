@@ -20,6 +20,8 @@ import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.item.inventory.ImplementedInventory;
 import net.nalaisgod.nalasmod.screen.OrbitalTransfuzerScreenHandler;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.example.block.tile.FertilizerTileEntity;
+import software.bernie.example.registry.TileRegistry;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -33,7 +35,7 @@ import java.util.Optional;
 public class orbital_transfuzer_entity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory, IAnimatable {
     private final DefaultedList<ItemStack> inventory =
             DefaultedList.ofSize(11, ItemStack.EMPTY);
-    private final AnimationFactory factory = new AnimationFactory(this);
+    private final AnimationFactory manager = new AnimationFactory(this);
 
 
     public orbital_transfuzer_entity(BlockPos pos, BlockState state) {
@@ -75,7 +77,7 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
 
 
     public static void tick(World world, BlockPos pos, BlockState state, orbital_transfuzer_entity entity) {
-        if(hasRecipe(entity) && hasNotReachedStackLimit(entity)) {
+        if(matches(entity) || matches1(entity) && hasNotReachedStackLimit(entity)) {
             craftItem(entity);
         }
     }
@@ -85,24 +87,37 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
 
 
     private static void craftItem(orbital_transfuzer_entity entity) {
-
-            entity.removeStack(0,1);
-            entity.removeStack(1,1);
-            entity.removeStack(2,1);
-            entity.removeStack(3,1);
-            entity.removeStack(4,1);
-            entity.removeStack(5,1);
-            entity.removeStack(6,1);
-            entity.removeStack(7,1);
-            entity.removeStack(8,1);
-            entity.removeStack(9,1);
-
+        if(matches(entity)) {
+            entity.removeStack(0, 1);
+            entity.removeStack(1, 1);
+            entity.removeStack(2, 1);
+            entity.removeStack(3, 1);
+            entity.removeStack(4, 1);
+            entity.removeStack(5, 1);
+            entity.removeStack(6, 1);
+            entity.removeStack(7, 1);
+            entity.removeStack(8, 1);
+            entity.removeStack(9, 1);
             entity.setStack(10, new ItemStack(ModItems.ORIGINITE_INGOT,
                     entity.getStack(10).getCount() + 1));
-
+        }
+        if (matches1(entity)) {
+            entity.removeStack(0, 1);
+            entity.removeStack(1, 1);
+            entity.removeStack(2, 1);
+            entity.removeStack(3, 1);
+            entity.removeStack(4, 1);
+            entity.removeStack(5, 1);
+            entity.removeStack(6, 1);
+            entity.removeStack(7, 1);
+            entity.removeStack(8, 1);
+            entity.removeStack(9, 1);
+            entity.setStack(10, new ItemStack(Items.HEART_OF_THE_SEA,
+                    entity.getStack(10).getCount() + 1));
+        }
     }
 
-    private static boolean hasRecipe(orbital_transfuzer_entity entity) {
+    private static boolean matches(orbital_transfuzer_entity entity) {
         boolean hasItemInFirstSlot = entity.getStack(0).getItem() == ModItems.RAW_ORIGINITE;
         boolean hasItemInNinthSlot = entity.getStack(1).getItem() == Items.COAL;
         boolean hasItemInSeventhSlot = entity.getStack(2).getItem() == Items.RAW_GOLD;
@@ -120,8 +135,26 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
 
     }
 
+    private static boolean matches1(orbital_transfuzer_entity entity) {
+        boolean one = entity.getStack(0).getItem() == Items.SHULKER_SHELL;
+        boolean two = entity.getStack(1).getItem() == Items.PHANTOM_MEMBRANE;
+        boolean three = entity.getStack(2).getItem() == Items.COD;
+        boolean four = entity.getStack(3).getItem() == Items.ELYTRA;
+        boolean five = entity.getStack(4).getItem() == Items.BLAZE_POWDER;
+        boolean six = entity.getStack(5).getItem() == Items.FEATHER;
+        boolean seven = entity.getStack(6).getItem() == Items.COBWEB;
+        boolean eight = entity.getStack(7).getItem() == Items.ORANGE_WOOL;
+        boolean nine = entity.getStack(8).getItem() == Items.ENDER_PEARL;
+        boolean ten = entity.getStack(9).getItem() == Items.TOTEM_OF_UNDYING;
+
+        return one && two && three && four &&
+                five && six && seven && eight &&
+                nine && ten;
+
+    }
+
     private static boolean hasNotReachedStackLimit(orbital_transfuzer_entity entity) {
-        return entity.getStack(9).getCount() < entity.getStack(9).getMaxCount();
+        return entity.getStack(10).getCount() < entity.getStack(10).getMaxCount();
     }
 
 
@@ -137,23 +170,29 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
 
 
 
-
-
-    @SuppressWarnings("unchecked")
-    private <E extends BlockEntity & IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        event.getController().transitionLengthTicks = 0;
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.orbital_transfuzer.open", true));
-        return PlayState.CONTINUE;
-    }
-
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(
                 new AnimationController<orbital_transfuzer_entity>(this, "controller", 0, this::predicate));
     }
 
+
+    private <E extends BlockEntity & IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        AnimationController<?> controller = event.getController();
+        controller.transitionLengthTicks = 0;
+        if (event.getAnimatable().getWorld().isRaining()) {
+            controller.setAnimation(new AnimationBuilder().addAnimation("animation.orbital_transfuzer.close", false)
+                    .addAnimation("animation.orbital_transfuzer.idle1", true));
+        } else {
+            controller.setAnimation(new AnimationBuilder().addAnimation("animation.orbital_transfuzer.open", false)
+                    .addAnimation("animation.orbital_transfuzer.idle", true));
+        }
+        return PlayState.CONTINUE;
+    }
+
+
     @Override
     public AnimationFactory getFactory() {
-        return factory;
+        return this.manager;
     }
 }
