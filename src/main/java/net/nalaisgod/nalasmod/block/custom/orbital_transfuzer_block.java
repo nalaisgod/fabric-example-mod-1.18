@@ -5,26 +5,15 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
-import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.nalaisgod.nalasmod.block.entity.ModBlockEntities;
-import net.nalaisgod.nalasmod.block.entity.orbital_transfuzer_entity;
+import net.nalaisgod.nalasmod.block.entity.OrbitalTransfuzerEntity;
 
 import javax.annotation.Nullable;
-import java.util.Random;
-import java.util.stream.Stream;
 
 public class orbital_transfuzer_block extends BlockWithEntity implements BlockEntityProvider {
 
@@ -51,8 +40,8 @@ public class orbital_transfuzer_block extends BlockWithEntity implements BlockEn
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof orbital_transfuzer_entity) {
-                ItemScatterer.spawn(world, pos, (orbital_transfuzer_entity)blockEntity);
+            if (blockEntity instanceof OrbitalTransfuzerEntity) {
+                ItemScatterer.spawn(world, pos, (OrbitalTransfuzerEntity)blockEntity);
                 world.updateComparators(pos,this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -75,7 +64,7 @@ public class orbital_transfuzer_block extends BlockWithEntity implements BlockEn
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.ORBITAL_TRANSFUZER, orbital_transfuzer_entity::tick);
+        return checkType(type, ModBlockEntities.ORBITAL_TRANSFUZER, OrbitalTransfuzerEntity::tick);
     }
 
 

@@ -20,8 +20,6 @@ import net.nalaisgod.nalasmod.item.ModItems;
 import net.nalaisgod.nalasmod.item.inventory.ImplementedInventory;
 import net.nalaisgod.nalasmod.screen.OrbitalTransfuzerScreenHandler;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.example.block.tile.FertilizerTileEntity;
-import software.bernie.example.registry.TileRegistry;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -30,15 +28,13 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-import java.util.Optional;
-
-public class orbital_transfuzer_entity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory, IAnimatable {
+public class OrbitalTransfuzerEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory, IAnimatable {
     private final DefaultedList<ItemStack> inventory =
             DefaultedList.ofSize(11, ItemStack.EMPTY);
     private final AnimationFactory manager = new AnimationFactory(this);
 
 
-    public orbital_transfuzer_entity(BlockPos pos, BlockState state) {
+    public OrbitalTransfuzerEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ORBITAL_TRANSFUZER, pos, state);
 
     }
@@ -76,7 +72,7 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
     }
 
 
-    public static void tick(World world, BlockPos pos, BlockState state, orbital_transfuzer_entity entity) {
+    public static void tick(World world, BlockPos pos, BlockState state, OrbitalTransfuzerEntity entity) {
         if(matches(entity) || matches1(entity) && hasNotReachedStackLimit(entity)) {
             craftItem(entity);
         }
@@ -86,7 +82,7 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
     
 
 
-    private static void craftItem(orbital_transfuzer_entity entity) {
+    private static void craftItem(OrbitalTransfuzerEntity entity) {
         if(matches(entity)) {
             entity.removeStack(0, 1);
             entity.removeStack(1, 1);
@@ -117,7 +113,7 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
         }
     }
 
-    private static boolean matches(orbital_transfuzer_entity entity) {
+    private static boolean matches(OrbitalTransfuzerEntity entity) {
         boolean hasItemInFirstSlot = entity.getStack(0).getItem() == ModItems.RAW_ORIGINITE;
         boolean hasItemInNinthSlot = entity.getStack(1).getItem() == Items.COAL;
         boolean hasItemInSeventhSlot = entity.getStack(2).getItem() == Items.RAW_GOLD;
@@ -135,7 +131,7 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
 
     }
 
-    private static boolean matches1(orbital_transfuzer_entity entity) {
+    private static boolean matches1(OrbitalTransfuzerEntity entity) {
         boolean one = entity.getStack(0).getItem() == Items.SHULKER_SHELL;
         boolean two = entity.getStack(1).getItem() == Items.PHANTOM_MEMBRANE;
         boolean three = entity.getStack(2).getItem() == Items.COD;
@@ -153,7 +149,7 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
 
     }
 
-    private static boolean hasNotReachedStackLimit(orbital_transfuzer_entity entity) {
+    private static boolean hasNotReachedStackLimit(OrbitalTransfuzerEntity entity) {
         return entity.getStack(10).getCount() < entity.getStack(10).getMaxCount();
     }
 
@@ -173,7 +169,7 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(
-                new AnimationController<orbital_transfuzer_entity>(this, "controller", 0, this::predicate));
+                new AnimationController<OrbitalTransfuzerEntity>(this, "controller", 0, this::predicate));
     }
 
 

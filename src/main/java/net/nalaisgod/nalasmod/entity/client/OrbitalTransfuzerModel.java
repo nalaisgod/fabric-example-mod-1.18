@@ -6,22 +6,22 @@ package net.nalaisgod.nalasmod.entity.client;
 
 import net.minecraft.util.Identifier;
 import net.nalaisgod.nalasmod.NalasMod;
-import net.nalaisgod.nalasmod.block.entity.orbital_transfuzer_entity;
+import net.nalaisgod.nalasmod.block.entity.OrbitalTransfuzerEntity;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
-public class OrbitalTransfuzerModel extends AnimatedGeoModel<orbital_transfuzer_entity> {
+public class OrbitalTransfuzerModel extends AnimatedGeoModel<OrbitalTransfuzerEntity> {
 	@Override
-	public Identifier getAnimationFileLocation(orbital_transfuzer_entity entity) {
+	public Identifier getAnimationFileLocation(OrbitalTransfuzerEntity entity) {
 		return new Identifier(NalasMod.MOD_ID, "animations/orbital_transfuzer.animation.json");
 	}
 
 	@Override
-	public Identifier getModelLocation(orbital_transfuzer_entity animatable) {
+	public Identifier getModelLocation(OrbitalTransfuzerEntity animatable) {
 		return new Identifier(NalasMod.MOD_ID, "geo/orbital_transfuzer.geo.json");
 	}
 
 	@Override
-	public Identifier getTextureLocation(orbital_transfuzer_entity entity) {
+	public Identifier getTextureLocation(OrbitalTransfuzerEntity entity) {
 		return new Identifier(NalasMod.MOD_ID, "textures/block/orbital_transfuzer.png");
 	}
 }

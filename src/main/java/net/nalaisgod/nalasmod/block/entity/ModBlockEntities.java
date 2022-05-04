@@ -14,7 +14,7 @@ public class ModBlockEntities {
     public static BlockEntityType<CrystalEntity> ENERGY_CRYSTAL;
     public static BlockEntityType<CrystalEntityDragon> ENERGY_CRYSTAL_DRAGON;
     public static BlockEntityType<CrystalEntityWither> ENERGY_CRYSTAL_WITHER;
-    public static BlockEntityType<orbital_transfuzer_entity> ORBITAL_TRANSFUZER;
+    public static BlockEntityType<OrbitalTransfuzerEntity> ORBITAL_TRANSFUZER;
 
     public static void registerAllEntities() {
         ORIGINITE_BLASTER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
@@ -43,7 +43,7 @@ public class ModBlockEntities {
                         ModBlocks.ENERGY_CRYSTAL_WITHER).build(null));
         ORBITAL_TRANSFUZER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 new Identifier(NalasMod.MOD_ID, "orbital_transfuzer"),
-                FabricBlockEntityTypeBuilder.create(orbital_transfuzer_entity::new,
+                FabricBlockEntityTypeBuilder.create(OrbitalTransfuzerEntity::new,
                         ModBlocks.ORBITAL_TRANSFUZER).build(null));
     }
 
