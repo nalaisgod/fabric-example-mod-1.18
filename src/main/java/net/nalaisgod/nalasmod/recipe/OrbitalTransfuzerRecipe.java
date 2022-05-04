@@ -24,14 +24,15 @@ public class OrbitalTransfuzerRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
-return  recipeItems.get(0).test(inventory.getStack(1)) && recipeItems.get(1).test(inventory.getStack(2)) &&
-        recipeItems.get(2).test(inventory.getStack(3)) && recipeItems.get(3).test(inventory.getStack(4)) &&
-        recipeItems.get(4).test(inventory.getStack(5)) && recipeItems.get(5).test(inventory.getStack(6)) &&
-        recipeItems.get(6).test(inventory.getStack(7)) && recipeItems.get(7).test(inventory.getStack(8)) &&
-        recipeItems.get(8).test(inventory.getStack(9)) && recipeItems.get(9).test(inventory.getStack(10));
+        if (recipeItems.get(0).test(inventory.getStack(1)) && recipeItems.get(1).test(inventory.getStack(2)) &&
+                recipeItems.get(2).test(inventory.getStack(3)) && recipeItems.get(3).test(inventory.getStack(4)) &&
+                recipeItems.get(4).test(inventory.getStack(5)) && recipeItems.get(5).test(inventory.getStack(6)) &&
+                recipeItems.get(6).test(inventory.getStack(7)) && recipeItems.get(7).test(inventory.getStack(8)) &&
+                recipeItems.get(8).test(inventory.getStack(9)) && recipeItems.get(9).test(inventory.getStack(10))) {
+            return true;
+    }
 
-
-
+ return false;
     }
 
     @Override

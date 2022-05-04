@@ -127,7 +127,6 @@ public class orbital_transfuzer_entity extends BlockEntity implements NamedScree
 
 
 
-
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, ItemStack output) {
         return inventory.getStack(10).getItem() == output.getItem() || inventory.getStack(10).isEmpty();
     }
