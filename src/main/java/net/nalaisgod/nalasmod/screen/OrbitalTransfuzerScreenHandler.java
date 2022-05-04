@@ -32,7 +32,7 @@ public class OrbitalTransfuzerScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 3, 117, 96));
         this.addSlot(new Slot(inventory, 4, 79, 112));
         this.addSlot(new Slot(inventory, 5, 41, 96));
-        this.addSlot(new Slot(inventory, 6, 24, 57));
+        this.addSlot(new Slot(inventory, 6, 25, 58));
         this.addSlot(new Slot(inventory, 7, 41, 20));
         this.addSlot(new Slot(inventory, 8, 152, 108));
         this.addSlot(new Slot(inventory, 9, 8, 108));
