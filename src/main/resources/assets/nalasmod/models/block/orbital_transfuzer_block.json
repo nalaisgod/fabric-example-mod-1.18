@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "nalasmod:block/just_black",
+    "side": "nalasmod:block/orbital_transfuzer_block"
+  }
+}

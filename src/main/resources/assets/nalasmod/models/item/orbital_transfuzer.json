@@ -1,6 +1,3 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "nalasmod:item/orbital_transfuzer"
-  }
+  "parent": "nalasmod:block/orbital_transfuzer_block"
 }
