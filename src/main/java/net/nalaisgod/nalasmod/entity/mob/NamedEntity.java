@@ -488,9 +488,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         if (source == DamageSource.MAGIC) {
             amount *= 2.5f;
         }
-        if (source == DamageSource.explosion(this)) {
-            amount *= 22.5f;
-        }
+
         return amount;
     }
 
@@ -547,10 +545,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
         return false;
     }
 
-    @Override
-    public boolean addStatusEffect(StatusEffectInstance effect, @Nullable Entity source) {
-        return false;
-    }
+
 
 
 

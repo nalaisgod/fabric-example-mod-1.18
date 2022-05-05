@@ -120,7 +120,7 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
 
     @Override
     public boolean canHaveStatusEffect(StatusEffectInstance effect) {
-        if (effect.getEffectType() == ModEffects.FREEZE) {
+        if (effect.getEffectType() == ModEffects.FREEZE || effect.getEffectType() == StatusEffects.WITHER || effect.getEffectType() == StatusEffects.INSTANT_DAMAGE) {
             return false;
         }
         return super.canHaveStatusEffect(effect);
@@ -138,10 +138,10 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dave.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dave.attack", true));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dave.attack", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dave.walk", true));
         return PlayState.CONTINUE;
     }
 
@@ -168,7 +168,7 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
                     i = 2;
                 }
                 if (i > 0) {
-                    ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(ModEffects.FREEZE, i * 5, 0), this);
+                    ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, i * 5, 0), this);
                 }
             }
             return true;
@@ -306,7 +306,7 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
             }
             this.setInvulTimer(i2);
             if (this.age % 10 == 0) {
-                this.heal(1.0f);
+                this.heal(5.0f);
                 this.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 100, 4));
             }
             return;
@@ -318,8 +318,8 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
             if (this.world.getDifficulty() == Difficulty.NORMAL || this.world.getDifficulty() == Difficulty.HARD) {
                 int n = i - 1;
                 int n2 = this.chargedSkullCooldowns[n];
-                this.chargedSkullCooldowns[n] = n2 + 1;
-                if (n2 > 15) {
+                this.chargedSkullCooldowns[n] = n2 + 2;
+                if (n2 > 12) {
                     float f = 30.0f;
                     float g = 15.0f;
                     double d = MathHelper.nextDouble(this.random, this.getX() - 30.0, this.getX() + 30.0);
@@ -336,7 +336,7 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
                     continue;
                 }
                 this.shootSkullAt(i + 1, livingEntity);
-                this.skullCooldowns[i - 1] = this.age + 160 + this.random.nextInt(20);
+                this.skullCooldowns[i - 1] = this.age + 300 + this.random.nextInt(40);
                 this.chargedSkullCooldowns[i - 1] = 0;
                 continue;
             }
@@ -376,7 +376,7 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
             }
         }
         if (this.age % 20 == 0) {
-            this.heal(1.0f);
+            this.heal(5.0f);
         }
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
     }
@@ -478,9 +478,7 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
         if (source == DamageSource.MAGIC) {
             amount *= 2.5f;
         }
-        if (source == DamageSource.explosion(this)) {
-            amount *= 22.5f;
-        }
+
 
         return amount;
     }
