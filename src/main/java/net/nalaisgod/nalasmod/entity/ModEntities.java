@@ -45,18 +45,6 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(1f, 0.75f)).build());
 
 
-    public static EntityType<DeathBomb> DEATHBOMB = buildEntity(DeathBomb::new, DeathBomb.class, 0.5F,
-            0.5F, SpawnGroup.MISC);
-
-    public static <T extends Entity> EntityType<T> buildEntity(EntityType.EntityFactory<T> entity, Class<T> entityClass,
-                                                               float width, float height, SpawnGroup group) {
-        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-            String name = entityClass.getSimpleName().toLowerCase();
-            return EntityRegistryBuilder.<T>createBuilder(new Identifier(NalasMod.MOD_ID, name)).entity(entity)
-                    .category(group).dimensions(EntityDimensions.changing(width, height)).build();
-        }
-        return null;
-    }
 
 
 }

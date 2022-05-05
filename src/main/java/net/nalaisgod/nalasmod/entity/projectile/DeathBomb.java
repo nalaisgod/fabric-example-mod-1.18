@@ -54,7 +54,7 @@ public class DeathBomb extends ExplosiveProjectileEntity implements IAnimatable 
     }
 
     public DeathBomb(World world, LivingEntity owner, double directionX, double directionY, double directionZ) {
-        super(ModEntities.DEATHBOMB, owner, directionX, directionY, directionZ, world);
+        super(EntityType.WITHER_SKULL, owner, directionX, directionY, directionZ, world);
     }
 
 
