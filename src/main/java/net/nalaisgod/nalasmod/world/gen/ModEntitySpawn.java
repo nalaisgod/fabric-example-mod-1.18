@@ -25,6 +25,16 @@ public class ModEntitySpawn {
 
 
 
+
+
+        BiomeModifications.addSpawn(BiomeSelectors.spawnsOneOf(ModEntities.EXITER), SpawnGroup.MONSTER,
+                ModEntities.TIGER, 5, 2, 3);
+
+        BiomeModifications.addSpawn(BiomeSelectors.spawnsOneOf(ModEntities.EXITER), SpawnGroup.MONSTER,
+                ModEntities.RACCOON, 5, 2, 3);
+
+
+
         SpawnRestrictionAccessor.callRegister(ModEntities.RACCOON, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::isValidNaturalSpawn);
         SpawnRestrictionAccessor.callRegister(ModEntities.TIGER, SpawnRestriction.Location.ON_GROUND,

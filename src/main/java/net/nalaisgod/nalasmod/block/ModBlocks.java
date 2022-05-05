@@ -151,7 +151,7 @@ public class ModBlocks {
             new ModHealblock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
     public static final Block PEDISTAL = registerBlock("pedistal",
-            new ModSummonDave(FabricBlockSettings.of(Material.METAL).strength(6000.0f, 12f).requiresTool().nonOpaque().luminance(state -> 15).requiresTool()), ModItemGroup.ORIGINITE);
+            new ModSummonDave(FabricBlockSettings.of(Material.METAL).strength(6.0f, 120000f).requiresTool().nonOpaque().luminance(state -> 15).requiresTool()), ModItemGroup.ORIGINITE);
 
     public static final Block ENERGY_CRYSTAL = registerBlock("energy_crystal",
             new ModSummonCrystal(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
@@ -169,7 +169,7 @@ public class ModBlocks {
             new ModSummonDragon(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
     public static final Block ORBITAL_TRANSFUZER = registerBlock("orbital_transfuzer",
-            new orbital_transfuzer_block(FabricBlockSettings.of(Material.METAL).strength(6.0f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
+            new orbital_transfuzer_block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
 
 
 

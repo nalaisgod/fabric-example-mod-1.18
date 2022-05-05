@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "nalasmod:item/orb_of_origin_place_holder"
+  }
+}
