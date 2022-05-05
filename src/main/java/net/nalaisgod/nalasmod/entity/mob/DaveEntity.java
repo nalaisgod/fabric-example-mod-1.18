@@ -188,6 +188,8 @@ public class DaveEntity extends HostileEntity implements IAnimatable, SkinOverla
         this.dataTracker.startTracking(INVUL_TIMER_DAVE, 0);
     }
 
+
+
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);

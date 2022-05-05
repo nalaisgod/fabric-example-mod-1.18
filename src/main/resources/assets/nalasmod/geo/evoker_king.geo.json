@@ -74,14 +74,6 @@
 					"pivot": [0, 0, 0]
 				},
 				{
-					"name": "top",
-					"parent": "summoning",
-					"pivot": [0, 0, 0],
-					"cubes": [
-						{"origin": [-12, 53, -12], "size": [25, 0, 25], "uv": [-24, 84]}
-					]
-				},
-				{
 					"name": "bottom",
 					"parent": "summoning",
 					"pivot": [0, 0, 0],

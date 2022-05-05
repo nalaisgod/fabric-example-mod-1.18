@@ -50,7 +50,7 @@ public class ModEntities {
     public static final EntityType<EvokerKingEntity> EVOKER_KING = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(NalasMod.MOD_ID, "evoker_king"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, EvokerKingEntity::new)
-                    .dimensions(EntityDimensions.fixed(3f, 5f)).build());
+                    .dimensions(EntityDimensions.fixed(0.75f, 2f)).build());
 
 
 
