@@ -34,6 +34,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -50,14 +51,14 @@ import java.util.List;
 public class EvokerKingEntity
 extends SpellcastingIllagerEntity implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
-    private final ServerBossBar bossBar = (ServerBossBar)new ServerBossBar(this.getDisplayName(), BossBar.Color.GREEN, BossBar.Style.PROGRESS).setDarkenSky(true);
+    private final ServerBossBar bossBar = (ServerBossBar) new ServerBossBar(this.getDisplayName(), BossBar.Color.GREEN, BossBar.Style.PROGRESS).setDarkenSky(true);
 
 
     @Nullable
-    private LivingEntity wololoTarget;
+    private PlayerEntity wololoTarget;
 
     public EvokerKingEntity(EntityType<? extends EvokerKingEntity> entityType, World world) {
-        super((EntityType<? extends SpellcastingIllagerEntity>)entityType, world);
+        super((EntityType<? extends SpellcastingIllagerEntity>) entityType, world);
         this.experiencePoints = 1000;
     }
 
@@ -67,24 +68,25 @@ extends SpellcastingIllagerEntity implements IAnimatable {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new LookAtTargetOrWololoTarget());
         this.goalSelector.add(2, new FleeEntityGoal<PlayerEntity>(this, PlayerEntity.class, 8.0f, 0.6, 2.0));
-        this.goalSelector.add(5, new SummonVexGoal());
-        this.goalSelector.add(5, new SummonExiterGoal());
-        this.goalSelector.add(5, new ConjureFangsGoal());
-        this.goalSelector.add(5, new LaunchGoal());
-        this.goalSelector.add(5, new BlindnessGoal());
+        this.goalSelector.add(8, new SummonVexGoal());
+        this.goalSelector.add(8, new SummonExiterGoal());
+        this.goalSelector.add(8, new ConjureFangsGoal());
         this.goalSelector.add(5, new WololoGoal());
+        this.goalSelector.add(7, new OnGroundGoal());
+        this.goalSelector.add(6, new LaunchGoal());
+        this.goalSelector.add(4, new BlindnessGoal());
         this.goalSelector.add(8, new WanderAroundGoal(this, 0.6));
         this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0f, 1.0f));
         this.goalSelector.add(10, new LookAtEntityGoal(this, MobEntity.class, 8.0f));
         this.targetSelector.add(1, new RevengeGoal(this, RaiderEntity.class).setGroupRevenge(new Class[0]));
-        this.targetSelector.add(2, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true).setMaxTimeWithoutVisibility(300));
-        this.targetSelector.add(3, new ActiveTargetGoal<MerchantEntity>((MobEntity)this, MerchantEntity.class, false).setMaxTimeWithoutVisibility(300));
-        this.targetSelector.add(3, new ActiveTargetGoal<IronGolemEntity>((MobEntity)this, IronGolemEntity.class, false));
+        this.targetSelector.add(2, new ActiveTargetGoal<PlayerEntity>((MobEntity) this, PlayerEntity.class, true).setMaxTimeWithoutVisibility(300));
+        this.targetSelector.add(3, new ActiveTargetGoal<MerchantEntity>((MobEntity) this, MerchantEntity.class, false).setMaxTimeWithoutVisibility(300));
+        this.targetSelector.add(3, new ActiveTargetGoal<IronGolemEntity>((MobEntity) this, IronGolemEntity.class, false));
     }
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MOVEMENT_SPEED,
-                0.5).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 12.0).add(EntityAttributes.GENERIC_MAX_HEALTH, 240.0);
+                0.5).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32.0).add(EntityAttributes.GENERIC_MAX_HEALTH, 240.0);
     }
 
 
@@ -103,6 +105,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
         event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.evoker_king.attack", false));
         return PlayState.CONTINUE;
     }
+
     @Override
     public AnimationFactory getFactory() {
         return factory;
@@ -130,18 +133,10 @@ extends SpellcastingIllagerEntity implements IAnimatable {
     }
 
 
-
-
-
-
-
-
-
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
     }
-
 
 
     @Override
@@ -150,13 +145,13 @@ extends SpellcastingIllagerEntity implements IAnimatable {
     }
 
 
-
     @Override
     protected void mobTick() {
         super.mobTick();
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
 
     }
+
     @Override
     public void onStartedTrackingBy(ServerPlayerEntity player) {
         super.onStartedTrackingBy(player);
@@ -181,9 +176,9 @@ extends SpellcastingIllagerEntity implements IAnimatable {
             return true;
         }
         if (other instanceof VexEntity) {
-            return this.isTeammate(((VexEntity)other).getOwner());
+            return this.isTeammate(((VexEntity) other).getOwner());
         }
-        if (other instanceof LivingEntity && ((LivingEntity)other).getGroup() == EntityGroup.ILLAGER) {
+        if (other instanceof LivingEntity && ((LivingEntity) other).getGroup() == EntityGroup.ILLAGER) {
             return this.getScoreboardTeam() == null && other.getScoreboardTeam() == null;
         }
         return false;
@@ -204,12 +199,12 @@ extends SpellcastingIllagerEntity implements IAnimatable {
         return SoundEvents.ENTITY_EVOKER_HURT;
     }
 
-    void setWololoTarget(@Nullable LivingEntity wololoTarget) {
+    void setWololoTarget(@Nullable PlayerEntity wololoTarget) {
         this.wololoTarget = wololoTarget;
     }
 
     @Nullable
-    LivingEntity getWololoTarget() {
+    PlayerEntity getWololoTarget() {
         return this.wololoTarget;
     }
 
@@ -223,7 +218,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
     }
 
     class LookAtTargetOrWololoTarget
-    extends LookAtTargetGoal {
+            extends LookAtTargetGoal {
         LookAtTargetOrWololoTarget() {
         }
 
@@ -238,8 +233,8 @@ extends SpellcastingIllagerEntity implements IAnimatable {
     }
 
     class SummonVexGoal
-    extends CastSpellGoal {
-        private final TargetPredicate closeVexPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(16.0).ignoreVisibility().ignoreDistanceScalingFactor();
+            extends CastSpellGoal {
+        private final TargetPredicate closeVexPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(8.0).ignoreVisibility().ignoreDistanceScalingFactor();
 
         SummonVexGoal() {
         }
@@ -290,7 +285,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
     }
 
     class ConjureFangsGoal
-    extends CastSpellGoal {
+            extends CastSpellGoal {
         ConjureFangsGoal() {
         }
 
@@ -309,23 +304,72 @@ extends SpellcastingIllagerEntity implements IAnimatable {
             LivingEntity livingEntity = EvokerKingEntity.this.getTarget();
             double d = Math.min(livingEntity.getY(), EvokerKingEntity.this.getY());
             double e = Math.max(livingEntity.getY(), EvokerKingEntity.this.getY()) + 1.0;
-            float f = (float)MathHelper.atan2(livingEntity.getZ() - EvokerKingEntity.this.getZ(), livingEntity.getX() - EvokerKingEntity.this.getX());
+            float f = (float) MathHelper.atan2(livingEntity.getZ() - EvokerKingEntity.this.getZ(), livingEntity.getX() - EvokerKingEntity.this.getX());
             if (EvokerKingEntity.this.squaredDistanceTo(livingEntity) < 9.0) {
                 float g;
                 int i;
                 for (i = 0; i < 5; ++i) {
-                    g = f + (float)i * (float)Math.PI * 0.4f;
-                    this.conjureFangs(EvokerKingEntity.this.getX() + (double)MathHelper.cos(g) * 1.5, EvokerKingEntity.this.getZ() + (double)MathHelper.sin(g) * 1.5, d, e, g, 0);
+                    g = f + (float) i * (float) Math.PI * 0.4f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 1.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 1.5, d, e, g, 0);
                 }
                 for (i = 0; i < 8; ++i) {
-                    g = f + (float)i * (float)Math.PI * 2.0f / 8.0f + 1.2566371f;
-                    this.conjureFangs(EvokerKingEntity.this.getX() + (double)MathHelper.cos(g) * 2.5, EvokerKingEntity.this.getZ() + (double)MathHelper.sin(g) * 2.5, d, e, g, 3);
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 2.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 2.5, d, e, g, 3);
                 }
+                for (i = 0; i < 11; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 3.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 3.5, d, e, g, 6);
+                }
+                for (i = 0; i < 14; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 4.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 4.5, d, e, g, 9);
+                }
+                for (i = 0; i < 17; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 5.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 5.5, d, e, g, 9);
+                }
+                for (i = 0; i < 20; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 6.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 6.5, d, e, g, 9);
+                }
+                for (i = 0; i < 23; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 7.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 7.5, d, e, g, 9);
+                }
+                for (i = 0; i < 26; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 8.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 8.5, d, e, g, 9);
+                }
+                for (i = 0; i < 29; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 9.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 9.5, d, e, g, 9);
+                }
+                for (i = 0; i < 32; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 10.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 10.5, d, e, g, 9);
+                }                for (i = 0; i < 14; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 4.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 4.5, d, e, g, 9);
+                }                for (i = 0; i < 14; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 4.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 4.5, d, e, g, 9);
+                }                for (i = 0; i < 14; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 4.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 4.5, d, e, g, 9);
+                }
+
+
+
             } else {
                 for (int i = 0; i < 16; ++i) {
-                    double h = 1.25 * (double)(i + 1);
+                    double h = 1.25 * (double) (i + 1);
                     int j = 1 * i;
-                    this.conjureFangs(EvokerKingEntity.this.getX() + (double)MathHelper.cos(f) * h, EvokerKingEntity.this.getZ() + (double)MathHelper.sin(f) * h, d, e, f, j);
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(f) * h, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(f) * h, d, e, f, j);
+                }
+                for (int i = 0; i < 16; ++i) {
+                    double h = 2.25 * (double) (i + 1);
+                    int j = 1 * i;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(f) * h, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(f) * h, d, e, f, j);
                 }
             }
         }
@@ -339,7 +383,8 @@ extends SpellcastingIllagerEntity implements IAnimatable {
                 VoxelShape voxelShape;
                 BlockPos blockPos2;
                 BlockState blockState;
-                if (!(blockState = EvokerKingEntity.this.world.getBlockState(blockPos2 = blockPos.down())).isSideSolidFullSquare(EvokerKingEntity.this.world, blockPos2, Direction.UP)) continue;
+                if (!(blockState = EvokerKingEntity.this.world.getBlockState(blockPos2 = blockPos.down())).isSideSolidFullSquare(EvokerKingEntity.this.world, blockPos2, Direction.UP))
+                    continue;
                 if (!EvokerKingEntity.this.world.isAir(blockPos) && !(voxelShape = (blockState2 = EvokerKingEntity.this.world.getBlockState(blockPos)).getCollisionShape(EvokerKingEntity.this.world, blockPos)).isEmpty()) {
                     d = voxelShape.getMax(Direction.Axis.Y);
                 }
@@ -347,7 +392,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
                 break;
             } while ((blockPos = blockPos.down()).getY() >= MathHelper.floor(maxY) - 1);
             if (bl) {
-                EvokerKingEntity.this.world.spawnEntity(new EvokerFangsEntity(EvokerKingEntity.this.world, x, (double)blockPos.getY() + d, z, yaw, warmup, EvokerKingEntity.this));
+                EvokerKingEntity.this.world.spawnEntity(new EvokerFangsEntity(EvokerKingEntity.this.world, x, (double) blockPos.getY() + d, z, yaw, warmup, EvokerKingEntity.this));
             }
         }
 
@@ -363,13 +408,24 @@ extends SpellcastingIllagerEntity implements IAnimatable {
     }
 
     public class WololoGoal
-    extends CastSpellGoal {
-        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(16.0).ignoreVisibility().ignoreDistanceScalingFactor();        @Override
+            extends CastSpellGoal {
+        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(32.0).setPredicate(livingEntity -> ((PlayerEntity) livingEntity).isPlayer());
+
+        @Override
         public boolean canStart() {
-            if (!super.canStart()) {
+            if (EvokerKingEntity.this.getTarget() != null) {
                 return false;
             }
-            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4,16));
+            if (EvokerKingEntity.this.isSpellcasting()) {
+                return false;
+            }
+            if (EvokerKingEntity.this.age < this.startTime) {
+                return false;
+            }
+            if (!EvokerKingEntity.this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
+                return false;
+            }
+            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4.0, 16.0));
             if (list.isEmpty()) {
                 return false;
             }
@@ -390,16 +446,12 @@ extends SpellcastingIllagerEntity implements IAnimatable {
 
         @Override
         protected void castSpell() {
-            LivingEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
+            PlayerEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
             if (playerEntity != null && playerEntity.isAlive()) {
                 playerEntity.setFrozenTicks(200);
             }
         }
 
-        @Override
-        protected int getInitialCooldown() {
-            return 40;
-        }
 
         @Override
         protected int getSpellTicks() {
@@ -424,14 +476,23 @@ extends SpellcastingIllagerEntity implements IAnimatable {
 
     public class OnGroundGoal
             extends CastSpellGoal {
-        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(16.0).setPredicate(livingEntity -> ((PlayerEntity)livingEntity).hasNoGravity());
+        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(32.0).setPredicate(livingEntity -> ((PlayerEntity) livingEntity).isPlayer());
 
         @Override
         public boolean canStart() {
-            if (!super.canStart()) {
+            if (EvokerKingEntity.this.getTarget() != null) {
                 return false;
             }
-            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4,16));
+            if (EvokerKingEntity.this.isSpellcasting()) {
+                return false;
+            }
+            if (EvokerKingEntity.this.age < this.startTime) {
+                return false;
+            }
+            if (!EvokerKingEntity.this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
+                return false;
+            }
+            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4.0, 16.0));
             if (list.isEmpty()) {
                 return false;
             }
@@ -452,16 +513,12 @@ extends SpellcastingIllagerEntity implements IAnimatable {
 
         @Override
         protected void castSpell() {
-            LivingEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
+            PlayerEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
             if (playerEntity != null && playerEntity.isAlive()) {
                 playerEntity.setOnFireFor(600);
             }
         }
 
-        @Override
-        protected int getInitialCooldown() {
-            return 40;
-        }
 
         @Override
         protected int getSpellTicks() {
@@ -486,13 +543,23 @@ extends SpellcastingIllagerEntity implements IAnimatable {
 
     public class BlindnessGoal
             extends CastSpellGoal {
-        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(16.0).ignoreVisibility().ignoreDistanceScalingFactor();
+        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(32.0).setPredicate(livingEntity -> ((PlayerEntity) livingEntity).isPlayer());
+
         @Override
         public boolean canStart() {
-            if (!super.canStart()) {
+            if (EvokerKingEntity.this.getTarget() != null) {
                 return false;
             }
-            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4,16));
+            if (EvokerKingEntity.this.isSpellcasting()) {
+                return false;
+            }
+            if (EvokerKingEntity.this.age < this.startTime) {
+                return false;
+            }
+            if (!EvokerKingEntity.this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
+                return false;
+            }
+            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4.0, 16.0));
             if (list.isEmpty()) {
                 return false;
             }
@@ -513,16 +580,12 @@ extends SpellcastingIllagerEntity implements IAnimatable {
 
         @Override
         protected void castSpell() {
-            LivingEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
+            PlayerEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
             if (playerEntity != null && playerEntity.isAlive()) {
-                playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS,  100, 3));
+                playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 100));
             }
         }
 
-        @Override
-        protected int getInitialCooldown() {
-            return 40;
-        }
 
         @Override
         protected int getSpellTicks() {
@@ -548,13 +611,23 @@ extends SpellcastingIllagerEntity implements IAnimatable {
 
     public class LaunchGoal
             extends CastSpellGoal {
-        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(16.0).ignoreVisibility().ignoreDistanceScalingFactor();
+        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(32.0).setPredicate(livingEntity -> ((PlayerEntity) livingEntity).isPlayer());
+
         @Override
         public boolean canStart() {
-            if (!super.canStart()) {
+            if (EvokerKingEntity.this.getTarget() != null) {
                 return false;
             }
-            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4,16));
+            if (EvokerKingEntity.this.isSpellcasting()) {
+                return false;
+            }
+            if (EvokerKingEntity.this.age < this.startTime) {
+                return false;
+            }
+            if (!EvokerKingEntity.this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
+                return false;
+            }
+            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4.0, 16.0));
             if (list.isEmpty()) {
                 return false;
             }
@@ -575,16 +648,12 @@ extends SpellcastingIllagerEntity implements IAnimatable {
 
         @Override
         protected void castSpell() {
-            LivingEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
+            PlayerEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
             if (playerEntity != null && playerEntity.isAlive()) {
-                playerEntity.setVelocity(0,0.75,0);
+                playerEntity.setVelocity(0, 2, 0);
             }
         }
 
-        @Override
-        protected int getInitialCooldown() {
-            return 40;
-        }
 
         @Override
         protected int getSpellTicks() {
@@ -610,7 +679,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
 
     class SummonExiterGoal
             extends CastSpellGoal {
-        private final TargetPredicate closeVexPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(16.0).ignoreVisibility().ignoreDistanceScalingFactor();
+        private final TargetPredicate closeVexPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(8.0).ignoreVisibility().ignoreDistanceScalingFactor();
 
         SummonExiterGoal() {
         }
@@ -620,7 +689,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
             if (!super.canStart()) {
                 return false;
             }
-            int i = EvokerKingEntity.this.world.getTargets(ExiterEntity.class, this.closeVexPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0)).size();
+            int i = EvokerKingEntity.this.world.getTargets(ExiterEntity.class, this.closeVexPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(12.0)).size();
             return EvokerKingEntity.this.random.nextInt(8) + 1 > i;
         }
 
@@ -657,15 +726,232 @@ extends SpellcastingIllagerEntity implements IAnimatable {
         }
     }
 
+    class BlindTargetGoal
+            extends SpellcastingIllagerEntity.CastSpellGoal {
+        private int targetId;
+
+        BlindTargetGoal() {
+        }
+
+        @Override
+        public boolean canStart() {
+            if (!super.canStart()) {
+                return false;
+            }
+            if (EvokerKingEntity.this.getTarget() == null) {
+                return false;
+            }
+            if (EvokerKingEntity.this.getTarget().getId() == this.targetId) {
+                return false;
+            }
+            return EvokerKingEntity.this.world.getLocalDifficulty(EvokerKingEntity.this.getBlockPos()).isHarderThan(Difficulty.NORMAL.ordinal());
+        }
+
+        @Override
+        public void start() {
+            super.start();
+            LivingEntity livingEntity = EvokerKingEntity.this.getTarget();
+            if (livingEntity != null) {
+                this.targetId = livingEntity.getId();
+            }
+        }
+
+        @Override
+        protected int getSpellTicks() {
+            return 20;
+        }
+
+        @Override
+        protected int startTimeDelay() {
+            return 180;
+        }
+
+        @Override
+        protected void castSpell() {
+            EvokerKingEntity.this.getTarget().addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 400), EvokerKingEntity.this);
+        }
+
+        @Override
+        protected SoundEvent getSoundPrepare() {
+            return SoundEvents.ENTITY_ILLUSIONER_PREPARE_BLINDNESS;
+        }
+
+        @Override
+        protected SpellcastingIllagerEntity.Spell getSpell() {
+            return SpellcastingIllagerEntity.Spell.BLINDNESS;
+        }
+    }
 
 
+    class FreezeTargetGoal
+            extends SpellcastingIllagerEntity.CastSpellGoal {
+        private int targetId;
+
+        FreezeTargetGoal() {
+        }
+
+        @Override
+        public boolean canStart() {
+            if (!super.canStart()) {
+                return false;
+            }
+            if (EvokerKingEntity.this.getTarget() == null) {
+                return false;
+            }
+            if (EvokerKingEntity.this.getTarget().getId() == this.targetId) {
+                return false;
+            }
+            return EvokerKingEntity.this.world.getLocalDifficulty(EvokerKingEntity.this.getBlockPos()).isHarderThan(Difficulty.NORMAL.ordinal());
+        }
+
+        @Override
+        public void start() {
+            super.start();
+            LivingEntity livingEntity = EvokerKingEntity.this.getTarget();
+            if (livingEntity != null) {
+                this.targetId = livingEntity.getId();
+            }
+        }
+
+        @Override
+        protected int getSpellTicks() {
+            return 20;
+        }
+
+        @Override
+        protected int startTimeDelay() {
+            return 180;
+        }
+
+        @Override
+        protected void castSpell() {
+            EvokerKingEntity.this.getTarget().setFrozenTicks(240);
+        }
+
+        @Override
+        protected SoundEvent getSoundPrepare() {
+            return SoundEvents.ENTITY_ILLUSIONER_PREPARE_BLINDNESS;
+        }
+
+        @Override
+        protected SpellcastingIllagerEntity.Spell getSpell() {
+            return Spell.FANGS;
+        }
+    }
 
 
+    class BurnTargetGoal
+            extends SpellcastingIllagerEntity.CastSpellGoal {
+        private int targetId;
+
+        BurnTargetGoal() {
+        }
+
+        @Override
+        public boolean canStart() {
+            if (!super.canStart()) {
+                return false;
+            }
+            if (EvokerKingEntity.this.getTarget() == null) {
+                return false;
+            }
+            if (EvokerKingEntity.this.getTarget().getId() == this.targetId) {
+                return false;
+            }
+            return EvokerKingEntity.this.world.getLocalDifficulty(EvokerKingEntity.this.getBlockPos()).isHarderThan(Difficulty.NORMAL.ordinal());
+        }
+
+        @Override
+        public void start() {
+            super.start();
+            LivingEntity livingEntity = EvokerKingEntity.this.getTarget();
+            if (livingEntity != null) {
+                this.targetId = livingEntity.getId();
+            }
+        }
+
+        @Override
+        protected int getSpellTicks() {
+            return 20;
+        }
+
+        @Override
+        protected int startTimeDelay() {
+            return 180;
+        }
+
+        @Override
+        protected void castSpell() {
+            EvokerKingEntity.this.getTarget().setFrozenTicks(240);
+        }
+
+        @Override
+        protected SoundEvent getSoundPrepare() {
+            return SoundEvents.ENTITY_ILLUSIONER_PREPARE_BLINDNESS;
+        }
+
+        @Override
+        protected SpellcastingIllagerEntity.Spell getSpell() {
+            return Spell.DISAPPEAR;
+        }
+    }
 
 
+    class LaunchTargetGoal
+            extends SpellcastingIllagerEntity.CastSpellGoal {
+        private int targetId;
 
+        LaunchTargetGoal() {
+        }
 
+        @Override
+        public boolean canStart() {
+            if (!super.canStart()) {
+                return false;
+            }
+            if (EvokerKingEntity.this.getTarget() == null) {
+                return false;
+            }
+            if (EvokerKingEntity.this.getTarget().getId() == this.targetId) {
+                return false;
+            }
+            return EvokerKingEntity.this.world.getLocalDifficulty(EvokerKingEntity.this.getBlockPos()).isHarderThan(Difficulty.NORMAL.ordinal());
+        }
 
+        @Override
+        public void start() {
+            super.start();
+            LivingEntity livingEntity = EvokerKingEntity.this.getTarget();
+            if (livingEntity != null) {
+                this.targetId = livingEntity.getId();
+            }
+        }
+
+        @Override
+        protected int getSpellTicks() {
+            return 20;
+        }
+
+        @Override
+        protected int startTimeDelay() {
+            return 180;
+        }
+
+        @Override
+        protected void castSpell() {
+            EvokerKingEntity.this.getTarget().setAir(2);
+        }
+
+        @Override
+        protected SoundEvent getSoundPrepare() {
+            return SoundEvents.ENTITY_ILLUSIONER_PREPARE_BLINDNESS;
+        }
+
+        @Override
+        protected SpellcastingIllagerEntity.Spell getSpell() {
+            return Spell.WOLOLO;
+        }
+    }
 
 
 }
