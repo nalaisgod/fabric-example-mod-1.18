@@ -12,6 +12,9 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
@@ -20,6 +23,7 @@ import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
+import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.entity.raid.RaiderEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -37,6 +41,9 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEvents;
+import net.nalaisgod.nalasmod.effect.ModEffects;
+import net.nalaisgod.nalasmod.entity.projectile.IceArrow;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -46,6 +53,7 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
+import java.util.EnumSet;
 import java.util.List;
 
 public class EvokerKingEntity
@@ -68,13 +76,10 @@ extends SpellcastingIllagerEntity implements IAnimatable {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new LookAtTargetOrWololoTarget());
         this.goalSelector.add(2, new FleeEntityGoal<PlayerEntity>(this, PlayerEntity.class, 8.0f, 0.6, 2.0));
-        this.goalSelector.add(8, new SummonVexGoal());
-        this.goalSelector.add(8, new SummonExiterGoal());
-        this.goalSelector.add(8, new ConjureFangsGoal());
-        this.goalSelector.add(5, new WololoGoal());
-        this.goalSelector.add(7, new OnGroundGoal());
-        this.goalSelector.add(6, new LaunchGoal());
-        this.goalSelector.add(4, new BlindnessGoal());
+        this.goalSelector.add(6, new SummonVexGoal());
+        this.goalSelector.add(6, new SummonExiterGoal());
+        this.goalSelector.add(6, new ConjureFangsGoal());
+
         this.goalSelector.add(8, new WanderAroundGoal(this, 0.6));
         this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0f, 1.0f));
         this.goalSelector.add(10, new LookAtEntityGoal(this, MobEntity.class, 8.0f));
@@ -136,6 +141,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
+
     }
 
 
@@ -407,274 +413,6 @@ extends SpellcastingIllagerEntity implements IAnimatable {
         }
     }
 
-    public class WololoGoal
-            extends CastSpellGoal {
-        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(32.0).setPredicate(livingEntity -> ((PlayerEntity) livingEntity).isPlayer());
-
-        @Override
-        public boolean canStart() {
-            if (EvokerKingEntity.this.getTarget() != null) {
-                return false;
-            }
-            if (EvokerKingEntity.this.isSpellcasting()) {
-                return false;
-            }
-            if (EvokerKingEntity.this.age < this.startTime) {
-                return false;
-            }
-            if (!EvokerKingEntity.this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-                return false;
-            }
-            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4.0, 16.0));
-            if (list.isEmpty()) {
-                return false;
-            }
-            EvokerKingEntity.this.setWololoTarget(list.get(EvokerKingEntity.this.random.nextInt(list.size())));
-            return true;
-        }
-
-        @Override
-        public boolean shouldContinue() {
-            return EvokerKingEntity.this.getWololoTarget() != null && this.spellCooldown > 0;
-        }
-
-        @Override
-        public void stop() {
-            super.stop();
-            EvokerKingEntity.this.setWololoTarget(null);
-        }
-
-        @Override
-        protected void castSpell() {
-            PlayerEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
-            if (playerEntity != null && playerEntity.isAlive()) {
-                playerEntity.setFrozenTicks(200);
-            }
-        }
-
-
-        @Override
-        protected int getSpellTicks() {
-            return 60;
-        }
-
-        @Override
-        protected int startTimeDelay() {
-            return 140;
-        }
-
-        @Override
-        protected SoundEvent getSoundPrepare() {
-            return SoundEvents.ENTITY_EVOKER_PREPARE_WOLOLO;
-        }
-
-        @Override
-        protected Spell getSpell() {
-            return Spell.WOLOLO;
-        }
-    }
-
-    public class OnGroundGoal
-            extends CastSpellGoal {
-        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(32.0).setPredicate(livingEntity -> ((PlayerEntity) livingEntity).isPlayer());
-
-        @Override
-        public boolean canStart() {
-            if (EvokerKingEntity.this.getTarget() != null) {
-                return false;
-            }
-            if (EvokerKingEntity.this.isSpellcasting()) {
-                return false;
-            }
-            if (EvokerKingEntity.this.age < this.startTime) {
-                return false;
-            }
-            if (!EvokerKingEntity.this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-                return false;
-            }
-            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4.0, 16.0));
-            if (list.isEmpty()) {
-                return false;
-            }
-            EvokerKingEntity.this.setWololoTarget(list.get(EvokerKingEntity.this.random.nextInt(list.size())));
-            return true;
-        }
-
-        @Override
-        public boolean shouldContinue() {
-            return EvokerKingEntity.this.getWololoTarget() != null && this.spellCooldown > 0;
-        }
-
-        @Override
-        public void stop() {
-            super.stop();
-            EvokerKingEntity.this.setWololoTarget(null);
-        }
-
-        @Override
-        protected void castSpell() {
-            PlayerEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
-            if (playerEntity != null && playerEntity.isAlive()) {
-                playerEntity.setOnFireFor(600);
-            }
-        }
-
-
-        @Override
-        protected int getSpellTicks() {
-            return 30;
-        }
-
-        @Override
-        protected int startTimeDelay() {
-            return 10;
-        }
-
-        @Override
-        protected SoundEvent getSoundPrepare() {
-            return SoundEvents.ENTITY_EVOKER_PREPARE_WOLOLO;
-        }
-
-        @Override
-        protected Spell getSpell() {
-            return Spell.DISAPPEAR;
-        }
-    }
-
-    public class BlindnessGoal
-            extends CastSpellGoal {
-        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(32.0).setPredicate(livingEntity -> ((PlayerEntity) livingEntity).isPlayer());
-
-        @Override
-        public boolean canStart() {
-            if (EvokerKingEntity.this.getTarget() != null) {
-                return false;
-            }
-            if (EvokerKingEntity.this.isSpellcasting()) {
-                return false;
-            }
-            if (EvokerKingEntity.this.age < this.startTime) {
-                return false;
-            }
-            if (!EvokerKingEntity.this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-                return false;
-            }
-            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4.0, 16.0));
-            if (list.isEmpty()) {
-                return false;
-            }
-            EvokerKingEntity.this.setWololoTarget(list.get(EvokerKingEntity.this.random.nextInt(list.size())));
-            return true;
-        }
-
-        @Override
-        public boolean shouldContinue() {
-            return EvokerKingEntity.this.getWololoTarget() != null && this.spellCooldown > 0;
-        }
-
-        @Override
-        public void stop() {
-            super.stop();
-            EvokerKingEntity.this.setWololoTarget(null);
-        }
-
-        @Override
-        protected void castSpell() {
-            PlayerEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
-            if (playerEntity != null && playerEntity.isAlive()) {
-                playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 100));
-            }
-        }
-
-
-        @Override
-        protected int getSpellTicks() {
-            return 60;
-        }
-
-        @Override
-        protected int startTimeDelay() {
-            return 140;
-        }
-
-        @Override
-        protected SoundEvent getSoundPrepare() {
-            return SoundEvents.ENTITY_EVOKER_PREPARE_WOLOLO;
-        }
-
-        @Override
-        protected Spell getSpell() {
-            return Spell.BLINDNESS;
-        }
-    }
-
-
-    public class LaunchGoal
-            extends CastSpellGoal {
-        private final TargetPredicate convertibleSheepPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(32.0).setPredicate(livingEntity -> ((PlayerEntity) livingEntity).isPlayer());
-
-        @Override
-        public boolean canStart() {
-            if (EvokerKingEntity.this.getTarget() != null) {
-                return false;
-            }
-            if (EvokerKingEntity.this.isSpellcasting()) {
-                return false;
-            }
-            if (EvokerKingEntity.this.age < this.startTime) {
-                return false;
-            }
-            if (!EvokerKingEntity.this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-                return false;
-            }
-            List<PlayerEntity> list = EvokerKingEntity.this.world.getTargets(PlayerEntity.class, this.convertibleSheepPredicate, EvokerKingEntity.this, EvokerKingEntity.this.getBoundingBox().expand(16.0, 4.0, 16.0));
-            if (list.isEmpty()) {
-                return false;
-            }
-            EvokerKingEntity.this.setWololoTarget(list.get(EvokerKingEntity.this.random.nextInt(list.size())));
-            return true;
-        }
-
-        @Override
-        public boolean shouldContinue() {
-            return EvokerKingEntity.this.getWololoTarget() != null && this.spellCooldown > 0;
-        }
-
-        @Override
-        public void stop() {
-            super.stop();
-            EvokerKingEntity.this.setWololoTarget(null);
-        }
-
-        @Override
-        protected void castSpell() {
-            PlayerEntity playerEntity = EvokerKingEntity.this.getWololoTarget();
-            if (playerEntity != null && playerEntity.isAlive()) {
-                playerEntity.setVelocity(0, 2, 0);
-            }
-        }
-
-
-        @Override
-        protected int getSpellTicks() {
-            return 60;
-        }
-
-        @Override
-        protected int startTimeDelay() {
-            return 40;
-        }
-
-        @Override
-        protected SoundEvent getSoundPrepare() {
-            return SoundEvents.ENTITY_EVOKER_PREPARE_WOLOLO;
-        }
-
-        @Override
-        protected Spell getSpell() {
-            return Spell.WOLOLO;
-        }
-    }
 
 
     class SummonExiterGoal
@@ -726,232 +464,8 @@ extends SpellcastingIllagerEntity implements IAnimatable {
         }
     }
 
-    class BlindTargetGoal
-            extends SpellcastingIllagerEntity.CastSpellGoal {
-        private int targetId;
-
-        BlindTargetGoal() {
-        }
-
-        @Override
-        public boolean canStart() {
-            if (!super.canStart()) {
-                return false;
-            }
-            if (EvokerKingEntity.this.getTarget() == null) {
-                return false;
-            }
-            if (EvokerKingEntity.this.getTarget().getId() == this.targetId) {
-                return false;
-            }
-            return EvokerKingEntity.this.world.getLocalDifficulty(EvokerKingEntity.this.getBlockPos()).isHarderThan(Difficulty.NORMAL.ordinal());
-        }
-
-        @Override
-        public void start() {
-            super.start();
-            LivingEntity livingEntity = EvokerKingEntity.this.getTarget();
-            if (livingEntity != null) {
-                this.targetId = livingEntity.getId();
-            }
-        }
-
-        @Override
-        protected int getSpellTicks() {
-            return 20;
-        }
-
-        @Override
-        protected int startTimeDelay() {
-            return 180;
-        }
-
-        @Override
-        protected void castSpell() {
-            EvokerKingEntity.this.getTarget().addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 400), EvokerKingEntity.this);
-        }
-
-        @Override
-        protected SoundEvent getSoundPrepare() {
-            return SoundEvents.ENTITY_ILLUSIONER_PREPARE_BLINDNESS;
-        }
-
-        @Override
-        protected SpellcastingIllagerEntity.Spell getSpell() {
-            return SpellcastingIllagerEntity.Spell.BLINDNESS;
-        }
-    }
 
 
-    class FreezeTargetGoal
-            extends SpellcastingIllagerEntity.CastSpellGoal {
-        private int targetId;
-
-        FreezeTargetGoal() {
-        }
-
-        @Override
-        public boolean canStart() {
-            if (!super.canStart()) {
-                return false;
-            }
-            if (EvokerKingEntity.this.getTarget() == null) {
-                return false;
-            }
-            if (EvokerKingEntity.this.getTarget().getId() == this.targetId) {
-                return false;
-            }
-            return EvokerKingEntity.this.world.getLocalDifficulty(EvokerKingEntity.this.getBlockPos()).isHarderThan(Difficulty.NORMAL.ordinal());
-        }
-
-        @Override
-        public void start() {
-            super.start();
-            LivingEntity livingEntity = EvokerKingEntity.this.getTarget();
-            if (livingEntity != null) {
-                this.targetId = livingEntity.getId();
-            }
-        }
-
-        @Override
-        protected int getSpellTicks() {
-            return 20;
-        }
-
-        @Override
-        protected int startTimeDelay() {
-            return 180;
-        }
-
-        @Override
-        protected void castSpell() {
-            EvokerKingEntity.this.getTarget().setFrozenTicks(240);
-        }
-
-        @Override
-        protected SoundEvent getSoundPrepare() {
-            return SoundEvents.ENTITY_ILLUSIONER_PREPARE_BLINDNESS;
-        }
-
-        @Override
-        protected SpellcastingIllagerEntity.Spell getSpell() {
-            return Spell.FANGS;
-        }
-    }
-
-
-    class BurnTargetGoal
-            extends SpellcastingIllagerEntity.CastSpellGoal {
-        private int targetId;
-
-        BurnTargetGoal() {
-        }
-
-        @Override
-        public boolean canStart() {
-            if (!super.canStart()) {
-                return false;
-            }
-            if (EvokerKingEntity.this.getTarget() == null) {
-                return false;
-            }
-            if (EvokerKingEntity.this.getTarget().getId() == this.targetId) {
-                return false;
-            }
-            return EvokerKingEntity.this.world.getLocalDifficulty(EvokerKingEntity.this.getBlockPos()).isHarderThan(Difficulty.NORMAL.ordinal());
-        }
-
-        @Override
-        public void start() {
-            super.start();
-            LivingEntity livingEntity = EvokerKingEntity.this.getTarget();
-            if (livingEntity != null) {
-                this.targetId = livingEntity.getId();
-            }
-        }
-
-        @Override
-        protected int getSpellTicks() {
-            return 20;
-        }
-
-        @Override
-        protected int startTimeDelay() {
-            return 180;
-        }
-
-        @Override
-        protected void castSpell() {
-            EvokerKingEntity.this.getTarget().setFrozenTicks(240);
-        }
-
-        @Override
-        protected SoundEvent getSoundPrepare() {
-            return SoundEvents.ENTITY_ILLUSIONER_PREPARE_BLINDNESS;
-        }
-
-        @Override
-        protected SpellcastingIllagerEntity.Spell getSpell() {
-            return Spell.DISAPPEAR;
-        }
-    }
-
-
-    class LaunchTargetGoal
-            extends SpellcastingIllagerEntity.CastSpellGoal {
-        private int targetId;
-
-        LaunchTargetGoal() {
-        }
-
-        @Override
-        public boolean canStart() {
-            if (!super.canStart()) {
-                return false;
-            }
-            if (EvokerKingEntity.this.getTarget() == null) {
-                return false;
-            }
-            if (EvokerKingEntity.this.getTarget().getId() == this.targetId) {
-                return false;
-            }
-            return EvokerKingEntity.this.world.getLocalDifficulty(EvokerKingEntity.this.getBlockPos()).isHarderThan(Difficulty.NORMAL.ordinal());
-        }
-
-        @Override
-        public void start() {
-            super.start();
-            LivingEntity livingEntity = EvokerKingEntity.this.getTarget();
-            if (livingEntity != null) {
-                this.targetId = livingEntity.getId();
-            }
-        }
-
-        @Override
-        protected int getSpellTicks() {
-            return 20;
-        }
-
-        @Override
-        protected int startTimeDelay() {
-            return 180;
-        }
-
-        @Override
-        protected void castSpell() {
-            EvokerKingEntity.this.getTarget().setAir(2);
-        }
-
-        @Override
-        protected SoundEvent getSoundPrepare() {
-            return SoundEvents.ENTITY_ILLUSIONER_PREPARE_BLINDNESS;
-        }
-
-        @Override
-        protected SpellcastingIllagerEntity.Spell getSpell() {
-            return Spell.WOLOLO;
-        }
-    }
 
 
 }

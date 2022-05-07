@@ -482,15 +482,7 @@ public class NamedEntity extends HostileEntity implements IAnimatable, SkinOverl
     }
 
 
-    @Override
-    protected float applyEnchantmentsToDamage(DamageSource source, float amount) {
-        amount = super.applyEnchantmentsToDamage(source, amount);
-        if (source == DamageSource.MAGIC) {
-            amount *= 2.5f;
-        }
 
-        return amount;
-    }
 
     @Override
     public boolean damage(DamageSource source, float amount) {
