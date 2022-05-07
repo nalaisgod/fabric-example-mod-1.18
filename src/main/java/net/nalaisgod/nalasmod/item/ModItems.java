@@ -215,11 +215,12 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.UNCOMMON)));
 
     public static final Item CHOCOLATE_POWERED_GUN_WITH_PLACED_END_CRYSTAL_ON_TOP = registerItem("chocolate_powered_gun_with_placed_end_crystal_on_top",
-            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.RARE)));
+            new ModSuperItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).maxDamage(3).rarity(Rarity.RARE)));
 
     public static final Item FALLEN_KINGS_BLADE = registerItem("fallen_kings_blade",
             new ModFallenKingBladeItem(ModToolMaterial.FALLENKINGSBLADE, 7, -2.8f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+
 
 
 

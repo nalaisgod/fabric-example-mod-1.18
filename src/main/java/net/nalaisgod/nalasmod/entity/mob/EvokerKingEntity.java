@@ -316,7 +316,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
                 float g;
                 int i;
                 for (i = 0; i < 5; ++i) {
-                    g = f + (float) i * (float) Math.PI * 0.4f;
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 1.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 1.5, d, e, g, 0);
                 }
                 for (i = 0; i < 8; ++i) {

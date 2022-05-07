@@ -2,6 +2,8 @@ package net.nalaisgod.nalasmod.item.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.boss.dragon.EnderDragonFight;
@@ -15,6 +17,8 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -27,6 +31,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.nalaisgod.nalasmod.entity.mob.EvokerKingEntity;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -46,10 +51,10 @@ public class ModFallenKingBladeItem extends SwordItem {
         float f = (float) MathHelper.atan2(user.getZ() - user.getZ(), user.getX() - user.getX());
             float g;
             int i;
-            for (i = 0; i < 5; ++i) {
-                g = f + (float) i * (float) Math.PI * 0.4f;
-                conjureFangs(user.getX() + (double) MathHelper.cos(g) * 1.5, user.getZ() + (double) MathHelper.sin(g) * 1.5, d, e, g, 0, user);
-            }
+        for (i = 0; i < 5; ++i) {
+            g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 0.2566371f;
+            conjureFangs(user.getX() + (double) MathHelper.cos(g) * 1.5, user.getZ() + (double) MathHelper.sin(g) * 1.5, d, e, g, 0, user);
+        }
             for (i = 0; i < 8; ++i) {
                 g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
                 conjureFangs(user.getX() + (double) MathHelper.cos(g) * 2.5, user.getZ() + (double) MathHelper.sin(g) * 2.5, d, e, g, 3, user);
@@ -126,6 +131,14 @@ public class ModFallenKingBladeItem extends SwordItem {
     @Override
     public int getMaxUseTime(ItemStack stack) {
         return 72000;
+    }
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(new TranslatableText("item.nalasmod.fallen_kings_blade.tooltip.shift"));
+        } else {
+            tooltip.add(new TranslatableText("item.nalasmod.dowsing_rod.tooltip"));
+        }
     }
 
 
