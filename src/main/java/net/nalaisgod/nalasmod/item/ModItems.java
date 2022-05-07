@@ -218,7 +218,7 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.RARE)));
 
     public static final Item FALLEN_KINGS_BLADE = registerItem("fallen_kings_blade",
-            new ModFallenKingBladeItem(ModToolMaterial.FALLENKINGSBLADE, 8, -2.8f,
+            new ModFallenKingBladeItem(ModToolMaterial.FALLENKINGSBLADE, 7, -2.8f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
 

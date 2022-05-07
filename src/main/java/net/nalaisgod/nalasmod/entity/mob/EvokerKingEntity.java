@@ -312,7 +312,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
             double d = Math.min(livingEntity.getY(), EvokerKingEntity.this.getY());
             double e = Math.max(livingEntity.getY(), EvokerKingEntity.this.getY()) + 1.0;
             float f = (float) MathHelper.atan2(livingEntity.getZ() - EvokerKingEntity.this.getZ(), livingEntity.getX() - EvokerKingEntity.this.getX());
-            if (EvokerKingEntity.this.squaredDistanceTo(livingEntity) < 9.0) {
+            if (EvokerKingEntity.this.squaredDistanceTo(livingEntity) < 16.0) {
                 float g;
                 int i;
                 for (i = 0; i < 5; ++i) {
