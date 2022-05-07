@@ -172,7 +172,7 @@ public class ModBlocks {
             new orbital_transfuzer_block(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque()), ModItemGroup.ORIGINITE);
 
     public static final Block CURSED_TOTEM = registerBlock("cursed_totem",
-            new ModCursedTotemBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().noCollision().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
+            new ModCursedTotemBlock(FabricBlockSettings.of(Material.METAL).strength(6.0f, 12f).requiresTool().nonOpaque().requiresTool().luminance(state -> 15)), ModItemGroup.ORIGINITE);
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

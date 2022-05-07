@@ -7,13 +7,18 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.util.*;
+import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.nalaisgod.nalasmod.block.entity.ModBlockEntities;
 import net.nalaisgod.nalasmod.block.entity.OrbitalTransfuzerEntity;
 
 import javax.annotation.Nullable;
+import java.util.stream.Stream;
 
 public class orbital_transfuzer_block extends BlockWithEntity implements BlockEntityProvider {
 
@@ -21,6 +26,19 @@ public class orbital_transfuzer_block extends BlockWithEntity implements BlockEn
     public orbital_transfuzer_block(Settings settings) {
         super(settings);
     }
+
+
+
+
+    private static final VoxelShape SHAPE =     Stream.of(
+            Block.createCuboidShape(0, 0, 0, 16, 4, 16)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
+    }
+
 
 
 

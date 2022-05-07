@@ -66,10 +66,10 @@
 		},
 		"firstperson_righthand": {
 			"rotation": [0, -90, 0],
-			"translation": [0, -6, 0]
+			"translation": [0, -18, 0]
 		},
 		"firstperson_lefthand": {
-			"translation": [0, -6.25, 0]
+			"translation": [0, -16, 0]
 		},
 		"gui": {
 			"translation": [0, -4, 0],
@@ -81,13 +81,5 @@
 		"fixed": {
 			"translation": [0, -7.75, 0]
 		}
-	},
-	"overrides": [
-		{
-			"predicate": {
-				"blocking": 1
-			},
-			"model": "nalsmod:item/el_wall_block"
-		}
-	]
+	}
 }

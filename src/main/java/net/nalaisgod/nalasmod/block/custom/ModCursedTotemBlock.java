@@ -12,8 +12,12 @@ import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.block.BlockStatePredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
@@ -22,6 +26,8 @@ import net.nalaisgod.nalasmod.block.entity.ModBlockEntities;
 import net.nalaisgod.nalasmod.entity.ModEntities;
 import net.nalaisgod.nalasmod.entity.mob.EvokerKingEntity;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.stream.Stream;
 
 public class ModCursedTotemBlock extends Block  {
     @Nullable
@@ -82,4 +88,22 @@ public class ModCursedTotemBlock extends Block  {
         }
         return witherBossPattern;
     }
+
+
+    private static final VoxelShape SHAPE =     Stream.of(
+            Block.createCuboidShape(1, 6, 6, 15, 8, 10),
+            Block.createCuboidShape(6, 0, 6, 10, 1, 10),
+            Block.createCuboidShape(5, 14, 6, 11, 15, 10),
+            Block.createCuboidShape(5, 1, 6, 11, 3, 10),
+            Block.createCuboidShape(4, 3, 6, 12, 5, 10),
+            Block.createCuboidShape(4, 8, 6, 12, 14, 10),
+            Block.createCuboidShape(2, 5, 6, 14, 6, 10)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+                return SHAPE;
+    }
+
+
 }
