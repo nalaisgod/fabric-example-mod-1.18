@@ -23,8 +23,8 @@ public class ModHealblock extends Block {
         if(!world.isClient()) {
             if(entity instanceof LivingEntity) {
                 LivingEntity livingEntity = ((LivingEntity) entity);
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 20, 3));
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20));
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 100, 30));
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100));
             }
         }
 
