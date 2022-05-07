@@ -11,6 +11,8 @@ import java.util.function.Supplier;
 
 public enum ModToolMaterial implements ToolMaterial {
     ORIGINITE(MiningLevels.IRON, 750, 10.0f, 1f, 25, () -> Ingredient.ofItems(ModItems.ORIGINITE_INGOT)),
+    FALLENKINGSBLADE(MiningLevels.IRON, 3000, 10.0f, 1f, 25, () -> Ingredient.ofItems(ModItems.ORIGINITE_INGOT)),
+
     SOUL(MiningLevels.NETHERITE, 100000, 4.9f, 1f, 2, () -> Ingredient.ofItems(ModItems.ORIGINITE_INGOT)),
     ELEMENT(MiningLevels.NETHERITE, 1234, 1.2f, 1f, 21, () -> Ingredient.ofItems(ModItems.ORIGINITE_INGOT)),
     PAXEL(MiningLevels.DIAMOND, 1000000000, 9.0f, 1f, 100, () -> Ingredient.ofItems(ModItems.ORIGINITE_INGOT));

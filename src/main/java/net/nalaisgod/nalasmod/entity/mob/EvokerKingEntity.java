@@ -44,6 +44,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.nalaisgod.nalasmod.effect.ModEffects;
 import net.nalaisgod.nalasmod.entity.projectile.IceArrow;
+import net.nalaisgod.nalasmod.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -323,45 +324,36 @@ extends SpellcastingIllagerEntity implements IAnimatable {
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 2.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 2.5, d, e, g, 3);
                 }
                 for (i = 0; i < 11; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 2.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 3.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 3.5, d, e, g, 6);
                 }
                 for (i = 0; i < 14; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 3.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 4.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 4.5, d, e, g, 9);
                 }
                 for (i = 0; i < 17; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 4.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 5.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 5.5, d, e, g, 9);
                 }
                 for (i = 0; i < 20; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 5.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 6.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 6.5, d, e, g, 9);
                 }
                 for (i = 0; i < 23; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 6.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 7.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 7.5, d, e, g, 9);
                 }
                 for (i = 0; i < 26; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 7.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 8.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 8.5, d, e, g, 9);
                 }
                 for (i = 0; i < 29; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 8.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 9.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 9.5, d, e, g, 9);
                 }
                 for (i = 0; i < 32; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 9.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 10.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 10.5, d, e, g, 9);
-                }                for (i = 0; i < 14; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
-                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 4.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 4.5, d, e, g, 9);
-                }                for (i = 0; i < 14; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
-                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 4.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 4.5, d, e, g, 9);
-                }                for (i = 0; i < 14; ++i) {
-                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
-                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 4.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 4.5, d, e, g, 9);
                 }
 
 
@@ -465,7 +457,14 @@ extends SpellcastingIllagerEntity implements IAnimatable {
     }
 
 
-
+    @Override
+    protected void dropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops) {
+        super.dropEquipment(source, lootingMultiplier, allowDrops);
+        ItemEntity itemEntity = this.dropItem(ModItems.FALLEN_KINGS_BLADE);
+        if (itemEntity != null) {
+            itemEntity.setCovetedItem();
+        }
+    }
 
 
 }
