@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "***",
+      "*#*",
+      "***"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:nautilus_shell"
+      },
+      "*": {
+        "item": "minecraft:cocoa_beans"
+      }
+    },
+  "result": {
+    "item": "nalasmod:chocolate_covered_cephalopod"
+  }
+}

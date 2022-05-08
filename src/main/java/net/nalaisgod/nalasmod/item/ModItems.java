@@ -214,6 +214,9 @@ public class ModItems {
     public static final Item ORB_OF_ORIGIN_PLACE_HOLDER = registerItem("orb_of_origin_place_holder",
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.UNCOMMON)));
 
+    public static final Item CHOCOLATE_COVERED_CEPHALOPOD = registerItem("chocolate_covered_cephalopod",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.UNCOMMON)));
+
     public static final Item CHOCOLATE_POWERED_GUN_WITH_PLACED_END_CRYSTAL_ON_TOP = registerItem("chocolate_powered_gun_with_placed_end_crystal_on_top",
             new ModSuperItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).maxDamage(3).rarity(Rarity.RARE)));
 

@@ -59,6 +59,7 @@
   "item.nalasmod.god_pot": "God Pot",
   "item.nalasmod.orb_of_origin_place_holder": "PUT IN CRAFTING GRID PLACEHOLDER FOR ORB OF ORIGINS",
   "item.nalasmod.chocolate_powered_gun_with_placed_end_crystal_on_top": "Dangerous Chocolate Powered Gun With End Crystal Placedd On Top",
+  "item.nalasmod.chocolate_covered_cephalopod": "Chocolate Covered Cephalopod (Ammo)",
 
   "item.minecraft.potion.effect.freeze_potion": "Freeze Potion",
   "item.minecraft.splash_potion.effect.freeze_potion": "Splash Potion of Freeze",
@@ -83,7 +84,7 @@
   "item.nalasmod.wither_bow.tooltip.shift": "Leave A Trail O Pain Behind Uses Wither Rods",
   "item.nalasmod.wither_rod.tooltip.shift": "Ammo For Wither Bow Can Apply WIther",
   "item.nalasmod.originite_armour.tooltip.shift": "On Right Click Summon Fangs, Many Fangs",
-  "item.nalasmod.super_item.tooltip.shift": "WARNING VERY UNSTABLE MIGHT BLOW UP",
+  "item.nalasmod.super_item.tooltip.shift": "WARNING VERY UNSTABLE MIGHT BLOW UP uses chocolate covered cephalopods as ammo",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",
