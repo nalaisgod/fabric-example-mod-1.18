@@ -66,19 +66,19 @@ public class ModItems {
 
     public static final Item ORIGINITE_HELMET = registerItem("originite_helmet",
             new OriginiteArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.HEAD,
-                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE)));
 
     public static final Item ORIGINITE_CHESTPLATE = registerItem("originite_chestplate",
             new OriginiteArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.CHEST,
-                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE)));
 
     public static final Item ORIGINITE_LEGGINGS = registerItem("originite_leggings",
             new OriginiteArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.LEGS,
-                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE)));
 
     public static final Item ORIGINITE_BOOTS = registerItem("originite_boots",
             new OriginiteArmorItem(ModArmorMaterials.ORIGINITE, EquipmentSlot.FEET,
-                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE)));
 
     public static final Item ORIGINITE_HORSE_ARMOR = registerItem("originite_horse_armor",
             new HorseArmorItem( 15, "originite",
@@ -202,14 +202,14 @@ public class ModItems {
 
     public static final Item RANDOM_BLADE = registerItem("random_blade",
             new random_blade(ModToolMaterial.ORIGINITE, 3, -2.2f,
-                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.RARE)));
 
     public static final Item CRIT_BLADE = registerItem("crit_blade",
             new ModCritBlade(ModToolMaterial.ORIGINITE, 3, -2.4f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
 
     public static final Item GOD_POT = registerItem("god_pot",
-            new ModGodPotItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON).maxCount(32)));
+            new ModGodPotItem(new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.UNCOMMON).maxCount(32).rarity(Rarity.UNCOMMON)));
 
     public static final Item ORB_OF_ORIGIN_PLACE_HOLDER = registerItem("orb_of_origin_place_holder",
             new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).maxCount(1).rarity(Rarity.UNCOMMON)));
@@ -222,7 +222,7 @@ public class ModItems {
 
     public static final Item FALLEN_KINGS_BLADE = registerItem("fallen_kings_blade",
             new ModFallenKingBladeItem(ModToolMaterial.FALLENKINGSBLADE, 7, -2.8f,
-                    new FabricItemSettings().group(ModItemGroup.ORIGINITE)));
+                    new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC)));
 
 
 
