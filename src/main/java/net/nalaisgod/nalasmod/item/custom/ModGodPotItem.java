@@ -63,7 +63,7 @@ public class ModGodPotItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if(Screen.hasShiftDown()) {
-            tooltip.add(new TranslatableText("item.nalasmod.vision.tooltip.shift"));
+            tooltip.add(new TranslatableText("item.nalasmod.god_pot.tooltip.shift"));
         } else {
             tooltip.add(new TranslatableText("item.nalasmod.dowsing_rod.tooltip"));
         }

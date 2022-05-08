@@ -83,9 +83,10 @@
   "item.nalasmod.vision.tooltip.shift": "Right Click For Night Vision",
   "item.nalasmod.wither_bow.tooltip.shift": "Leave A Trail O Pain Behind Uses Wither Rods",
   "item.nalasmod.wither_rod.tooltip.shift": "Ammo For Wither Bow Can Apply WIther",
-  "item.nalasmod.originite_armour.tooltip.shift": "On Right Click Summon Fangs, Many Fangs",
+  "item.nalasmod.originite_armour.tooltip.shift": "While In Full Set: Press SHIFT to turn off gravity: Press ALT to turn it on ",
   "item.nalasmod.super_item.tooltip.shift": "WARNING VERY UNSTABLE MIGHT BLOW UP uses chocolate covered cephalopods as ammo",
   "item.nalasmod.fallen_kings_blade.tooltip.shift": "On Use Summon A Spiral Of Fangs 10 range",
+  "item.nalasmod.god_pot.tooltip.shift": "On Right Click Consume And Gain Some Possitive Effects",
 
   "block.nalasmod.originite_block": "Originite Block",
   "block.nalasmod.originite_ore": "Originite Ore",
@@ -128,6 +129,7 @@
   "block.nalasmod.end_mine": "End Mine",
   "block.nalasmod.space_changer": "Space Changer",
   "block.nalasmod.orbital_transfuzer": "Orbital Transfuzer",
+  "block.nalasmod.cursed_totem": "Cursed Totem",
 
   "tooltip.nalasmod.originite_block": "A Magical Block",
   "tooltip.nalasmod.speedy_block": "A SPEEEEEEEEEEEEEEEEEEEEEEEEEEEEDY block",
