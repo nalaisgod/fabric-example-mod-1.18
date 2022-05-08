@@ -33,4 +33,4 @@ BAVDE1 for making randomizing code, raccon cult structure
 https://github.com/BAVDE1/atium_mod-Forge1.18.2
 
 SpaceChanger Block Teleportation code take from https://github.com/Dunkmania101/DaylightDimension
-Distrabuted under MIT-License
+Distributed under MIT-License
