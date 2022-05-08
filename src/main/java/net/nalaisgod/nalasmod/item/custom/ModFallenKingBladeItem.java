@@ -51,6 +51,10 @@ public class ModFallenKingBladeItem extends SwordItem {
         float f = (float) MathHelper.atan2(user.getZ() - user.getZ(), user.getX() - user.getX());
             float g;
             int i;
+        for (i = 0; i < 2; ++i) {
+            g = f + (float) i * (float) Math.PI * 2.0f / 8.0f - 0.7433629f;
+            conjureFangs(user.getX() + (double) MathHelper.cos(g) * 0.5, user.getZ() + (double) MathHelper.sin(g) * 0.5, d, e, g, 0, user);
+        }
         for (i = 0; i < 5; ++i) {
             g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 0.2566371f;
             conjureFangs(user.getX() + (double) MathHelper.cos(g) * 1.5, user.getZ() + (double) MathHelper.sin(g) * 1.5, d, e, g, 0, user);
@@ -115,7 +119,7 @@ public class ModFallenKingBladeItem extends SwordItem {
             }
             bl = true;
             break;
-        } while ((blockPos = blockPos.down()).getY() >= MathHelper.floor(maxY) - 1);
+        } while ((blockPos = blockPos.down()).getY() >= MathHelper.floor(maxY) - 10);
         if (bl) {
             user.world.spawnEntity(new EvokerFangsEntity(user.world, x, (double) blockPos.getY() + d, z, yaw, warmup, user));
         }

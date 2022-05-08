@@ -33,6 +33,7 @@ import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.nalaisgod.nalasmod.NalasMod;
 import net.nalaisgod.nalasmod.block.ModBlocks;
+import net.nalaisgod.nalasmod.util.ModTags;
 
 import java.util.List;
 
@@ -99,19 +100,19 @@ public class ModConfiguredFeatures {
 
 
     public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> DEATH_VINE_PATCH_1 = ConfiguredFeatures.register("death_vine_patch_1",
-            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.DEATH_VINE),
+            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(ModTags.Blocks.END_PLANT_REPLACEABLE, BlockStateProvider.of(ModBlocks.DEATH_VINE),
                     PlacedFeatures.createEntry(DEATH_VINE_PATCH), VerticalSurfaceType.CEILING,
                     UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7),
                     0.3f));
 
     public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> DEATH_VINE_PATCH_2 = ConfiguredFeatures.register("death_vine_patch_2",
-            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.DEATH_VINE),
+            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(ModTags.Blocks.END_PLANT_REPLACEABLE, BlockStateProvider.of(ModBlocks.DEATH_VINE),
                     PlacedFeatures.createEntry(DEATH_VINE_PATCH), VerticalSurfaceType.FLOOR,
                     UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7),
                     0.3f));
 
     public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> MOSSLIGHT_PATCH_1 = ConfiguredFeatures.register("mosslight_patch_1",
-            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.MOSSLIGHT),
+            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(ModTags.Blocks.END_PLANT_REPLACEABLE, BlockStateProvider.of(ModBlocks.MOSSLIGHT),
                     PlacedFeatures.createEntry(MOSSLIGHT_PATCH), VerticalSurfaceType.CEILING,
                     UniformIntProvider.create(1, 2), 0.0f, 2, 0.08f, UniformIntProvider.create(4, 7),
                     0.3f));
@@ -125,26 +126,26 @@ public class ModConfiguredFeatures {
     public static final RegistryEntry<ConfiguredFeature<RootSystemFeatureConfig, ?>> ROOTED_SOUL_TREE
             = ConfiguredFeatures.register("rooted_soul_tree", Feature.ROOT_SYSTEM,
             new RootSystemFeatureConfig(PlacedFeatures.createEntry(ModConfiguredFeatures.SOUL_BLOSSOM_TREE),
-                    3, 3, BlockTags.DRAGON_IMMUNE,
+                    3, 3, ModTags.Blocks.END_PLANT_REPLACEABLE,
                     BlockStateProvider.of(ModBlocks.DEATH_VINE), 20, 100,
                     3, 2, BlockStateProvider.of(ModBlocks.DEATH_VINE),
                     20, 2,
                     BlockPredicate.bothOf(BlockPredicate.anyOf(BlockPredicate.matchingBlocks(List.of(Blocks.AIR,
                             Blocks.CAVE_AIR, Blocks.VOID_AIR, Blocks.WATER)), BlockPredicate.matchingBlockTag(BlockTags.LEAVES),
                             BlockPredicate.matchingBlockTag(BlockTags.REPLACEABLE_PLANTS)),
-                            BlockPredicate.matchingBlockTag(BlockTags.DRAGON_IMMUNE, Direction.DOWN.getVector()))));
+                            BlockPredicate.matchingBlockTag(ModTags.Blocks.END_PLANT_REPLACEABLE, Direction.DOWN.getVector()))));
 
     public static final RegistryEntry<ConfiguredFeature<RootSystemFeatureConfig, ?>> ROOTED_LICHEN_TREE
             = ConfiguredFeatures.register("rooted_lichen_tree", Feature.ROOT_SYSTEM,
             new RootSystemFeatureConfig(PlacedFeatures.createEntry(ModConfiguredFeatures.GLOW_LICHEN_END),
-                    3, 3, BlockTags.DRAGON_IMMUNE,
+                    3, 3, ModTags.Blocks.END_PLANT_REPLACEABLE,
                     BlockStateProvider.of(ModBlocks.DEATH_VINE), 20, 100,
                     3, 2, BlockStateProvider.of(ModBlocks.DEATH_VINE),
                     20, 2,
                     BlockPredicate.bothOf(BlockPredicate.anyOf(BlockPredicate.matchingBlocks(List.of(Blocks.AIR,
                                             Blocks.CAVE_AIR, Blocks.VOID_AIR, Blocks.WATER)), BlockPredicate.matchingBlockTag(BlockTags.LEAVES),
                                     BlockPredicate.matchingBlockTag(BlockTags.REPLACEABLE_PLANTS)),
-                            BlockPredicate.matchingBlockTag(BlockTags.DRAGON_IMMUNE, Direction.DOWN.getVector()))));
+                            BlockPredicate.matchingBlockTag(ModTags.Blocks.END_PLANT_REPLACEABLE, Direction.DOWN.getVector()))));
 
 
     public static final RegistryEntry<ConfiguredFeature<LakeFeature.Config, ?>> LAKE_HONEY = ConfiguredFeatures.register("honey_lake",
@@ -161,7 +162,7 @@ public class ModConfiguredFeatures {
             ConstantIntProvider.create(1), 2), new TwoLayersFeatureSize(0, 0, 0)).build());
 
     public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> END_MINE = ConfiguredFeatures.register("end_mine",
-            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(BlockTags.DRAGON_IMMUNE, BlockStateProvider.of(ModBlocks.END_MINE),
+            Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(ModTags.Blocks.END_PLANT_REPLACEABLE, BlockStateProvider.of(ModBlocks.END_MINE),
                     PlacedFeatures.createEntry(MINE), VerticalSurfaceType.FLOOR,
                     UniformIntProvider.create(1, 2), 0.0f, 1, 0.08f, UniformIntProvider.create(1, 1),
                     0.3f));

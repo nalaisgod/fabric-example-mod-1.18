@@ -13,6 +13,8 @@ public class ModTags {
                 createTag("dowsing_rod_detectable_blocks");
         public static final TagKey<Block> PAXEL_MINEABLE =
                 createTag("mineable/paxel");
+        public static final TagKey<Block> END_PLANT_REPLACEABLE =
+                createTag("end_plant_replaceable");
 
         public static final TagKey<Block> ORIGINITE_BLOCKS =
                 createCommonTag("originite_blocks");

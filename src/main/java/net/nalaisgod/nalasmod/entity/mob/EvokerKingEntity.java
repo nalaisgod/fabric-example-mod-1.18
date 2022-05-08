@@ -315,6 +315,10 @@ extends SpellcastingIllagerEntity implements IAnimatable {
             if (EvokerKingEntity.this.squaredDistanceTo(livingEntity) < 16.0) {
                 float g;
                 int i;
+                for (i = 0; i < 2; ++i) {
+                    g = f + (float) i * (float) Math.PI * 2.0f / 8.0f - 0.7433629f;
+                    this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 0.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 0.5, d, e, g, 0);
+                }
                 for (i = 0; i < 5; ++i) {
                     g = f + (float) i * (float) Math.PI * 2.0f / 8.0f + 1.2566371f;
                     this.conjureFangs(EvokerKingEntity.this.getX() + (double) MathHelper.cos(g) * 1.5, EvokerKingEntity.this.getZ() + (double) MathHelper.sin(g) * 1.5, d, e, g, 0);
@@ -388,7 +392,7 @@ extends SpellcastingIllagerEntity implements IAnimatable {
                 }
                 bl = true;
                 break;
-            } while ((blockPos = blockPos.down()).getY() >= MathHelper.floor(maxY) - 1);
+            } while ((blockPos = blockPos.down()).getY() >= MathHelper.floor(maxY) - 10);
             if (bl) {
                 EvokerKingEntity.this.world.spawnEntity(new EvokerFangsEntity(EvokerKingEntity.this.world, x, (double) blockPos.getY() + d, z, yaw, warmup, EvokerKingEntity.this));
             }
