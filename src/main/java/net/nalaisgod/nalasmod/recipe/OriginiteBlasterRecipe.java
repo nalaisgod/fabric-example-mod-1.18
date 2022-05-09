@@ -14,12 +14,12 @@ import net.nalaisgod.nalasmod.block.entity.OriginiteBlasterEntity;
 
 public class OriginiteBlasterRecipe implements Recipe<SimpleInventory> {
     private final Identifier id;
-    private final ItemStack output;
+    private final ItemStack result;
     private final DefaultedList<Ingredient> recipeItems;
 
-    public OriginiteBlasterRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
+    public OriginiteBlasterRecipe(Identifier id, ItemStack result, DefaultedList<Ingredient> recipeItems) {
         this.id = id;
-        this.output = output;
+        this.result = result;
         this.recipeItems = recipeItems;
     }
 
@@ -34,7 +34,7 @@ public class OriginiteBlasterRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public ItemStack craft(SimpleInventory inventory) {
-        return output;
+        return result;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class OriginiteBlasterRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public ItemStack getOutput() {
-        return output.copy();
+        return result.copy();
     }
 
     @Override
@@ -75,7 +75,7 @@ public class OriginiteBlasterRecipe implements Recipe<SimpleInventory> {
 
         @Override
         public OriginiteBlasterRecipe read(Identifier id, JsonObject json) {
-            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
+            ItemStack result = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "result"));
 
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(2, Ingredient.EMPTY);
@@ -84,7 +84,7 @@ public class OriginiteBlasterRecipe implements Recipe<SimpleInventory> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new OriginiteBlasterRecipe(id, output, inputs);
+            return new OriginiteBlasterRecipe(id, result, inputs);
         }
 
         @Override
@@ -95,8 +95,8 @@ public class OriginiteBlasterRecipe implements Recipe<SimpleInventory> {
                 inputs.set(i, Ingredient.fromPacket(buf));
             }
 
-            ItemStack output = buf.readItemStack();
-            return new OriginiteBlasterRecipe(id, output, inputs);
+            ItemStack result = buf.readItemStack();
+            return new OriginiteBlasterRecipe(id, result, inputs);
         }
 
         @Override

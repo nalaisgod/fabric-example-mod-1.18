@@ -153,8 +153,8 @@ public class OriginiteBlasterEntity extends BlockEntity implements NamedScreenHa
         Optional<OriginiteBlasterRecipe> match = world.getRecipeManager()
                 .getFirstMatch(OriginiteBlasterRecipe.Type.INSTANCE, inventory, world);
 
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getOutput());
+        return match.isPresent() && canInsertAmountIntoResultSlot(inventory)
+                && canInsertItemIntoResultSlot(inventory, match.get().getOutput());
     }
 
     private static void craftItem(OriginiteBlasterEntity entity) {
@@ -182,11 +182,11 @@ public class OriginiteBlasterEntity extends BlockEntity implements NamedScreenHa
         this.progress = 0;
     }
 
-    private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, ItemStack output) {
-        return inventory.getStack(3).getItem() == output.getItem() || inventory.getStack(3).isEmpty();
+    private static boolean canInsertItemIntoResultSlot(SimpleInventory inventory, ItemStack result) {
+        return inventory.getStack(3).getItem() == result.getItem() || inventory.getStack(3).isEmpty();
     }
 
-    private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
+    private static boolean canInsertAmountIntoResultSlot(SimpleInventory inventory) {
         return inventory.getStack(3).getMaxCount() > inventory.getStack(3).getCount();
     }
 }

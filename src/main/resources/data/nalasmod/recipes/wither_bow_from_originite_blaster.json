@@ -8,7 +8,7 @@
       "item": "nalasmod:bow_effect_chip_infusion"
     }
   ],
-  "output": {
+  "result": {
     "item": "nalasmod:wither_bow"
   }
 }
