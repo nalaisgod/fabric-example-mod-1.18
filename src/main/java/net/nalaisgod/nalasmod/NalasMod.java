@@ -14,6 +14,7 @@ import net.nalaisgod.nalasmod.painting.ModPaintings;
 import net.nalaisgod.nalasmod.particle.ModParticles;
 import net.nalaisgod.nalasmod.potion.ModPotions;
 import net.nalaisgod.nalasmod.recipe.ModRecipes;
+import net.nalaisgod.nalasmod.screen.ModScreenHandlers;
 import net.nalaisgod.nalasmod.util.ModLootTableModifiers;
 import net.nalaisgod.nalasmod.util.ModRegistries;
 import net.nalaisgod.nalasmod.villager.ModVillagers;
@@ -61,6 +62,8 @@ public class NalasMod implements ModInitializer {
 		GeckoLib.initialize();
 
 		ModParticles.registerParticles();
+
+		ModScreenHandlers.register();
 
 	}
 }
