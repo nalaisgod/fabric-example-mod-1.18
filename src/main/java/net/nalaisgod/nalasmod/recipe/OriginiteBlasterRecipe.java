@@ -25,6 +25,7 @@ public class OriginiteBlasterRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
+        if (world.isClient()) {return false;}
         if(recipeItems.get(0).test(inventory.getStack(1))) {
             return recipeItems.get(1).test(inventory.getStack(2));
         }
