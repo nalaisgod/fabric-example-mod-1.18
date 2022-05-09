@@ -60,6 +60,9 @@
   "item.nalasmod.orb_of_origin_place_holder": "PUT IN CRAFTING GRID PLACEHOLDER FOR ORB OF ORIGINS",
   "item.nalasmod.chocolate_powered_gun_with_placed_end_crystal_on_top": "Dangerous Chocolate Powered Gun With End Crystal Placedd On Top",
   "item.nalasmod.chocolate_covered_cephalopod": "Chocolate Covered Cephalopod (Ammo)",
+  "item.nalasmod.chocolate_pie": "Chocolate PIE",
+  "item.nalasmod.apple_pie": "Apple PIE",
+  "item.nalasmod.chocolate_apple_pie": "Chocolate Apple PIE",
 
   "item.minecraft.potion.effect.freeze_potion": "Freeze Potion",
   "item.minecraft.splash_potion.effect.freeze_potion": "Splash Potion of Freeze",

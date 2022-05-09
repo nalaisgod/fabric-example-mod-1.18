@@ -224,7 +224,14 @@ public class ModItems {
             new ModFallenKingBladeItem(ModToolMaterial.FALLENKINGSBLADE, 7, -2.8f,
                     new FabricItemSettings().group(ModItemGroup.ORIGINITE).rarity(Rarity.EPIC)));
 
+    public static final Item APPLE_PIE = registerItem("apple_pie",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).food(ModFoodComponents.APPLE_PIE)));
 
+    public static final Item CHOCOLATE_PIE = registerItem("chocolate_pie",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).food(ModFoodComponents.CHOCOLATE_PIE)));
+
+    public static final Item CHOCOLATE_APPLE_PIE = registerItem("chocolate_apple_pie",
+            new Item(new FabricItemSettings().group(ModItemGroup.ORIGINITE).food(ModFoodComponents.CHOCOLATE_APPLE_PIE)));
 
 
 
