@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:wither_rod"
+      "item": "nalasmod:orbital_transfuzer"
     },
-    "title": "DECAY",
-    "description": "Wither Rod",
-    "frame": "task",
+    "title": "Spiny Thing",
+    "description": "Used To Craft Originite Bars And Orbs Of Origin",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:wither_bow_true",
+  "parent": "nalasmod:nalasmod",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,7 +17,7 @@
         "items": [
           {
             "items": [
-              "nalasmod:wither_rod"
+              "nalasmod:orbital_transfuzer"
             ]
           }
         ]
@@ -26,8 +26,8 @@
   },
   "rewards": {
     "loot": [
-      "minecraft:jukebox"
+      "minecraft:coal_block"
     ],
-    "experience": 50
+    "experience": 500
   }
 }

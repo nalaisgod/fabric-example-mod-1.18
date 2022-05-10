@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "***",
+    " #*",
+    " # "
+  ],
+  "key": {
+    "*": {
+      "item": "minecraft:diamond"
+    },
+    "#": {
+      "item": "minecraft:firework_rocket"
+    }
+  },
+  "result": {
+    "item": "nalasmod:grav_rod"
+  }
+}

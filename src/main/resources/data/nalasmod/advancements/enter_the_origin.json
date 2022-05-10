@@ -1,0 +1,28 @@
+
+{
+  "display": {
+    "icon": {
+      "item": "nalasmod:space_changer"
+    },
+    "title": "What Is This Place",
+    "description": "The First Dimension",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "nalasmod:space_changer",
+  "criteria": {
+    "entered_end": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "nalasmod:the_origin"
+      }
+    }
+  },
+  "rewards": {
+    "loot": [
+      "minecraft:jukebox"
+    ],
+    "experience": 1500
+  }
+}

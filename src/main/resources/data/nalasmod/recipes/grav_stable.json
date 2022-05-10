@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " * ",
+    "*#*",
+    " * "
+  ],
+  "key": {
+    "*": {
+      "item": "nalasmod:originite_ingot"
+    },
+    "#": {
+      "item": "nalasmod:speedy_block"
+    }
+  },
+  "result": {
+    "item": "nalasmod:grav_stable"
+  }
+}

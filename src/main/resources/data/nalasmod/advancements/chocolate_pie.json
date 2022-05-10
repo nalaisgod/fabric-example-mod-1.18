@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:raw_originite"
+      "item": "nalasmod:chocolate_pie"
     },
-    "title": "Nalas Mod",
-    "description": "Forge The Originite With Netherite Scrap To Form A Sacred Bar",
+    "title": "Desert",
+    "description": "How Many S's Is It Again?",
     "frame": "task",
     "show_toast": true,
-    "announce_to_chat": true,
-    "background": "nalasmod:textures/block/originite_block.png"
+    "announce_to_chat": true
   },
+  "parent": "nalasmod:apple_pie",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,11 +17,17 @@
         "items": [
           {
             "items": [
-              "nalasmod:raw_originite"
+              "nalasmod:chocolate_pie"
             ]
           }
         ]
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "minecraft:jukebox"
+    ],
+    "experience": 50
   }
 }

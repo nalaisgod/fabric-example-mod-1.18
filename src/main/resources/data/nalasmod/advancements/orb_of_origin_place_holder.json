@@ -1,15 +1,15 @@
 {
   "display": {
     "icon": {
-      "item": "nalasmod:wither_rod"
+      "item": "nalasmod:orb_of_origin_place_holder"
     },
-    "title": "DECAY",
-    "description": "Wither Rod",
+    "title": "The Begining",
+    "description": "Put In Crafting Grid For Actual Item (Origins Exclusive)",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:wither_bow_true",
+  "parent": "nalasmod:orbital_transfuzer",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
@@ -17,17 +17,11 @@
         "items": [
           {
             "items": [
-              "nalasmod:wither_rod"
+              "nalasmod:orb_of_origin_place_holder"
             ]
           }
         ]
       }
     }
-  },
-  "rewards": {
-    "loot": [
-      "minecraft:jukebox"
-    ],
-    "experience": 50
   }
 }

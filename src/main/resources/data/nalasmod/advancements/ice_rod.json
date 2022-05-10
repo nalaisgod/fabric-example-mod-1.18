@@ -9,7 +9,7 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:nalasmod",
+  "parent": "nalasmod:ice_bow_true",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",

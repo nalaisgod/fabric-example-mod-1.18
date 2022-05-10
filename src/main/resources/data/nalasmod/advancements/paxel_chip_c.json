@@ -10,7 +10,7 @@
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "nalasmod:data_tablet",
+  "parent": "nalasmod:paxel_chip_b",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",

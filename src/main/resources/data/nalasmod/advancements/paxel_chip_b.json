@@ -9,7 +9,7 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:soul_pickaxe",
+  "parent": "nalasmod:paxel_chip_a",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",

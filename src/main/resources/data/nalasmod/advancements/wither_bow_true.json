@@ -10,7 +10,7 @@
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "nalasmod:wither_bow",
+  "parent": "nalasmod:bow_effect_chip_infusion",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",

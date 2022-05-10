@@ -9,7 +9,7 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:wither_rod",
+  "parent": "nalasmod:fallen_kings_blade",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",

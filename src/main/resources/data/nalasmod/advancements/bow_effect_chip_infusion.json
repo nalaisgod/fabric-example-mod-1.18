@@ -9,7 +9,7 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "nalasmod:ice_bow",
+  "parent": "nalasmod:originite_blaster",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
