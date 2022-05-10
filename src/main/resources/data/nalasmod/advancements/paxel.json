@@ -7,8 +7,7 @@
     "description": "Paxel Can Be Used To Mine All Things ",
     "frame": "challenge",
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": true
+    "announce_to_chat": true
   },
   "parent": "nalasmod:paxel_chip_c",
   "criteria": {

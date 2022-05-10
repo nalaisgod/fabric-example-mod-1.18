@@ -7,8 +7,7 @@
     "description": "TO UNLOCK COMBINE WITH DOWSING ROD",
     "frame": "challenge",
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": true
+    "announce_to_chat": true
   },
   "parent": "nalasmod:paxel_chip_b",
   "criteria": {

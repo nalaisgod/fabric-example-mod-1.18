@@ -143,6 +143,27 @@ public class ModRegistries {
         TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 3,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 8),
+                            new ItemStack(ModItems.APPLE_PIE, 6),
+                            12,13,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 3,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 12),
+                            new ItemStack(ModItems.CHOCOLATE_PIE, 20),
+                            12,13,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 3,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 8),
+                            new ItemStack(ModItems.CHOCOLATE_APPLE_PIE, 3),
+                            12,13,0.08f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER, 3,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 64),
                             new ItemStack(Items.HEART_OF_THE_SEA),
                             new ItemStack(ModItems.ELDER_TRIDENT, 1),

@@ -7,8 +7,7 @@
     "description": "The True Ice Bow",
     "frame": "challenge",
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": true
+    "announce_to_chat": true
   },
   "parent": "nalasmod:bow_effect_chip_infusion",
   "criteria": {
