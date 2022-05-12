@@ -19,9 +19,14 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.GameRules;
 import net.nalaisgod.nalasmod.item.ModArmorMaterials;
 import net.minecraft.entity.Entity;
@@ -30,6 +35,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import org.lwjgl.glfw.GLFW;
 
 import javax.swing.plaf.basic.BasicTreeUI;
 import java.awt.event.KeyEvent;
@@ -54,6 +60,8 @@ public class ModArmorItem extends ArmorItem {
 
                 if(hasFullSuitOfArmorOn(player)) {
                     evaluateArmorEffects(player);
+                } else {
+                    player.setNoGravity(false);
                 }
             }
         }
@@ -67,7 +75,8 @@ public class ModArmorItem extends ArmorItem {
             StatusEffectInstance mapStatusEffect = entry.getValue();
 
 
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+            if (hasCorrectArmorOn(mapArmorMaterial, player)) {
+                player.setNoGravity(true);
 
                 if (player.getItemCooldownManager().isCoolingDown(this) == false) {
                     player.getItemCooldownManager().set(this, 600);
@@ -77,6 +86,10 @@ public class ModArmorItem extends ArmorItem {
             }
         }
     }
+
+
+
+
 
 
 
