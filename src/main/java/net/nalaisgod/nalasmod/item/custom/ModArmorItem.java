@@ -54,7 +54,6 @@ public class ModArmorItem extends ArmorItem {
 
                 if(hasFullSuitOfArmorOn(player)) {
                     evaluateArmorEffects(player);
-                    GravityChanger(player);
                 } else {
                     player.setNoGravity(false);
                 }
@@ -71,32 +70,23 @@ public class ModArmorItem extends ArmorItem {
 
 
             if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+
                 if (player.getItemCooldownManager().isCoolingDown(this) == false) {
                     player.getItemCooldownManager().set(this, 600);
                     addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
                 }
-
-            }
-
-        }
-    }
-
-
-    private void GravityChanger(PlayerEntity player) {
-        for (Map.Entry<ArmorMaterial, StatusEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
-            ArmorMaterial mapArmorMaterial = entry.getKey();
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
                 if(Screen.hasShiftDown()) {
                     player.setNoGravity(true);
                 }
                 if(Screen.hasAltDown()) {
                     player.setNoGravity(false);
-                }
-
-            }
+                }            }
 
         }
     }
+
+
+
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
