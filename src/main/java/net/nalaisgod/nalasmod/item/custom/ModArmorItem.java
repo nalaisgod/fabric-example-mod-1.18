@@ -76,8 +76,10 @@ public class ModArmorItem extends ArmorItem {
 
 
             if (hasCorrectArmorOn(mapArmorMaterial, player)) {
-                player.setNoGravity(true);
 
+                if (player.isSneaking()) {
+                    player.setNoGravity(true);
+                }
                 if (player.getItemCooldownManager().isCoolingDown(this) == false) {
                     player.getItemCooldownManager().set(this, 600);
                     addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
@@ -86,6 +88,7 @@ public class ModArmorItem extends ArmorItem {
             }
         }
     }
+
 
 
 
