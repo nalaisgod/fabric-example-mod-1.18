@@ -54,8 +54,6 @@ public class ModArmorItem extends ArmorItem {
 
                 if(hasFullSuitOfArmorOn(player)) {
                     evaluateArmorEffects(player);
-                } else {
-                    player.setNoGravity(false);
                 }
             }
         }
@@ -75,13 +73,8 @@ public class ModArmorItem extends ArmorItem {
                     player.getItemCooldownManager().set(this, 600);
                     addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
                 }
-                if(Screen.hasShiftDown()) {
-                    player.setNoGravity(true);
-                }
-                if(Screen.hasAltDown()) {
-                    player.setNoGravity(false);
-                }            }
 
+            }
         }
     }
 
