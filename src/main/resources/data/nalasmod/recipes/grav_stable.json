@@ -6,11 +6,11 @@
     " * "
   ],
   "key": {
-    "*": {
-      "item": "nalasmod:originite_ingot"
-    },
     "#": {
-      "item": "nalasmod:speedy_block"
+      "item": "nalasmod:raw_originite"
+    },
+    "*": {
+      "item": "minecraft:gold_nugget"
     }
   },
   "result": {

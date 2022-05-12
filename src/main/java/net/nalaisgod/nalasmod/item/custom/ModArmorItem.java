@@ -34,6 +34,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.world.World;
+import net.nalaisgod.nalasmod.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
@@ -77,8 +78,10 @@ public class ModArmorItem extends ArmorItem {
 
             if (hasCorrectArmorOn(mapArmorMaterial, player)) {
 
-                if (player.isSneaking()) {
+                if (player.isHolding(ModItems.GRAV_STABLE)) {
                     player.setNoGravity(true);
+                } else {
+                    player.setNoGravity(false);
                 }
                 if (player.getItemCooldownManager().isCoolingDown(this) == false) {
                     player.getItemCooldownManager().set(this, 600);
